@@ -219,6 +219,20 @@ p:last-child{margin-bottom:0}
   border-color:#8ad8c8;
   color:var(--teal-dark);
 }
+.source-search{
+  width:100%;
+  margin:0 0 12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:11px 12px;
+  background:#fff;
+  color:var(--ink);
+  font:15px/1.45 inherit;
+}
+.source-search:focus{
+  outline:2px solid rgba(15,118,110,.28);
+  border-color:var(--teal);
+}
 .source-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(255px,1fr));
@@ -861,6 +875,7 @@ body.reader-focus header{
       <button class="filter-btn" type="button" data-filter="literature" aria-pressed="false">Quotes & ideas <span data-count="literature"></span></button>
       <button class="filter-btn" type="button" data-filter="model" aria-pressed="false">Models <span data-count="model"></span></button>
     </div>
+    <input class="source-search" id="sourceSearch" type="search" placeholder="Search source cues: tact, trust, gossip, essay, model..."/>
     <p class="filter-summary" id="filterSummary">Showing <b>20</b> source windows. Choose a category to narrow the library.</p>
     <div class="source-grid">
       <article class="source-card" data-kind="writing">
@@ -1478,6 +1493,8 @@ body.reader-focus header{
   const sourceCards = [...document.querySelectorAll('.source-card')];
   const filterButtons = [...document.querySelectorAll('.filter-btn')];
   const filterSummary = document.getElementById('filterSummary');
+  const sourceSearch = document.getElementById('sourceSearch');
+  let activeFilter = 'all';
   const filterLabels = {
     all: 'source windows',
     writing: 'writing-move sources',
@@ -1496,20 +1513,26 @@ body.reader-focus header{
     });
   }
   function applyFilter(filter){
+    activeFilter = filter || 'all';
+    const query = sourceSearch ? sourceSearch.value.trim().toLowerCase() : '';
     let visible = [];
     sourceCards.forEach(card => {
-      const keep = filter === 'all' || card.dataset.kind === filter;
+      const keepKind = activeFilter === 'all' || card.dataset.kind === activeFilter;
+      const keepQuery = !query || card.textContent.toLowerCase().includes(query);
+      const keep = keepKind && keepQuery;
       card.classList.toggle('is-hidden', !keep);
       card.hidden = false;
       if(keep) visible.push(card);
     });
     filterButtons.forEach(button => {
-      const active = button.dataset.filter === filter;
+      const active = button.dataset.filter === activeFilter;
       button.classList.toggle('active', active);
       button.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
     if(filterSummary){
-      filterSummary.innerHTML = `Showing <b>${visible.length}</b> ${filterLabels[filter] || 'sources'}. The first matching source opens in the reader automatically.`;
+      const searchNote = query ? ` matching “${escapeHtml(query)}”` : '';
+      const actionNote = visible.length ? 'The first matching source opens in the reader automatically.' : 'Try a broader search word or switch category.';
+      filterSummary.innerHTML = `Showing <b>${visible.length}</b> ${filterLabels[activeFilter] || 'sources'}${searchNote}. ${actionNote}`;
     }
     const firstLink = visible[0]?.querySelector('a[target="sourcePreview"]');
     if(firstLink) setCurrent(firstLink);
@@ -1518,6 +1541,9 @@ body.reader-focus header{
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => applyFilter(btn.dataset.filter || 'all'));
   });
+  if(sourceSearch){
+    sourceSearch.addEventListener('input', () => applyFilter(activeFilter));
+  }
   document.querySelectorAll('[data-jump-filter]').forEach(button => {
     button.addEventListener('click', () => {
       applyFilter(button.dataset.jumpFilter || 'all');
