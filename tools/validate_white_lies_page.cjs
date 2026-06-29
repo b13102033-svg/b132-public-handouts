@@ -96,6 +96,12 @@ function assert(condition, message) {
     }));
     assert(reader.focus && /Balanced view/.test(reader.button), 'Reader focus mode did not activate');
     assert(!reader.overflow, 'Page has horizontal overflow');
+    await page.click('a[href="#draftBuilder"]');
+    await page.waitForTimeout(1200);
+    await page.click('.backtop');
+    await page.waitForTimeout(2200);
+    const backTopY = await page.evaluate(() => Math.round(window.scrollY));
+    assert(backTopY <= 5, `Back-to-top did not return to top: ${backTopY}`);
 
     const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true });
     await mobilePage.goto(targetUrl, { waitUntil: 'domcontentloaded' });
@@ -135,6 +141,7 @@ function assert(condition, message) {
         readiness: 'passed',
         timer: 'passed',
         reader: 'passed',
+        backTop: 'passed',
         mobile: {
           initial: mobileInitial,
           search: mobileSearch
