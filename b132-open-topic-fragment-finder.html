@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B132 Open Topic Fragment Finder</title>
+  <style>
+    *{box-sizing:border-box}
+    :root{--ink:#142033;--muted:#5c6678;--line:#d7e1ed;--bg:#eef4f5;--paper:#ffffff;--soft:#f7fafc;--blue:#1d4ed8;--green:#0f766e;--gold:#a16207}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.58}
+    header{padding:28px clamp(18px,4vw,56px);background:#fbfdff;border-bottom:1px solid var(--line)}
+    main{max-width:1500px;margin:0 auto;padding:18px}
+    h1{font-size:clamp(34px,5vw,62px);line-height:1;margin:0 0 10px;letter-spacing:0}
+    h2{font-size:28px;margin:22px 0 12px}
+    p{margin:0 0 10px}
+    .lead{max-width:1050px;color:#39465c;font-size:18px}
+    a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+    .toplinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .btn,.toplinks a{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:8px 12px;border:1px solid #cbd5e1;border-radius:7px;background:white;color:var(--ink);font-weight:760;text-decoration:none;cursor:pointer}
+    .btn.primary{background:var(--ink);color:white;border-color:var(--ink)}
+    .topicnav{position:sticky;top:0;z-index:3;display:flex;gap:8px;flex-wrap:wrap;padding:12px 0;background:rgba(238,244,245,.92);backdrop-filter:blur(8px)}
+    .topicnav a{display:inline-flex;gap:6px;align-items:center;border:1px solid #cbd5e1;border-radius:999px;background:white;padding:7px 11px;color:#26364c;font-size:13px;font-weight:800}
+    .topicnav span{background:#e0f2fe;color:#075985;border-radius:999px;padding:1px 6px}
+    .search{width:100%;min-height:44px;border:1px solid #cbd5e1;border-radius:8px;padding:10px 12px;font-size:16px;background:white;margin:14px 0 4px}
+    .fraggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:12px}
+    .frag{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--green);border-radius:8px;padding:15px;box-shadow:0 1px 5px rgba(15,23,42,.045)}
+    .frag:nth-child(3n+2){border-left-color:var(--gold)}
+    .source{font-weight:900;color:#1f2a3d;margin-bottom:8px;padding-right:8px}
+    blockquote{margin:0 0 12px;padding:12px 14px;border-left:4px solid #bfdbfe;background:#f8fbff;color:#182033;font-size:16px}
+    .cue{color:#334155}
+    .meta{color:var(--muted);font-size:12px;font-weight:740}
+    .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    footer{color:var(--muted);text-align:center;padding:30px}
+    @media(max-width:720px){main{padding:12px}.fraggrid{grid-template-columns:1fr}blockquote{font-size:15px}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Open Topic Fragment Finder</h1>
+  <p class="lead">160 short public-domain fragments from B132's newly chunked open-resource layer. Pick a topic, open the original source, or copy the B132 chunk cue for deeper retrieval.</p>
+  <div class="toplinks"><a href="b132-open-resource-readiness-dashboard.html">Readiness dashboard</a><a href="b132-open-resource-topic-atlas.html">Topic atlas</a><a href="index.html">Handout index</a></div>
+</header>
+<main>
+  <input class="search" id="search" placeholder="Search fragments by title, cue, or keyword: habit, truth, education, courage, style..." oninput="filterFrags()" />
+  <nav class="topicnav"><a href="#tact-vs-honesty">Tact vs brutal honesty <span>16</span></a><a href="#education-present">Education and the present <span>16</span></a><a href="#habit-self-control">Habit and self-control <span>16</span></a><a href="#fiction-truth">Fiction and truth <span>16</span></a><a href="#courage-fear">Courage and fear <span>16</span></a><a href="#freedom-responsibility">Freedom and responsibility <span>16</span></a><a href="#science-society">Science and society <span>16</span></a><a href="#quote-led-writing">Quote-led writing prompts <span>16</span></a><a href="#style-imitation">Style imitation lab <span>16</span></a><a href="#public-opinion">Public opinion and conformity <span>16</span></a></nav>
+  <section id="tact-vs-honesty"><h2>Tact vs brutal honesty</h2><div class="fraggrid">
+        <article class="frag" data-title="soliloquies in england, and later soliloquies" data-keywords="truth, lie, courtesy, tact, kindness, deceive" data-topic="tact-vs-honesty">
+          <div class="source">Soliloquies in England, and Later Soliloquies</div>
+          <blockquote>He is busily reinforcing his character, ruffled by the day&#x27;s contact with hostile or indifferent things, and he is gathering new strength for the fray.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-48429-soliloquies-in-england-and-later-soliloquies · open-pg-48429-soliloquies-in-england-and-later-soliloquies-c0018 · cue: truth, lie, courtesy, tact, kindness, deceive</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48429" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48429-soliloquies-in-england-and-later-soliloquies-c0018')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="interpretations of poetry and religion" data-keywords="truth, lie, sincerity, frank, polite" data-topic="tact-vs-honesty">
+          <div class="source">Interpretations of Poetry and Religion</div>
+          <blockquote>To admit the truth of all this would not, however, solve our problem.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-48563-interpretations-of-poetry-and-religion · open-pg-48563-interpretations-of-poetry-and-religion-c0049 · cue: truth, lie, sincerity, frank, polite</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48563" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48563-interpretations-of-poetry-and-religion-c0049')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="nineteenth century questions" data-keywords="truth, lie, sincerity, frank, polite" data-topic="tact-vs-honesty">
+          <div class="source">Nineteenth Century Questions</div>
+          <blockquote>Nevertheless, she is astonished that Unitarians should believe that they are giving their children a Christian education.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-44628-nineteenth-century-questions · open-pg-44628-nineteenth-century-questions-c0086 · cue: truth, lie, sincerity, frank, polite</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44628" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44628-nineteenth-century-questions-c0086')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="a dish of orts : chiefly papers on the imagination, and on shakespeare" data-keywords="truth, lie, courtesy, kindness" data-topic="tact-vs-honesty">
+          <div class="source">A Dish of Orts : Chiefly Papers on the Imagination, and on Shakespeare</div>
+          <blockquote>For do we not know that courtesy may cover contempt; that smiles themselves may hide hate; that one who will place you at his right hand when in want of your inferior aid, may scarce acknowledge your presence when his necessity has</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-9393-a-dish-of-orts-chiefly-papers-on-the · open-pg-9393-a-dish-of-orts-chiefly-papers-on-the-c0072 · cue: truth, lie, courtesy, kindness</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9393" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9393-a-dish-of-orts-chiefly-papers-on-the-c0072')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="critiques and addresses" data-keywords="truth, lie, honesty, deceive" data-topic="tact-vs-honesty">
+          <div class="source">Critiques and Addresses</div>
+          <blockquote>And, on the other hand, if the blind acceptance of authority appears to him in its true colours, as mere private judgment _in excelsis_, and if he have the courage to stand alone, face to face with the abyss of the Eternal</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-12506-critiques-and-addresses · open-pg-12506-critiques-and-addresses-c0101 · cue: truth, lie, honesty, deceive</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/12506" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-12506-critiques-and-addresses-c0101')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the continental monthly, vol. 5, no. 4, april, 1864" data-keywords="truth, lie, frank, kindness" data-topic="tact-vs-honesty">
+          <div class="source">The Continental Monthly, Vol. 5, No. 4, April, 1864</div>
+          <blockquote>&#x27;I was young then,&#x27; replied Lucy; &#x27;I am older now, and have less confidence in my argumentative powers.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-18820-the-continental-monthly-vol-5-no-4-april · open-pg-18820-the-continental-monthly-vol-5-no-4-april-c0049 · cue: truth, lie, frank, kindness</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/18820" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-18820-the-continental-monthly-vol-5-no-4-april-c0049')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the literary remains of samuel taylor coleridge, volume 3" data-keywords="truth, lie, sincerity, deceive" data-topic="tact-vs-honesty">
+          <div class="source">The Literary Remains of Samuel Taylor Coleridge, Volume 3</div>
+          <blockquote>A man may pray night and day, and yet deceive himself; but no man can be assured of his sincerity, who does not pray.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-8956-the-literary-remains-of-samuel-taylor-coleridge-volume · open-pg-8956-the-literary-remains-of-samuel-taylor-coleridge-volume-c0005 · cue: truth, lie, sincerity, deceive</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/8956" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-8956-the-literary-remains-of-samuel-taylor-coleridge-volume-c0005')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the mind in the making: the relation of intelligence to social reform" data-keywords="truth, lie, honesty, frank" data-topic="tact-vs-honesty">
+          <div class="source">The Mind in the Making: The Relation of Intelligence to Social Reform</div>
+          <blockquote>But it has done much to determine our whole attitude toward sex, and there is no class of questions still so difficult to discuss with full honesty or to deal with critically and with an open mind as those relating to the</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-8077-the-mind-in-the-making-the-relation-of · open-pg-8077-the-mind-in-the-making-the-relation-of-c0038 · cue: truth, lie, honesty, frank</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/8077" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-8077-the-mind-in-the-making-the-relation-of-c0038')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the stuff of manhood: some needed notes in american character" data-keywords="truth, lie, frank, courtesy" data-topic="tact-vs-honesty">
+          <div class="source">The Stuff of Manhood: Some Needed Notes in American Character</div>
+          <blockquote>We know where truth is, but we never know where calculating compromise may be.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-67403-the-stuff-of-manhood-some-needed-notes-in · open-pg-67403-the-stuff-of-manhood-some-needed-notes-in-c0042 · cue: truth, lie, frank, courtesy</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/67403" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-67403-the-stuff-of-manhood-some-needed-notes-in-c0042')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of richard hurd, volume 3 (of 8)" data-keywords="truth, lie, honesty, sincerity" data-topic="tact-vs-honesty">
+          <div class="source">The works of Richard Hurd, volume 3 (of 8)</div>
+          <blockquote>I rather expected you would have considered it as another _sacrifice to Insincerity_.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-54514-the-works-of-richard-hurd-volume-3-of · open-pg-54514-the-works-of-richard-hurd-volume-3-of-c0012 · cue: truth, lie, honesty, sincerity</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/54514" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-54514-the-works-of-richard-hurd-volume-3-of-c0012')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="a vindication of the rights of woman with strictures on political and moral subjects" data-keywords="truth, honesty, kindness, deceive" data-topic="tact-vs-honesty">
+          <div class="source">A Vindication of the Rights of Woman With Strictures on Political and Moral Subjects</div>
+          <blockquote>These are the privileges of friendship, or the momentary homage which the heart pays to virtue, when it flashes suddenly on the notice--mere animal spirits have no claim to the kindnesses of affection.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-3420-a-vindication-of-the-rights-of-woman-with · open-pg-3420-a-vindication-of-the-rights-of-woman-with-c0058 · cue: truth, honesty, kindness, deceive</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3420" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3420-a-vindication-of-the-rights-of-woman-with-c0058')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="appreciations, with an essay on style" data-keywords="truth, lie, sincerity, frank" data-topic="tact-vs-honesty">
+          <div class="source">Appreciations, with an Essay on Style</div>
+          <blockquote>To sum up: his is a physiognomy full of passion, consumed with zeal, yet still frank and sincere.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-4037-appreciations-with-an-essay-on-style · open-pg-4037-appreciations-with-an-essay-on-style-c0071 · cue: truth, lie, sincerity, frank</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/4037" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-4037-appreciations-with-an-essay-on-style-c0071')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="civilisation: its cause and cure; and other essays" data-keywords="truth, honesty, frank, tact" data-topic="tact-vs-honesty">
+          <div class="source">Civilisation: Its Cause and Cure; and Other Essays</div>
+          <blockquote>With his long black hair hanging over his shoulders, his dark eyes and frank honest expression, he would have been good-looking if his broad face and large mouth had not spoilt his beauty from a European standpoint.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-44094-civilisation-its-cause-and-cure-and-other-essays · open-pg-44094-civilisation-its-cause-and-cure-and-other-essays-c0093 · cue: truth, honesty, frank, tact</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44094" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44094-civilisation-its-cause-and-cure-and-other-essays-c0093')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="lectures on dramatic art and literature" data-keywords="truth, lie, polite, courtesy" data-topic="tact-vs-honesty">
+          <div class="source">Lectures on Dramatic Art and Literature</div>
+          <blockquote>The inconsistencies of unsuccessful passion, the wanderings of a mind diseased, and a prey to irresistible desire, he has portrayed more touchingly and truthfully than any French poet before him, or even pe rhaps after him.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-7148-lectures-on-dramatic-art-and-literature · open-pg-7148-lectures-on-dramatic-art-and-literature-c0140 · cue: truth, lie, polite, courtesy</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/7148" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-7148-lectures-on-dramatic-art-and-literature-c0140')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="memories and studies" data-keywords="truth, lie, frank, tact" data-topic="tact-vs-honesty">
+          <div class="source">Memories and Studies</div>
+          <blockquote>The facts must lie in a neat assemblage, and the psychologist must be enabled to cover them and &quot;tuck them in&quot; as safely under his system as a mother tucks her babe in under the down coverlet on a winter night.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-20768-memories-and-studies · open-pg-20768-memories-and-studies-c0031 · cue: truth, lie, frank, tact</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20768" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20768-memories-and-studies-c0031')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="minor dialogues, together with the dialogue on clemency" data-keywords="truth, lie, courtesy, tact" data-topic="tact-vs-honesty">
+          <div class="source">Minor Dialogues, Together With the Dialogue on Clemency</div>
+          <blockquote>Thus, it will come to the same thing, if I say “The highest good is a mind which despises the accidents of fortune, and takes pleasure in virtue”: or, “It is an unconquerable strength of mind, knowing the world well, gentle in</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking/writing on white lies, politeness, sincerity, and when truth becomes socially costly.</p>
+          <p class="meta">open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency · open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency-c0103 · cue: truth, lie, courtesy, tact</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/64576" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency-c0103')">Copy chunk cue</button></div>
+        </article></div></section><section id="education-present"><h2>Education and the present</h2><div class="fraggrid">
+        <article class="frag" data-title="talks to teachers on psychology; and to students on some of life&#x27;s ideals" data-keywords="education, school, teacher, student, learning, knowledge, study, mind" data-topic="education-present">
+          <div class="source">Talks To Teachers On Psychology; And To Students On Some Of Life&#x27;s Ideals</div>
+          <blockquote>Accordingly, one of the best fruits of the &#x27;child-study&#x27; movement has been to reinstate all these activities to their proper place in a sound system of education.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-16287-talks-to-teachers-on-psychology-and-to-students · open-pg-16287-talks-to-teachers-on-psychology-and-to-students-c0040 · cue: education, school, teacher, student, learning, knowledge, study, mind</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/16287" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-16287-talks-to-teachers-on-psychology-and-to-students-c0040')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="science &amp; education: essays" data-keywords="education, school, teacher, student, knowledge, study, mind, discipline" data-topic="education-present">
+          <div class="source">Science &amp; Education: Essays</div>
+          <blockquote>After long and anxious reflection this successful practical man of business could devise nothing better than to provide them with the means of obtaining &quot;sound, extensive, and practical scientific knowledge.&quot; And he devoted a large part of his wealth and five years</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-7150-science-education-essays · open-pg-7150-science-education-essays-c0044 · cue: education, school, teacher, student, knowledge, study, mind, discipline</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/7150" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-7150-science-education-essays-c0044')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="science and culture, and other essays" data-keywords="education, teacher, student, learning, knowledge, study, mind, discipline" data-topic="education-present">
+          <div class="source">Science and Culture, and Other Essays</div>
+          <blockquote>We falsely pretend to be the inheritors of their culture, unless we are penetrated, as the best minds among them were, with an unhesitating faith that the free employment of reason, in accordance with scientific method, is the sole method of reaching</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-52344-science-and-culture-and-other-essays · open-pg-52344-science-and-culture-and-other-essays-c0007 · cue: education, teacher, student, learning, knowledge, study, mind, discipline</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/52344" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-52344-science-and-culture-and-other-essays-c0007')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the old humanities and the new science" data-keywords="education, school, teacher, learning, knowledge, study, mind, discipline" data-topic="education-present">
+          <div class="source">The Old Humanities and the New Science</div>
+          <blockquote>Their overwhelming prominence, it is claimed, prevents the development of learning in other and more useful directions; and the method of teaching is said to be antiquated and out of touch with the present needs.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-48994-the-old-humanities-and-the-new-science · open-pg-48994-the-old-humanities-and-the-new-science-c0010 · cue: education, school, teacher, learning, knowledge, study, mind, discipline</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48994" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48994-the-old-humanities-and-the-new-science-c0010')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the organisation of thought, educational and scientific" data-keywords="education, school, teacher, student, learning, knowledge, study, mind" data-topic="education-present">
+          <div class="source">The organisation of thought, educational and scientific</div>
+          <blockquote>Choose some important applications of your theoretical subject; and study them concurrently with the systematic theoretical exposition.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-77011-the-organisation-of-thought-educational-and-scientific · open-pg-77011-the-organisation-of-thought-educational-and-scientific-c0004 · cue: education, school, teacher, student, learning, knowledge, study, mind</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/77011" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-77011-the-organisation-of-thought-educational-and-scientific-c0004')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="art principles in literature" data-keywords="education, school, teacher, student, learning, knowledge, study, mind" data-topic="education-present">
+          <div class="source">Art principles in literature</div>
+          <blockquote>“I have,” he wrote, in March, 1899, “the most delightful and tender memories of my dear old schoolmaster in Cork.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-64443-art-principles-in-literature · open-pg-64443-art-principles-in-literature-c0026 · cue: education, school, teacher, student, learning, knowledge, study, mind</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/64443" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-64443-art-principles-in-literature-c0026')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="critiques and addresses" data-keywords="education, school, learning, knowledge, study, mind, discipline" data-topic="education-present">
+          <div class="source">Critiques and Addresses</div>
+          <blockquote>But along with a due proficiency in the use of the means of learning, a certain amount of knowledge, of intellectual discipline, and of artistic training should be conveyed in the elementary schools; and in this direction--for reasons which I am afraid</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-12506-critiques-and-addresses · open-pg-12506-critiques-and-addresses-c0025 · cue: education, school, learning, knowledge, study, mind, discipline</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/12506" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-12506-critiques-and-addresses-c0025')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="india: what can it teach us? a course of lectures delivered before the university of cambridge" data-keywords="education, school, teacher, student, knowledge, study, mind" data-topic="education-present">
+          <div class="source">India: What can it teach us? A Course of Lectures Delivered before the University Of Cambridge</div>
+          <blockquote>The classical scholar scouted the idea, and I myself still remember the time, when I was a student at Leipzig, and began to study Sanskrit, with what contempt any remarks on Sanskrit or comparative grammar were treated by my teachers, men such</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-20847-india-what-can-it-teach-us-a-course · open-pg-20847-india-what-can-it-teach-us-a-course-c0015 · cue: education, school, teacher, student, knowledge, study, mind</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20847" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20847-india-what-can-it-teach-us-a-course-c0015')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="practical essays" data-keywords="education, school, teacher, knowledge, study, mind, discipline" data-topic="education-present">
+          <div class="source">Practical Essays</div>
+          <blockquote>In fact, the schools find this for the present the most convenient arrangement.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-17522-practical-essays · open-pg-17522-practical-essays-c0042 · cue: education, school, teacher, knowledge, study, mind, discipline</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/17522" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-17522-practical-essays-c0042')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="sibylla" data-keywords="education, school, student, learning, knowledge, study, mind" data-topic="education-present">
+          <div class="source">Sibylla</div>
+          <blockquote>My only contention is that our methods of education are hopelessly tentative, uncertain in their effects, justifiable only on the ground that we cannot yet see clearly anything else to do.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-76731-sibylla · open-pg-76731-sibylla-c0009 · cue: education, school, student, learning, knowledge, study, mind</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/76731" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-76731-sibylla-c0009')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="appletons&#x27; popular science monthly, october 1899 vol. lv, may to october, 1899" data-keywords="education, school, teacher, learning, knowledge, mind" data-topic="education-present">
+          <div class="source">Appletons&#x27; Popular Science Monthly, October 1899 Vol. LV, May to October, 1899</div>
+          <blockquote>With regard to education, it is evident that we can not know the best it can do until it has been reduced to a science--until, that is to say, as a result of the joint labors of practical educators and psychologists, we</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-46710-appletons-popular-science-monthly-october-1899-vol-lv · open-pg-46710-appletons-popular-science-monthly-october-1899-vol-lv-c0076 · cue: education, school, teacher, learning, knowledge, mind</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/46710" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-46710-appletons-popular-science-monthly-october-1899-vol-lv-c0076')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="chips from a german workshop, volume 5 miscellaneous later essays" data-keywords="education, school, learning, knowledge, study, mind" data-topic="education-present">
+          <div class="source">Chips from a German Workshop, Volume 5 Miscellaneous Later Essays</div>
+          <blockquote>The next stage above the elementary is _scholastic_ education, as it is supplied in grammar schools, whether public or private.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-27810-chips-from-a-german-workshop-volume-5-miscellaneous · open-pg-27810-chips-from-a-german-workshop-volume-5-miscellaneous-c0010 · cue: education, school, learning, knowledge, study, mind</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/27810" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-27810-chips-from-a-german-workshop-volume-5-miscellaneous-c0010')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="short studies on great subjects" data-keywords="education, school, teacher, knowledge, mind, discipline" data-topic="education-present">
+          <div class="source">Short Studies on Great Subjects</div>
+          <blockquote>There is a common dead level over the world, to which churches and teachers, however seemingly opposite, are alike condemned.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-20755-short-studies-on-great-subjects · open-pg-20755-short-studies-on-great-subjects-c0212 · cue: education, school, teacher, knowledge, mind, discipline</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20755" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20755-short-studies-on-great-subjects-c0212')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the advancement of learning" data-keywords="education, school, learning, knowledge, mind, discipline" data-topic="education-present">
+          <div class="source">The Advancement of Learning</div>
+          <blockquote>So in the fable that Achilles was brought up under Chiron, the centaur, who was part a man and part a beast, expounded ingeniously but corruptly by Machiavel, that it belongeth to the education and discipline of princes to know as well</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-5500-the-advancement-of-learning · open-pg-5500-the-advancement-of-learning-c0043 · cue: education, school, learning, knowledge, mind, discipline</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/5500" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-5500-the-advancement-of-learning-c0043')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the contemporary review, volume 36, november 1879" data-keywords="education, school, learning, knowledge, study, mind" data-topic="education-present">
+          <div class="source">The Contemporary Review, Volume 36, November 1879</div>
+          <blockquote>The next stage above the elementary is _scholastic_ education, as it is supplied in grammar schools, whether public or private.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-39517-the-contemporary-review-volume-36-november-1879 · open-pg-39517-the-contemporary-review-volume-36-november-1879-c0010 · cue: education, school, learning, knowledge, study, mind</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/39517" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-39517-the-contemporary-review-volume-36-november-1879-c0010')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the mind in the making: the relation of intelligence to social reform" data-keywords="education, school, student, learning, knowledge, mind" data-topic="education-present">
+          <div class="source">The Mind in the Making: The Relation of Intelligence to Social Reform</div>
+          <blockquote>They came from the Near East --Mesopotamia, Syria, Egypt, and Asia Minor--and largely supplanted the critical traditions of the great schools of Greek philosophy.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for GSAT/GEPT-style prompts about what education should train: memory, judgment, character, or future work.</p>
+          <p class="meta">open-pg-8077-the-mind-in-the-making-the-relation-of · open-pg-8077-the-mind-in-the-making-the-relation-of-c0032 · cue: education, school, student, learning, knowledge, mind</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/8077" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-8077-the-mind-in-the-making-the-relation-of-c0032')">Copy chunk cue</button></div>
+        </article></div></section><section id="habit-self-control"><h2>Habit and self-control</h2><div class="fraggrid">
+        <article class="frag" data-title="practical essays" data-keywords="habit, self-control, desire, temptation, will, character, conduct" data-topic="habit-self-control">
+          <div class="source">Practical Essays</div>
+          <blockquote>The votary, we shall say, of alcoholic liquor is found fault with, and makes the excuse, he cannot help it--he cannot resist the temptation.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-17522-practical-essays · open-pg-17522-practical-essays-c0016 · cue: habit, self-control, desire, temptation, will, character, conduct</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/17522" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-17522-practical-essays-c0016')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="reflections on the operation of the present system of education, 1853" data-keywords="habit, discipline, temptation, will, character, virtue" data-topic="habit-self-control">
+          <div class="source">Reflections on the Operation of the Present System of Education, 1853</div>
+          <blockquote>All are ready to admit, that the human heart needs the influence of moral discipline.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-28330-reflections-on-the-operation-of-the-present-system · open-pg-28330-reflections-on-the-operation-of-the-present-system-c0003 · cue: habit, discipline, temptation, will, character, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/28330" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-28330-reflections-on-the-operation-of-the-present-system-c0003')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="short studies on great subjects" data-keywords="discipline, desire, temptation, will, character, virtue" data-topic="habit-self-control">
+          <div class="source">Short Studies on Great Subjects</div>
+          <blockquote>Surius will not profit us, nor the &#x27;Mort d&#x27;Arthur.&#x27; Our calling is neither to the hermitage nor to the round table.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-20755-short-studies-on-great-subjects · open-pg-20755-short-studies-on-great-subjects-c0212 · cue: discipline, desire, temptation, will, character, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20755" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20755-short-studies-on-great-subjects-c0212')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="talks to teachers on psychology; and to students on some of life&#x27;s ideals" data-keywords="habit, temptation, will, character, conduct, virtue" data-topic="habit-self-control">
+          <div class="source">Talks To Teachers On Psychology; And To Students On Some Of Life&#x27;s Ideals</div>
+          <blockquote>But the general laws of habit are no wise altered thereby, and the physiological study of mental conditions still remains on the whole the most powerful ally of hortatory ethics.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-16287-talks-to-teachers-on-psychology-and-to-students · open-pg-16287-talks-to-teachers-on-psychology-and-to-students-c0022 · cue: habit, temptation, will, character, conduct, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/16287" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-16287-talks-to-teachers-on-psychology-and-to-students-c0022')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the stuff of manhood: some needed notes in american character" data-keywords="habit, self-control, discipline, desire, will, character" data-topic="habit-self-control">
+          <div class="source">The Stuff of Manhood: Some Needed Notes in American Character</div>
+          <blockquote>There comes a time when, having always indulged ourselves, we can’t break the habit; when, never having taken our lives in our hands and reined them to the great ministries of mankind, we discover that we cannot.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-67403-the-stuff-of-manhood-some-needed-notes-in · open-pg-67403-the-stuff-of-manhood-some-needed-notes-in-c0004 · cue: habit, self-control, discipline, desire, will, character</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/67403" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-67403-the-stuff-of-manhood-some-needed-notes-in-c0004')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="a vindication of the rights of woman with strictures on political and moral subjects" data-keywords="habit, desire, will, character, conduct, virtue" data-topic="habit-self-control">
+          <div class="source">A Vindication of the Rights of Woman With Strictures on Political and Moral Subjects</div>
+          <blockquote>The high and lofty One, who inhabiteth eternity, doubtless possesses many attributes of which we can form no conception; but reason tells me that they cannot clash with those I adore, and I am compelled to listen to her voice.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-3420-a-vindication-of-the-rights-of-woman-with · open-pg-3420-a-vindication-of-the-rights-of-woman-with-c0028 · cue: habit, desire, will, character, conduct, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3420" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3420-a-vindication-of-the-rights-of-woman-with-c0028')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="appreciations, with an essay on style" data-keywords="habit, discipline, desire, will, character, virtue" data-topic="habit-self-control">
+          <div class="source">Appreciations, with an Essay on Style</div>
+          <blockquote>For nowhere is there so perplexed a mixture as in Wordsworth&#x27;s own poetry, of work touched with intense and individual power, with work of almost no character at all.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-4037-appreciations-with-an-essay-on-style · open-pg-4037-appreciations-with-an-essay-on-style-c0013 · cue: habit, discipline, desire, will, character, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/4037" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-4037-appreciations-with-an-essay-on-style-c0013')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of richard hurd, volume 3 (of 8)" data-keywords="habit, discipline, will, character, conduct, virtue" data-topic="habit-self-control">
+          <div class="source">The works of Richard Hurd, volume 3 (of 8)</div>
+          <blockquote>But there was an elegance, too, in the conduct of the tournament, that might reconcile it even to modern delicacy.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-54514-the-works-of-richard-hurd-volume-3-of · open-pg-54514-the-works-of-richard-hurd-volume-3-of-c0038 · cue: habit, discipline, will, character, conduct, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/54514" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-54514-the-works-of-richard-hurd-volume-3-of-c0038')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the place of science in modern civilisation, and other essays" data-keywords="habit, discipline, will, character, conduct, virtue" data-topic="habit-self-control">
+          <div class="source">The Place of Science in Modern Civilisation, and Other Essays</div>
+          <blockquote>But the industrial side of life is not the whole of it, nor does the scheme of life in vogue in any community or at any cultural stage comprise industrial conduct alone.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-39949-the-place-of-science-in-modern-civilisation-and · open-pg-39949-the-place-of-science-in-modern-civilisation-and-c0043 · cue: habit, discipline, will, character, conduct, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/39949" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-39949-the-place-of-science-in-modern-civilisation-and-c0043')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="science and culture, and other essays" data-keywords="habit, discipline, desire, will, character" data-topic="habit-self-control">
+          <div class="source">Science and Culture, and Other Essays</div>
+          <blockquote>In order to improve them, one must thoroughly understand them; and no one has a chance of really understanding them, unless he has obtained that mastery of principles and that habit of dealing with facts, which is given by long-continued and well-directed</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-52344-science-and-culture-and-other-essays · open-pg-52344-science-and-culture-and-other-essays-c0008 · cue: habit, discipline, desire, will, character</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/52344" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-52344-science-and-culture-and-other-essays-c0008')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the crown of wild olive also munera pulveris; pre-raphaelitism; aratra pentelici; the ethics of the dust; fiction, fair and foul; the elements of drawing" data-keywords="desire, will, character, conduct, virtue" data-topic="habit-self-control">
+          <div class="source">The Crown of Wild Olive also Munera Pulveris; Pre-Raphaelitism; Aratra Pentelici; The Ethics of the Dust; Fiction, Fair and Foul; The Elements of Drawing</div>
+          <blockquote>&#x27;The chief characteristic of the warriors of Sparta was great composure and subdued strength; the violence [Greek: lyssa] of Aristodemus and Isadas being considered as deserving rather of blame than praise; and these qualities in general distinguished the Greeks from the northern</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris · open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris-c0040 · cue: desire, will, character, conduct, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26716" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris-c0040')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of the right honourable edmund burke, vol. 01 (of 12)" data-keywords="habit, will, character, conduct, virtue" data-topic="habit-self-control">
+          <div class="source">The Works of the Right Honourable Edmund Burke, Vol. 01 (of 12)</div>
+          <blockquote>If a few puny libellers, acting under a knot of factious politicians, without virtue, parts, or character, (such they are constantly represented by these gentlemen,) are sufficient to excite this disturbance, very perverse must be the disposition of that people, amongst whom</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-15043-the-works-of-the-right-honourable-edmund-burke · open-pg-15043-the-works-of-the-right-honourable-edmund-burke-c0165 · cue: habit, will, character, conduct, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/15043" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-15043-the-works-of-the-right-honourable-edmund-burke-c0165')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of the right honourable edmund burke, vol. 06 (of 12)" data-keywords="habit, discipline, desire, will, virtue" data-topic="habit-self-control">
+          <div class="source">The Works of the Right Honourable Edmund Burke, Vol. 06 (of 12)</div>
+          <blockquote>Unless where Heaven has mingled uncommon ingredients of virtue in the composition,--_quos meliore luto finxit præcordia Titan,_--talents naturally gravitate to Jacobinism.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-15702-the-works-of-the-right-honourable-edmund-burke · open-pg-15702-the-works-of-the-right-honourable-edmund-burke-c0134 · cue: habit, discipline, desire, will, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/15702" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-15702-the-works-of-the-right-honourable-edmund-burke-c0134')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="time and tide by weare and tyne twenty-five letters to a working man of sunderland on the laws of work" data-keywords="discipline, desire, temptation, will, character" data-topic="habit-self-control">
+          <div class="source">Time and Tide by Weare and Tyne Twenty-five Letters to a Working Man of Sunderland on the Laws of Work</div>
+          <blockquote>This power of the Muses, then, and its proper influence over you workmen, I shall eventually have much to insist upon with you; and in doing so I shall take that beautiful parable of the Prodigal Son (which I have already referred</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-31196-time-and-tide-by-weare-and-tyne-twenty · open-pg-31196-time-and-tide-by-weare-and-tyne-twenty-c0019 · cue: discipline, desire, temptation, will, character</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/31196" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-31196-time-and-tide-by-weare-and-tyne-twenty-c0019')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="a dish of orts : chiefly papers on the imagination, and on shakespeare" data-keywords="desire, temptation, will, character, conduct" data-topic="habit-self-control">
+          <div class="source">A Dish of Orts : Chiefly Papers on the Imagination, and on Shakespeare</div>
+          <blockquote>In his desire to produce a good play he lays hold upon any material that offers itself.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-9393-a-dish-of-orts-chiefly-papers-on-the · open-pg-9393-a-dish-of-orts-chiefly-papers-on-the-c0050 · cue: desire, temptation, will, character, conduct</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9393" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9393-a-dish-of-orts-chiefly-papers-on-the-c0050')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="civilisation: its cause and cure; and other essays" data-keywords="habit, desire, will, character, virtue" data-topic="habit-self-control">
+          <div class="source">Civilisation: Its Cause and Cure; and Other Essays</div>
+          <blockquote>It will mean the liberation of a thousand and one instincts, desires and capacities which since our childhood&#x27;s days have lain buried within us, concealed and ignored because we have thought them wrong or unworthy, when really all they have wanted has</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for argument and reflection tasks about discipline, temptation, routines, and identity.</p>
+          <p class="meta">open-pg-44094-civilisation-its-cause-and-cure-and-other-essays · open-pg-44094-civilisation-its-cause-and-cure-and-other-essays-c0087 · cue: habit, desire, will, character, virtue</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44094" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44094-civilisation-its-cause-and-cure-and-other-essays-c0087')">Copy chunk cue</button></div>
+        </article></div></section><section id="fiction-truth"><h2>Fiction and truth</h2><div class="fraggrid">
+        <article class="frag" data-title="art principles in literature" data-keywords="story, novel, imagination, poetry, truth, literature, art, beauty" data-topic="fiction-truth">
+          <div class="source">Art principles in literature</div>
+          <blockquote>It is evident, therefore, why a man may be artistic without being religious.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-64443-art-principles-in-literature · open-pg-64443-art-principles-in-literature-c0016 · cue: story, novel, imagination, poetry, truth, literature, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/64443" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-64443-art-principles-in-literature-c0016')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="personality in literature" data-keywords="story, novel, imagination, poetry, literature, art, beauty" data-topic="fiction-truth">
+          <div class="source">Personality in Literature</div>
+          <blockquote>It is extraordinary that there should be so little humorous literature distributed among the English-speaking peoples, for a sense of humour is a boon which has been allotted to a very large minority of the human race, and some sense of the</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-22303-personality-in-literature · open-pg-22303-personality-in-literature-c0026 · cue: story, novel, imagination, poetry, literature, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/22303" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-22303-personality-in-literature-c0026')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="short studies on great subjects" data-keywords="fiction, story, imagination, poetry, truth, art, beauty" data-topic="fiction-truth">
+          <div class="source">Short Studies on Great Subjects</div>
+          <blockquote>For the inner life of all those millions of immortal souls who were struggling, with such good or bad success as was given them, to carry Christ&#x27;s cross along their journey through life, they set it by, pass it over, dismiss it</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-20755-short-studies-on-great-subjects · open-pg-20755-short-studies-on-great-subjects-c0205 · cue: fiction, story, imagination, poetry, truth, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20755" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20755-short-studies-on-great-subjects-c0205')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the spirit of the age; or, contemporary portraits" data-keywords="story, novel, imagination, poetry, truth, art, beauty" data-topic="fiction-truth">
+          <div class="source">The Spirit of the Age; Or, Contemporary Portraits</div>
+          <blockquote>He passes from verse to prose, from history to poetry, from reading to writing, by a stop-watch.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits · open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits-c0096 · cue: story, novel, imagination, poetry, truth, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/11068" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits-c0096')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="appreciations, with an essay on style" data-keywords="story, imagination, poetry, truth, literature, art, beauty" data-topic="fiction-truth">
+          <div class="source">Appreciations, with an Essay on Style</div>
+          <blockquote>[7] Dryden, with the characteristic instinct of his age, loved to emphasise the distinction between poetry and prose, the protest against their confusion with each other, coming with somewhat diminished effect from one whose poetry was so prosaic.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-4037-appreciations-with-an-essay-on-style · open-pg-4037-appreciations-with-an-essay-on-style-c0002 · cue: story, imagination, poetry, truth, literature, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/4037" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-4037-appreciations-with-an-essay-on-style-c0002')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="interpretations of poetry and religion" data-keywords="story, novel, imagination, poetry, truth, art, beauty" data-topic="fiction-truth">
+          <div class="source">Interpretations of Poetry and Religion</div>
+          <blockquote>The source of his power lay not in his doctrine, but in his temperament, and the rare quality of his wisdom was due less to his reason than to his imagination.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-48563-interpretations-of-poetry-and-religion · open-pg-48563-interpretations-of-poetry-and-religion-c0068 · cue: story, novel, imagination, poetry, truth, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48563" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48563-interpretations-of-poetry-and-religion-c0068')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the crown of wild olive also munera pulveris; pre-raphaelitism; aratra pentelici; the ethics of the dust; fiction, fair and foul; the elements of drawing" data-keywords="fiction, story, imagination, truth, literature, art, beauty" data-topic="fiction-truth">
+          <div class="source">The Crown of Wild Olive also Munera Pulveris; Pre-Raphaelitism; Aratra Pentelici; The Ethics of the Dust; Fiction, Fair and Foul; The Elements of Drawing</div>
+          <blockquote>In modern stories prepared for more refined or fastidious audiences than those of Dickens, the funereal excitement is obtained, for the most part, not by the infliction of violent or disgusting death; but in the suspense, the pathos, and the more or</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris · open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris-c0290 · cue: fiction, story, imagination, truth, literature, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26716" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris-c0290')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="an estimate of the value and influence of works of fiction in modern times" data-keywords="fiction, story, novel, imagination, poetry, truth, art" data-topic="fiction-truth">
+          <div class="source">An Estimate of the Value and Influence of Works of Fiction in Modern Times</div>
+          <blockquote>Aside from occasional references to poetry and art in his philosophical writings, as, for example, in the opening paragraphs of the &#x27;Prolegomena,&#x27; the essay on fiction here reprinted is Green&#x27;s only venture in the field of aesthetic criticism.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-20843-an-estimate-of-the-value-and-influence-of · open-pg-20843-an-estimate-of-the-value-and-influence-of-c0004 · cue: fiction, story, novel, imagination, poetry, truth, art</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20843" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20843-an-estimate-of-the-value-and-influence-of-c0004')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="a dish of orts : chiefly papers on the imagination, and on shakespeare" data-keywords="novel, imagination, poetry, truth, art, beauty" data-topic="fiction-truth">
+          <div class="source">A Dish of Orts : Chiefly Papers on the Imagination, and on Shakespeare</div>
+          <blockquote>And we answer, From the imagination. It is the imagination that suggests in what direction to make the new inquiry--which, should it cast no immediate light on the answer sought, can yet hardly fail to be a step towards final discovery.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-9393-a-dish-of-orts-chiefly-papers-on-the · open-pg-9393-a-dish-of-orts-chiefly-papers-on-the-c0006 · cue: novel, imagination, poetry, truth, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9393" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9393-a-dish-of-orts-chiefly-papers-on-the-c0006')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="lectures on dramatic art and literature" data-keywords="story, poetry, truth, literature, art, beauty" data-topic="fiction-truth">
+          <div class="source">Lectures on Dramatic Art and Literature</div>
+          <blockquote>This brings us to the consideration of a general question, which, in the examination of the works of Euripides, will still more particularly engage the attention of the critic: how far, namely, the invention and execution of a drama must belong to</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-7148-lectures-on-dramatic-art-and-literature · open-pg-7148-lectures-on-dramatic-art-and-literature-c0056 · cue: story, poetry, truth, literature, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/7148" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-7148-lectures-on-dramatic-art-and-literature-c0056')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="sartor resartus, and on heroes, hero-worship, and the heroic in history" data-keywords="fiction, story, imagination, truth, literature, art" data-topic="fiction-truth">
+          <div class="source">Sartor Resartus, and On Heroes, Hero-Worship, and the Heroic in History</div>
+          <blockquote>&quot;In short, our private opinion is, as we have remarked, that the whole story of a correspondence with Germany, a university of Nobody-knows-where, a Professor of Things in General, a Counsellor Grasshopper, a Flower-Goddess Blumine, and so forth, has about as much</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and · open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and-c0113 · cue: fiction, story, imagination, truth, literature, art</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20585" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and-c0113')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="soliloquies in england, and later soliloquies" data-keywords="fiction, story, poetry, truth, literature, art" data-topic="fiction-truth">
+          <div class="source">Soliloquies in England, and Later Soliloquies</div>
+          <blockquote>They prefer the method of Paolo and Francesca: they will sit reading out of the same book, and when they come to the kissing, she will say, &quot;How nice that is!&quot; and he will reply, &quot;Isn&#x27;t it?&quot; and the story will supply</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-48429-soliloquies-in-england-and-later-soliloquies · open-pg-48429-soliloquies-in-england-and-later-soliloquies-c0073 · cue: fiction, story, poetry, truth, literature, art</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48429" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48429-soliloquies-in-england-and-later-soliloquies-c0073')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the doctor looks at literature" data-keywords="fiction, story, novel, truth, literature, art" data-topic="fiction-truth">
+          <div class="source">The doctor looks at literature</div>
+          <blockquote>To say that they reveal capacity to create life, to recognise the temperament, intellectuality, and morality of the ordinary human beings that one encounters, and to display their behaviour; as well as a power to analyse personality and to depict individuality that</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-75230-the-doctor-looks-at-literature · open-pg-75230-the-doctor-looks-at-literature-c0061 · cue: fiction, story, novel, truth, literature, art</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/75230" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-75230-the-doctor-looks-at-literature-c0061')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the ethics of george eliot&#x27;s works" data-keywords="fiction, story, novel, imagination, truth, art" data-topic="fiction-truth">
+          <div class="source">The Ethics of George Eliot&#x27;s Works</div>
+          <blockquote>Few things in the literary history of the age are more puzzling than the reception given to &#x27;Romola&#x27; by a novel-devouring public.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-17172-the-ethics-of-george-eliot-s-works · open-pg-17172-the-ethics-of-george-eliot-s-works-c0012 · cue: fiction, story, novel, imagination, truth, art</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/17172" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-17172-the-ethics-of-george-eliot-s-works-c0012')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="india: what can it teach us? a course of lectures delivered before the university of cambridge" data-keywords="story, poetry, truth, literature, art, beauty" data-topic="fiction-truth">
+          <div class="source">India: What can it teach us? A Course of Lectures Delivered before the University Of Cambridge</div>
+          <blockquote>RIG-VEDA, editions of, now publishing, 98; known by heart, 99; a treasure to the anthropologist, 134; character of its poems, 143; its religion primitive, 144; compliment to the author for his edition of, 163; the number of hymns in, 163; age of</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-20847-india-what-can-it-teach-us-a-course · open-pg-20847-india-what-can-it-teach-us-a-course-c0113 · cue: story, poetry, truth, literature, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20847" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20847-india-what-can-it-teach-us-a-course-c0113')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="memories and studies" data-keywords="story, imagination, truth, literature, art, beauty" data-topic="fiction-truth">
+          <div class="source">Memories and Studies</div>
+          <blockquote>If we look at the history of mental science we are immediately struck by diverse tendencies among its several cultivators, the consequence being a certain opposition of schools and some repugnance among their disciples.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for literature-based prompts: can stories reveal emotional or moral truth better than facts?</p>
+          <p class="meta">open-pg-20768-memories-and-studies · open-pg-20768-memories-and-studies-c0031 · cue: story, imagination, truth, literature, art, beauty</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20768" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20768-memories-and-studies-c0031')">Copy chunk cue</button></div>
+        </article></div></section><section id="courage-fear"><h2>Courage and fear</h2><div class="fraggrid">
+        <article class="frag" data-title="the crown of wild olive also munera pulveris; pre-raphaelitism; aratra pentelici; the ethics of the dust; fiction, fair and foul; the elements of drawing" data-keywords="courage, fear, brave, danger, war, battle, hero" data-topic="courage-fear">
+          <div class="source">The Crown of Wild Olive also Munera Pulveris; Pre-Raphaelitism; Aratra Pentelici; The Ethics of the Dust; Fiction, Fair and Foul; The Elements of Drawing</div>
+          <blockquote>Because you have to fight with machines instead of lances, there may be a necessity for more ghastly danger, but there is none for less worthiness of character, than in olden time.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris · open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris-c0047 · cue: courage, fear, brave, danger, war, battle, hero</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26716" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris-c0047')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="nineteenth century questions" data-keywords="courage, fear, brave, danger, war, risk, hero" data-topic="courage-fear">
+          <div class="source">Nineteenth Century Questions</div>
+          <blockquote>They did resist manfully but prudently, and by a remarkable combination of courage and caution the people of the little Free-State town of Lawrence succeeded in saving themselves from this danger without shedding a drop of blood.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-44628-nineteenth-century-questions · open-pg-44628-nineteenth-century-questions-c0104 · cue: courage, fear, brave, danger, war, risk, hero</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44628" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44628-nineteenth-century-questions-c0104')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="above the battle" data-keywords="fear, brave, war, risk, hero, sacrifice" data-topic="courage-fear">
+          <div class="source">Above the Battle</div>
+          <blockquote>Brave, without care for his own life! Who is there among us that is that?</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-32779-above-the-battle · open-pg-32779-above-the-battle-c0043 · cue: fear, brave, war, risk, hero, sacrifice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/32779" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-32779-above-the-battle-c0043')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="memories and studies" data-keywords="courage, brave, war, battle, risk, hero" data-topic="courage-fear">
+          <div class="source">Memories and Studies</div>
+          <blockquote>The lover of heroic history could wish for no more fitting sepulchre for Shaw&#x27;s magnanimous young heart.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-20768-memories-and-studies · open-pg-20768-memories-and-studies-c0012 · cue: courage, brave, war, battle, risk, hero</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20768" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20768-memories-and-studies-c0012')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="short studies on great subjects" data-keywords="courage, fear, brave, war, battle, hero" data-topic="courage-fear">
+          <div class="source">Short Studies on Great Subjects</div>
+          <blockquote>The war of freedom of the Araucan Indians is the most gallant episode in the history of the New World.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-20755-short-studies-on-great-subjects · open-pg-20755-short-studies-on-great-subjects-c0162 · cue: courage, fear, brave, war, battle, hero</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20755" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20755-short-studies-on-great-subjects-c0162')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the sea (la mer)" data-keywords="courage, fear, brave, danger, war, hero" data-topic="courage-fear">
+          <div class="source">The Sea (La Mer)</div>
+          <blockquote>What, then, shall we say of the early navigators who ventured into such seas with their clumsy leewards, heavy, and yet scarcely sea-worthy cock-boats?</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-42845-the-sea-la-mer · open-pg-42845-the-sea-la-mer-c0078 · cue: courage, fear, brave, danger, war, hero</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/42845" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-42845-the-sea-la-mer-c0078')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the spirit of the age; or, contemporary portraits" data-keywords="courage, fear, danger, war, hero, sacrifice" data-topic="courage-fear">
+          <div class="source">The Spirit of the Age; Or, Contemporary Portraits</div>
+          <blockquote>Or was the impulse of the mind less likely to be true and sound when it arose from high thought and warm feeling, than afterwards, when it was warped and debased by the example, the vices, and follies of the world?</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits · open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits-c0010 · cue: courage, fear, danger, war, hero, sacrifice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/11068" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits-c0010')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of john greenleaf whittier, volume vii, complete the conflict with slavery, politics and reform, the inner life, and criticism" data-keywords="brave, danger, war, battle, hero, sacrifice" data-topic="courage-fear">
+          <div class="source">The Works of John Greenleaf Whittier, Volume VII, Complete The Conflict with Slavery, Politics and Reform, the Inner Life, and Criticism</div>
+          <blockquote>If it had been apparent to me that your rights and liberties were really in danger from the success of either candidate, your letter would not have been needed to call forth my opinion.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii · open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii-c0052 · cue: brave, danger, war, battle, hero, sacrifice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9599" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii-c0052')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="homer&#x27;s odyssey a commentary" data-keywords="courage, fear, brave, war, hero, sacrifice" data-topic="courage-fear">
+          <div class="source">Homer&#x27;s Odyssey A Commentary</div>
+          <blockquote>Present; hints concerning the sensuous life of the Phæacians who love the feast, the song, the warm bath and bed, along with dance and music, showing their pleasure in art.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-26275-homer-s-odyssey-a-commentary · open-pg-26275-homer-s-odyssey-a-commentary-c0061 · cue: courage, fear, brave, war, hero, sacrifice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26275" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26275-homer-s-odyssey-a-commentary-c0061')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="minor dialogues, together with the dialogue on clemency" data-keywords="courage, fear, brave, danger, war, battle" data-topic="courage-fear">
+          <div class="source">Minor Dialogues, Together With the Dialogue on Clemency</div>
+          <blockquote>Why do you fear that {62} filial piety will not prove a sufficient spur to him even without anger?</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency · open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency-c0030 · cue: courage, fear, brave, danger, war, battle</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/64576" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency-c0030')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="past and present thomas carlyle&#x27;s collected works, vol. xiii." data-keywords="courage, brave, danger, war, battle, hero" data-topic="courage-fear">
+          <div class="source">Past and Present Thomas Carlyle&#x27;s Collected Works, Vol. XIII.</div>
+          <blockquote>Danger of blockheads. (108.) Chap.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-26159-past-and-present-thomas-carlyle-s-collected-works · open-pg-26159-past-and-present-thomas-carlyle-s-collected-works-c0137 · cue: courage, brave, danger, war, battle, hero</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26159" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26159-past-and-present-thomas-carlyle-s-collected-works-c0137')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the arena, volume 18, no. 93, august, 1897" data-keywords="courage, fear, brave, war, battle, hero" data-topic="courage-fear">
+          <div class="source">The Arena, Volume 18, No. 93, August, 1897</div>
+          <blockquote>In this ideal world of &quot;The Tempest,&quot; Caliban stands upon the earth groping to attain the first step, while Prospero stands upon the summit with his face heavenward.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-33646-the-arena-volume-18-no-93-august-1897 · open-pg-33646-the-arena-volume-18-no-93-august-1897-c0057 · cue: courage, fear, brave, war, battle, hero</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/33646" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-33646-the-arena-volume-18-no-93-august-1897-c0057')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the continental monthly, vol. 5, no. 4, april, 1864" data-keywords="courage, fear, brave, danger, war, battle" data-topic="courage-fear">
+          <div class="source">The Continental Monthly, Vol. 5, No. 4, April, 1864</div>
+          <blockquote>I have written of a war that, as far as this world is concerned, is endless.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-18820-the-continental-monthly-vol-5-no-4-april · open-pg-18820-the-continental-monthly-vol-5-no-4-april-c0064 · cue: courage, fear, brave, danger, war, battle</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/18820" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-18820-the-continental-monthly-vol-5-no-4-april-c0064')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the stuff of manhood: some needed notes in american character" data-keywords="courage, fear, brave, war, battle, hero" data-topic="courage-fear">
+          <div class="source">The Stuff of Manhood: Some Needed Notes in American Character</div>
+          <blockquote>You and I have known one another all our lives, and we have been good friends; but I think you are a coward and I think that I ought to tell you so.” I closed his letter and handed it back to</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-67403-the-stuff-of-manhood-some-needed-notes-in · open-pg-67403-the-stuff-of-manhood-some-needed-notes-in-c0027 · cue: courage, fear, brave, war, battle, hero</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/67403" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-67403-the-stuff-of-manhood-some-needed-notes-in-c0027')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of richard hurd, volume 3 (of 8)" data-keywords="courage, fear, brave, danger, war, hero" data-topic="courage-fear">
+          <div class="source">The works of Richard Hurd, volume 3 (of 8)</div>
+          <blockquote>Still, further, to this constitutional _fear_ (which might be forgiven to her sex, if it had not been so strangely mixed with a more than masculine ferocity in other instances) must be ascribed those favourite maxims of policy, which ran through her</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-54514-the-works-of-richard-hurd-volume-3-of · open-pg-54514-the-works-of-richard-hurd-volume-3-of-c0052 · cue: courage, fear, brave, danger, war, hero</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/54514" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-54514-the-works-of-richard-hurd-volume-3-of-c0052')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="three french moralists and the gallantry of france" data-keywords="courage, brave, war, battle, hero, sacrifice" data-topic="courage-fear">
+          <div class="source">Three French Moralists and The Gallantry of France</div>
+          <blockquote>In defining the particular principles which have actuated the magnificent French General Staff in the present crisis, Lord Haldane has dwelt on the fact that the French have displayed throughout &quot;that moral effect which comes from certainty of purpose and which only</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for speaking and writing on moral pressure, fear, risk, and what courage looks like in ordinary life.</p>
+          <p class="meta">open-pg-19872-three-french-moralists-and-the-gallantry-of-france · open-pg-19872-three-french-moralists-and-the-gallantry-of-france-c0052 · cue: courage, brave, war, battle, hero, sacrifice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/19872" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-19872-three-french-moralists-and-the-gallantry-of-france-c0052')">Copy chunk cue</button></div>
+        </article></div></section><section id="freedom-responsibility"><h2>Freedom and responsibility</h2><div class="fraggrid">
+        <article class="frag" data-title="critical miscellanies (vol. 2 of 3), essay 3: condorcet" data-keywords="freedom, liberty, right, rights, responsibility, duty, law, justice" data-topic="freedom-responsibility">
+          <div class="source">Critical Miscellanies (Vol. 2 of 3), Essay 3: Condorcet</div>
+          <blockquote>During the winter of &#x27;88 and &#x27;89, while all France was astir with elections and preparation for elections for that meeting of the States-General, which was looked to as the nearing dawn after a long night of blackness and misery, Condorcet thought</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-24492-critical-miscellanies-vol-2-of-3-essay-3 · open-pg-24492-critical-miscellanies-vol-2-of-3-essay-3-c0009 · cue: freedom, liberty, right, rights, responsibility, duty, law, justice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/24492" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-24492-critical-miscellanies-vol-2-of-3-essay-3-c0009')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of john greenleaf whittier, volume vii, complete the conflict with slavery, politics and reform, the inner life, and criticism" data-keywords="freedom, liberty, right, rights, duty, law, justice, reform" data-topic="freedom-responsibility">
+          <div class="source">The Works of John Greenleaf Whittier, Volume VII, Complete The Conflict with Slavery, Politics and Reform, the Inner Life, and Criticism</div>
+          <blockquote>They seek to impress indelibly upon every human heart the true doctrines of the rights of man; to establish now and forever this great and fundamental truth of human liberty, that man cannot hold property in his brother; for they believe that</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii · open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii-c0007 · cue: freedom, liberty, right, rights, duty, law, justice, reform</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9599" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii-c0007')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="walden, and on the duty of civil disobedience" data-keywords="freedom, liberty, right, duty, law, justice, reform" data-topic="freedom-responsibility">
+          <div class="source">Walden, and On The Duty Of Civil Disobedience</div>
+          <blockquote>All men recognize the right of revolution; that is, the right to refuse allegiance to and to resist the government, when its tyranny or its inefficiency are great and unendurable.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-205-walden-and-on-the-duty-of-civil-disobedience · open-pg-205-walden-and-on-the-duty-of-civil-disobedience-c0145 · cue: freedom, liberty, right, duty, law, justice, reform</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/205" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-205-walden-and-on-the-duty-of-civil-disobedience-c0145')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="science &amp; education: essays" data-keywords="right, rights, responsibility, duty, law, justice, reform" data-topic="freedom-responsibility">
+          <div class="source">Science &amp; Education: Essays</div>
+          <blockquote>Nature&#x27;s old salique law will not be repealed, and no change of dynasty will be effected.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-7150-science-education-essays · open-pg-7150-science-education-essays-c0024 · cue: right, rights, responsibility, duty, law, justice, reform</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/7150" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-7150-science-education-essays-c0024')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="soliloquies in england, and later soliloquies" data-keywords="freedom, liberty, right, rights, duty, law, reform" data-topic="freedom-responsibility">
+          <div class="source">Soliloquies in England, and Later Soliloquies</div>
+          <blockquote>To study it and use it for a stimulus may be profitable in times and places of spiritual famine or political chaos, but to impose it as normal, not to say as supreme, would be a plain invasion of human liberty.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-48429-soliloquies-in-england-and-later-soliloquies · open-pg-48429-soliloquies-in-england-and-later-soliloquies-c0085 · cue: freedom, liberty, right, rights, duty, law, reform</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48429" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48429-soliloquies-in-england-and-later-soliloquies-c0085')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the stuff of manhood: some needed notes in american character" data-keywords="freedom, liberty, right, rights, duty, law" data-topic="freedom-responsibility">
+          <div class="source">The Stuff of Manhood: Some Needed Notes in American Character</div>
+          <blockquote>Kipling’s inelegant lines: “We was rotten ’fore we started――we was never disci_plined_; We made it out a favour if an order was obeyed; Yes, every little drummer ’ad ’is rights and wrongs to mind, So we had to pay for teachin’――an’ we</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-67403-the-stuff-of-manhood-some-needed-notes-in · open-pg-67403-the-stuff-of-manhood-some-needed-notes-in-c0004 · cue: freedom, liberty, right, rights, duty, law</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/67403" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-67403-the-stuff-of-manhood-some-needed-notes-in-c0004')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of the right honourable edmund burke, vol. 01 (of 12)" data-keywords="freedom, liberty, duty, law, justice, reform" data-topic="freedom-responsibility">
+          <div class="source">The Works of the Right Honourable Edmund Burke, Vol. 01 (of 12)</div>
+          <blockquote>A man is allowed sufficient freedom of thought, provided he knows how to choose his subject properly.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-15043-the-works-of-the-right-honourable-edmund-burke · open-pg-15043-the-works-of-the-right-honourable-edmund-burke-c0024 · cue: freedom, liberty, duty, law, justice, reform</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/15043" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-15043-the-works-of-the-right-honourable-edmund-burke-c0024')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of the right honourable edmund burke, vol. 06 (of 12)" data-keywords="liberty, right, rights, duty, law, reform" data-topic="freedom-responsibility">
+          <div class="source">The Works of the Right Honourable Edmund Burke, Vol. 06 (of 12)</div>
+          <blockquote>ON THE SUBJECT OF PARLIAMENTARY REFORM. NOTE.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-15702-the-works-of-the-right-honourable-edmund-burke · open-pg-15702-the-works-of-the-right-honourable-edmund-burke-c0104 · cue: liberty, right, rights, duty, law, reform</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/15702" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-15702-the-works-of-the-right-honourable-edmund-burke-c0104')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="a dish of orts : chiefly papers on the imagination, and on shakespeare" data-keywords="freedom, liberty, right, rights, justice, reform" data-topic="freedom-responsibility">
+          <div class="source">A Dish of Orts : Chiefly Papers on the Imagination, and on Shakespeare</div>
+          <blockquote>In this little world, that determined opposition to whatever appeared to him an invasion of human rights and liberty, which was afterwards the animating principle of most of his writings, was first roused in the mind of Shelley.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-9393-a-dish-of-orts-chiefly-papers-on-the · open-pg-9393-a-dish-of-orts-chiefly-papers-on-the-c0098 · cue: freedom, liberty, right, rights, justice, reform</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9393" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9393-a-dish-of-orts-chiefly-papers-on-the-c0098')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="a vindication of the rights of woman with strictures on political and moral subjects" data-keywords="freedom, right, rights, duty, law, justice" data-topic="freedom-responsibility">
+          <div class="source">A Vindication of the Rights of Woman With Strictures on Political and Moral Subjects</div>
+          <blockquote>If the abstract rights of man will bear discussion and explanation, those of woman, by a parity of reasoning, will not shrink from the same test: though a different opinion prevails in this country, built on the very arguments which you use</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-3420-a-vindication-of-the-rights-of-woman-with · open-pg-3420-a-vindication-of-the-rights-of-woman-with-c0005 · cue: freedom, right, rights, duty, law, justice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3420" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3420-a-vindication-of-the-rights-of-woman-with-c0005')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="above the battle" data-keywords="right, rights, duty, law, justice, reform" data-topic="freedom-responsibility">
+          <div class="source">Above the Battle</div>
+          <blockquote>&quot;To repair the harm done by this war to the prestige of law in international relations.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-32779-above-the-battle · open-pg-32779-above-the-battle-c0032 · cue: right, rights, duty, law, justice, reform</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/32779" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-32779-above-the-battle-c0032')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="critiques and addresses" data-keywords="liberty, right, rights, duty, law, justice" data-topic="freedom-responsibility">
+          <div class="source">Critiques and Addresses</div>
+          <blockquote>One of the oldest and profoundest of English philosophers, Hobbes of Malmesbury, writes thus:-- &quot;The office of the sovereign, be it monarch or an assembly, consisteth in the end for which he was entrusted with the sovereign power, namely, the procuration of</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-12506-critiques-and-addresses · open-pg-12506-critiques-and-addresses-c0008 · cue: liberty, right, rights, duty, law, justice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/12506" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-12506-critiques-and-addresses-c0008')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="homer&#x27;s odyssey a commentary" data-keywords="freedom, liberty, right, responsibility, law, justice" data-topic="freedom-responsibility">
+          <div class="source">Homer&#x27;s Odyssey A Commentary</div>
+          <blockquote>No longer shall we say that the Gods in this Odyssey destroy human freedom, but that they are deeply consistent with it; the divine interference when it takes place is not some external agency beyond the man altogether, but is in some</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-26275-homer-s-odyssey-a-commentary · open-pg-26275-homer-s-odyssey-a-commentary-c0004 · cue: freedom, liberty, right, responsibility, law, justice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26275" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26275-homer-s-odyssey-a-commentary-c0004')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="nineteenth century questions" data-keywords="freedom, liberty, right, rights, law, reform" data-topic="freedom-responsibility">
+          <div class="source">Nineteenth Century Questions</div>
+          <blockquote>Professor Tyndall claims freedom of discussion and inquiry for himself and his scientific brethren, and says he will oppose to the death any limitation of this liberty.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-44628-nineteenth-century-questions · open-pg-44628-nineteenth-century-questions-c0043 · cue: freedom, liberty, right, rights, law, reform</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44628" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44628-nineteenth-century-questions-c0043')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="past and present thomas carlyle&#x27;s collected works, vol. xiii." data-keywords="freedom, liberty, right, duty, law, justice" data-topic="freedom-responsibility">
+          <div class="source">Past and Present Thomas Carlyle&#x27;s Collected Works, Vol. XIII.</div>
+          <blockquote>Despotism reconciled with Freedom, 346. Destiny, didactic, 45.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-26159-past-and-present-thomas-carlyle-s-collected-works · open-pg-26159-past-and-present-thomas-carlyle-s-collected-works-c0142 · cue: freedom, liberty, right, duty, law, justice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26159" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26159-past-and-present-thomas-carlyle-s-collected-works-c0142')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="sartor resartus, and on heroes, hero-worship, and the heroic in history" data-keywords="freedom, right, rights, duty, law, reform" data-topic="freedom-responsibility">
+          <div class="source">Sartor Resartus, and On Heroes, Hero-Worship, and the Heroic in History</div>
+          <blockquote>Mahomet&#x27;s birth, boyhood, and youth, 286; marries Kadijah, 288; quiet, unambitious life, 288; divine commission, 290; the good Kadijah believes him, 292; Seid, his slave, 293; his Cousin Ali, 293; his offences and sore struggles, 293; flight from Mecca; being driven to</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for issue-based writing about rights, responsibility, civic duty, and social reform.</p>
+          <p class="meta">open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and · open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and-c0234 · cue: freedom, right, rights, duty, law, reform</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20585" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and-c0234')">Copy chunk cue</button></div>
+        </article></div></section><section id="science-society"><h2>Science and society</h2><div class="fraggrid">
+        <article class="frag" data-title="the arena, volume 4, no. 22, september, 1891" data-keywords="science, scientific, experiment, evidence, reason, progress, knowledge" data-topic="science-society">
+          <div class="source">The Arena, Volume 4, No. 22, September, 1891</div>
+          <blockquote>And one may add that this habit of mind, so attractive in a man of acknowledged eminence, is as a rule not attractive only, but actively serviceable to science; that it stimulates effort, and creates an atmosphere in which good work is</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-22419-the-arena-volume-4-no-22-september-1891 · open-pg-22419-the-arena-volume-4-no-22-september-1891-c0004 · cue: science, scientific, experiment, evidence, reason, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/22419" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-22419-the-arena-volume-4-no-22-september-1891-c0004')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="nineteenth century questions" data-keywords="science, scientific, experiment, evidence, reason, progress, knowledge" data-topic="science-society">
+          <div class="source">Nineteenth Century Questions</div>
+          <blockquote>But we must doubt whether they ought to claim the authority of science.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-44628-nineteenth-century-questions · open-pg-44628-nineteenth-century-questions-c0041 · cue: science, scientific, experiment, evidence, reason, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44628" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44628-nineteenth-century-questions-c0041')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="short studies on great subjects" data-keywords="science, scientific, reason, civilisation, progress, knowledge" data-topic="science-society">
+          <div class="source">Short Studies on Great Subjects</div>
+          <blockquote>On one side there are the large-minded latitudinarian philosophers--men who have no confidence in the people--who have no passionate convictions; moderate men, tolerant men, who trust to education, to general progress in knowledge and civilisation, to forbearance, to endurance, to time--men who</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-20755-short-studies-on-great-subjects · open-pg-20755-short-studies-on-great-subjects-c0039 · cue: science, scientific, reason, civilisation, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20755" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20755-short-studies-on-great-subjects-c0039')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the place of science in modern civilisation, and other essays" data-keywords="science, scientific, reason, civilisation, progress, knowledge" data-topic="science-society">
+          <div class="source">The Place of Science in Modern Civilisation, and Other Essays</div>
+          <blockquote>In so far as touches the aims and the animus of scientific inquiry, as seen from the point of view of the scientist, it is a wholly fortuitous and insubstantial coincidence that much of the knowledge gained under machine-made canons of research</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-39949-the-place-of-science-in-modern-civilisation-and · open-pg-39949-the-place-of-science-in-modern-civilisation-and-c0008 · cue: science, scientific, reason, civilisation, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/39949" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-39949-the-place-of-science-in-modern-civilisation-and-c0008')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the unknown guest" data-keywords="science, scientific, experiment, reason, progress, knowledge" data-topic="science-society">
+          <div class="source">The Unknown Guest</div>
+          <blockquote>Ernest Bozzano, one of the most learned, most daring and most subtle exponents of the new science that is in process of formation, in the course of a remarkable essay in the Annales des sciences psychiques,[1] gives it as his opinion that</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-2033-the-unknown-guest · open-pg-2033-the-unknown-guest-c0073 · cue: science, scientific, experiment, reason, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/2033" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-2033-the-unknown-guest-c0073')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="an address to men of science calling upon them to stand forward and vindicate the truth...." data-keywords="science, scientific, experiment, reason, progress, knowledge" data-topic="science-society">
+          <div class="source">An Address to Men of Science Calling Upon Them to Stand Forward and Vindicate the Truth....</div>
+          <blockquote>It is evident that these religious dogmas make not the least impression upon the minds of youth, further than to stupify them by so dull and so constant a repetition, and the reason of this is, that these religious dogmas have no</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-38379-an-address-to-men-of-science-calling-upon · open-pg-38379-an-address-to-men-of-science-calling-upon-c0014 · cue: science, scientific, experiment, reason, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/38379" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-38379-an-address-to-men-of-science-calling-upon-c0014')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="critiques and addresses" data-keywords="science, scientific, reason, civilisation, progress, knowledge" data-topic="science-society">
+          <div class="source">Critiques and Addresses</div>
+          <blockquote>Finally, with respect to the advancement of science and art.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-12506-critiques-and-addresses · open-pg-12506-critiques-and-addresses-c0015 · cue: science, scientific, reason, civilisation, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/12506" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-12506-critiques-and-addresses-c0015')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="psychical miscellanea being papers on psychical research, telepathy, hypnotism, christian science, etc." data-keywords="science, scientific, experiment, evidence, reason, knowledge" data-topic="science-society">
+          <div class="source">Psychical Miscellanea Being Papers on Psychical Research, Telepathy, Hypnotism, Christian Science, etc.</div>
+          <blockquote>One reason why I deprecate easy credence, leaning to the sceptical side though believing that the thing sometimes happens, is, that there is danger of a return to superstition, if belief outruns the evidence.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-37565-psychical-miscellanea-being-papers-on-psychical-research-telepathy · open-pg-37565-psychical-miscellanea-being-papers-on-psychical-research-telepathy-c0025 · cue: science, scientific, experiment, evidence, reason, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/37565" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-37565-psychical-miscellanea-being-papers-on-psychical-research-telepathy-c0025')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="science &amp; education: essays" data-keywords="science, scientific, experiment, evidence, progress, knowledge" data-topic="science-society">
+          <div class="source">Science &amp; Education: Essays</div>
+          <blockquote>And you must not suppose that my particular branch of science is especially distinguished for the demand it makes upon skill in manipulation.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-7150-science-education-essays · open-pg-7150-science-education-essays-c0130 · cue: science, scientific, experiment, evidence, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/7150" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-7150-science-education-essays-c0130')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="mysticism and logic and other essays" data-keywords="science, scientific, reason, civilisation, progress, knowledge" data-topic="science-society">
+          <div class="source">Mysticism and Logic and Other Essays</div>
+          <blockquote>If this standard is admitted, we can return to the consideration of science, inquiring how far science contributes to such an aim, and whether it is in any respect superior to its rivals in educational practice.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-25447-mysticism-and-logic-and-other-essays · open-pg-25447-mysticism-and-logic-and-other-essays-c0018 · cue: science, scientific, reason, civilisation, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/25447" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-25447-mysticism-and-logic-and-other-essays-c0018')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="science and culture, and other essays" data-keywords="science, scientific, evidence, reason, progress, knowledge" data-topic="science-society">
+          <div class="source">Science and Culture, and Other Essays</div>
+          <blockquote>The vast authority of Cuvier was employed in support of the traditionally respectable hypotheses of special creation and of catastrophism; and the wild speculations of the “Discours sur les Révolutions de la Surface du Globe” were held to be models of sound</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-52344-science-and-culture-and-other-essays · open-pg-52344-science-and-culture-and-other-essays-c0101 · cue: science, scientific, evidence, reason, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/52344" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-52344-science-and-culture-and-other-essays-c0101')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the contemporary review, volume 36, november 1879" data-keywords="science, scientific, experiment, reason, progress, knowledge" data-topic="science-society">
+          <div class="source">The Contemporary Review, Volume 36, November 1879</div>
+          <blockquote>Although, then, millions and millions are continually deciding against Socrates&#x27; life, for one reason or another (and many in all ages who make the ineffectual attempt at a combination break down), Mill gratuitously assumes that they are none of them competent witnesses,</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-39517-the-contemporary-review-volume-36-november-1879 · open-pg-39517-the-contemporary-review-volume-36-november-1879-c0116 · cue: science, scientific, experiment, reason, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/39517" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-39517-the-contemporary-review-volume-36-november-1879-c0116')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the mind in the making: the relation of intelligence to social reform" data-keywords="science, scientific, experiment, reason, progress, knowledge" data-topic="science-society">
+          <div class="source">The Mind in the Making: The Relation of Intelligence to Social Reform</div>
+          <blockquote>Without a certain un-Greek, practical inventive tendency which, for reasons not easily to be discovered, first began to manifest itself in the thirteenth century, this progress would not have been possible.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-8077-the-mind-in-the-making-the-relation-of · open-pg-8077-the-mind-in-the-making-the-relation-of-c0041 · cue: science, scientific, experiment, reason, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/8077" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-8077-the-mind-in-the-making-the-relation-of-c0041')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the old humanities and the new science" data-keywords="science, scientific, experiment, evidence, reason, knowledge" data-topic="science-society">
+          <div class="source">The Old Humanities and the New Science</div>
+          <blockquote>Students of such subjects as mathematics, natural science, history, psychology, anthropology, or political economy become naturally interested in philosophy, and their needs are at present very imperfectly provided for in this university.&quot; This I quote from a Report to the Board of</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-48994-the-old-humanities-and-the-new-science · open-pg-48994-the-old-humanities-and-the-new-science-c0013 · cue: science, scientific, experiment, evidence, reason, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48994" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48994-the-old-humanities-and-the-new-science-c0013')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="appletons&#x27; popular science monthly, october 1899 vol. lv, may to october, 1899" data-keywords="science, experiment, reason, progress, knowledge" data-topic="science-society">
+          <div class="source">Appletons&#x27; Popular Science Monthly, October 1899 Vol. LV, May to October, 1899</div>
+          <blockquote>Thorndike tried his intelligent &quot;Experiment No. 11&quot; with a two-year-old cat, why didn&#x27;t he try it with a two-year-old human?</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-46710-appletons-popular-science-monthly-october-1899-vol-lv · open-pg-46710-appletons-popular-science-monthly-october-1899-vol-lv-c0075 · cue: science, experiment, reason, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/46710" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-46710-appletons-popular-science-monthly-october-1899-vol-lv-c0075')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="civilisation: its cause and cure; and other essays" data-keywords="science, scientific, experiment, progress, knowledge" data-topic="science-society">
+          <div class="source">Civilisation: Its Cause and Cure; and Other Essays</div>
+          <blockquote>Or, to take another illustration, physical science acts like a man trying to find direct causal relations between the various leaves of a tree, without first finding the relations of these to the branches and trunk--and so solving the problem indirectly.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for explanatory writing, evidence language, and discussion of progress or technology.</p>
+          <p class="meta">open-pg-44094-civilisation-its-cause-and-cure-and-other-essays · open-pg-44094-civilisation-its-cause-and-cure-and-other-essays-c0067 · cue: science, scientific, experiment, progress, knowledge</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44094" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44094-civilisation-its-cause-and-cure-and-other-essays-c0067')">Copy chunk cue</button></div>
+        </article></div></section><section id="quote-led-writing"><h2>Quote-led writing prompts</h2><div class="fraggrid">
+        <article class="frag" data-title="nineteenth century questions" data-keywords="therefore, however, indeed, perhaps, must, should, cannot, seems" data-topic="quote-led-writing">
+          <div class="source">Nineteenth Century Questions</div>
+          <blockquote>Every statement in which the horrors and cruelties of Calvinism are described is indeed reinforced by ample citations or plentiful references in the footnotes.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-44628-nineteenth-century-questions · open-pg-44628-nineteenth-century-questions-c0069 · cue: therefore, however, indeed, perhaps, must, should, cannot, seems</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44628" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44628-nineteenth-century-questions-c0069')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="letters on england" data-keywords="therefore, however, indeed, perhaps, must, should, cannot, seems" data-topic="quote-led-writing">
+          <div class="source">Letters on England</div>
+          <blockquote>He pushed his metaphysical errors so far, as to declare that two and two make four for no other reason but because God would have it so.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-2445-letters-on-england · open-pg-2445-letters-on-england-c0025 · cue: therefore, however, indeed, perhaps, must, should, cannot, seems</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/2445" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-2445-letters-on-england-c0025')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="sartor resartus, and on heroes, hero-worship, and the heroic in history" data-keywords="therefore, however, indeed, perhaps, must, should, cannot, seems" data-topic="quote-led-writing">
+          <div class="source">Sartor Resartus, and On Heroes, Hero-Worship, and the Heroic in History</div>
+          <blockquote>We too have walked through Monmouth Street; but with little feeling of &#x27;Devotion&#x27;: probably in part because the contemplative process is so fatally broken in upon by the brood of money-changers who nestle in that Church, and importune the worshipper with merely</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and · open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and-c0091 · cue: therefore, however, indeed, perhaps, must, should, cannot, seems</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20585" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and-c0091')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the complete works in philosophy, politics and morals of the late dr. benjamin franklin, vol. 2 [of 3]" data-keywords="therefore, however, indeed, perhaps, must, should, cannot, seems" data-topic="quote-led-writing">
+          <div class="source">The Complete Works in Philosophy, Politics and Morals of the late Dr. Benjamin Franklin, Vol. 2 [of 3]</div>
+          <blockquote>But it seems necessary to mention something I then forgot.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-48137-the-complete-works-in-philosophy-politics-and-morals · open-pg-48137-the-complete-works-in-philosophy-politics-and-morals-c0018 · cue: therefore, however, indeed, perhaps, must, should, cannot, seems</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48137" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48137-the-complete-works-in-philosophy-politics-and-morals-c0018')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the literary remains of samuel taylor coleridge, volume 4" data-keywords="therefore, however, indeed, perhaps, must, should, cannot, seems" data-topic="quote-led-writing">
+          <div class="source">The Literary Remains of Samuel Taylor Coleridge, Volume 4</div>
+          <blockquote>Indeed! Were I either Romanist or Unitarian, I should desire no better than the admission of body having an &#x27;esse&#x27; not in the &#x27;percipi&#x27;, and really subsisting, ([Greek: autò tò chraema]) as the supporter of its accidents.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-10801-the-literary-remains-of-samuel-taylor-coleridge-volume · open-pg-10801-the-literary-remains-of-samuel-taylor-coleridge-volume-c0061 · cue: therefore, however, indeed, perhaps, must, should, cannot, seems</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/10801" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-10801-the-literary-remains-of-samuel-taylor-coleridge-volume-c0061')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="interpretations of poetry and religion" data-keywords="therefore, however, indeed, perhaps, must, should, seems, because" data-topic="quote-led-writing">
+          <div class="source">Interpretations of Poetry and Religion</div>
+          <blockquote>The ideal of a supervening general bliss presents indeed an abstract desideratum, but not the ideal involved in the actual forces of life; that end would have no rational relation to its primary factors; it would not be built on our instinctive</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-48563-interpretations-of-poetry-and-religion · open-pg-48563-interpretations-of-poetry-and-religion-c0034 · cue: therefore, however, indeed, perhaps, must, should, seems, because</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48563" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48563-interpretations-of-poetry-and-religion-c0034')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="lectures on dramatic art and literature" data-keywords="therefore, however, indeed, perhaps, must, should, cannot, seems" data-topic="quote-led-writing">
+          <div class="source">Lectures on Dramatic Art and Literature</div>
+          <blockquote>This, however, is not so much the merit of the poet himself as of the delicacy of his contemporaries; for the _Hippolytus_ which we possess, according to the scholiast, is an improvement upon an earlier one, in which there was much that</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-7148-lectures-on-dramatic-art-and-literature · open-pg-7148-lectures-on-dramatic-art-and-literature-c0068 · cue: therefore, however, indeed, perhaps, must, should, cannot, seems</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/7148" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-7148-lectures-on-dramatic-art-and-literature-c0068')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="minor dialogues, together with the dialogue on clemency" data-keywords="therefore, however, perhaps, must, should, cannot, seems, because" data-topic="quote-led-writing">
+          <div class="source">Minor Dialogues, Together With the Dialogue on Clemency</div>
+          <blockquote>When we are considering a happy life, you cannot answer me as though after a division of the House, “This view has most supporters;” because for that very reason it is the worse of the two: matters do not stand so well</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency · open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency-c0102 · cue: therefore, however, perhaps, must, should, cannot, seems, because</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/64576" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency-c0102')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="talks to teachers on psychology; and to students on some of life&#x27;s ideals" data-keywords="therefore, however, perhaps, must, should, cannot, seems, because" data-topic="quote-led-writing">
+          <div class="source">Talks To Teachers On Psychology; And To Students On Some Of Life&#x27;s Ideals</div>
+          <blockquote>I shall ask you now--not meaning at all thereby to close the theoretic question, but merely because it seems to me the point of view likely to be of greatest practical use to you as teachers--to adopt with me, in this course</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-16287-talks-to-teachers-on-psychology-and-to-students · open-pg-16287-talks-to-teachers-on-psychology-and-to-students-c0009 · cue: therefore, however, perhaps, must, should, cannot, seems, because</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/16287" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-16287-talks-to-teachers-on-psychology-and-to-students-c0009')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the case of wagner, nietzsche contra wagner, and selected aphorisms." data-keywords="therefore, however, indeed, perhaps, must, should, cannot, because" data-topic="quote-led-writing">
+          <div class="source">The Case of Wagner, Nietzsche Contra Wagner, and Selected Aphorisms.</div>
+          <blockquote>It was no longer a matter of walking or dancing,—we must swim, we must hover.… This perhaps decides the whole matter.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-25012-the-case-of-wagner-nietzsche-contra-wagner-and · open-pg-25012-the-case-of-wagner-nietzsche-contra-wagner-and-c0026 · cue: therefore, however, indeed, perhaps, must, should, cannot, because</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/25012" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-25012-the-case-of-wagner-nietzsche-contra-wagner-and-c0026')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of the right honourable edmund burke, vol. 06 (of 12)" data-keywords="therefore, indeed, perhaps, must, should, cannot, seems, because" data-topic="quote-led-writing">
+          <div class="source">The Works of the Right Honourable Edmund Burke, Vol. 06 (of 12)</div>
+          <blockquote>They have no right to make a law prejudicial to the whole community, even though the delinquents in making such an act should be themselves the chief sufferers by it; because it would be-made against the principle of a superior law, which</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-15702-the-works-of-the-right-honourable-edmund-burke · open-pg-15702-the-works-of-the-right-honourable-edmund-burke-c0114 · cue: therefore, indeed, perhaps, must, should, cannot, seems, because</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/15702" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-15702-the-works-of-the-right-honourable-edmund-burke-c0114')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="india: what can it teach us? a course of lectures delivered before the university of cambridge" data-keywords="however, indeed, perhaps, must, should, cannot, seems, because" data-topic="quote-led-writing">
+          <div class="source">India: What can it teach us? A Course of Lectures Delivered before the University Of Cambridge</div>
+          <blockquote>There is nothing irrational, nothing I mean we cannot enter into or sympathize with, in people imploring the storms to cease, or the sky to rain, or the sun to shine.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-20847-india-what-can-it-teach-us-a-course · open-pg-20847-india-what-can-it-teach-us-a-course-c0048 · cue: however, indeed, perhaps, must, should, cannot, seems, because</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20847" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20847-india-what-can-it-teach-us-a-course-c0048')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="soliloquies in england, and later soliloquies" data-keywords="therefore, however, perhaps, must, should, cannot, seems, because" data-topic="quote-led-writing">
+          <div class="source">Soliloquies in England, and Later Soliloquies</div>
+          <blockquote>At the same time his inner man dislikes to be too articulate; he is soon at a stand in direct self-expression; and as a poet may take to describing nature or Italian passions, so a philosopher may pick up some alien doctrine</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-48429-soliloquies-in-england-and-later-soliloquies · open-pg-48429-soliloquies-in-england-and-later-soliloquies-c0094 · cue: therefore, however, perhaps, must, should, cannot, seems, because</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48429" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48429-soliloquies-in-england-and-later-soliloquies-c0094')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the crown of wild olive also munera pulveris; pre-raphaelitism; aratra pentelici; the ethics of the dust; fiction, fair and foul; the elements of drawing" data-keywords="therefore, however, indeed, perhaps, should, cannot, seems, because" data-topic="quote-led-writing">
+          <div class="source">The Crown of Wild Olive also Munera Pulveris; Pre-Raphaelitism; Aratra Pentelici; The Ethics of the Dust; Fiction, Fair and Foul; The Elements of Drawing</div>
+          <blockquote>And lastly, it does not strengthen itself by seizing dominion over races whom it cannot benefit.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris · open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris-c0043 · cue: therefore, however, indeed, perhaps, should, cannot, seems, because</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26716" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris-c0043')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the path, vol. i.—1886-&#x27;7. a magazine devoted to the brotherhood of humanity, theosophy in america, and the study of occult science, philosophy, and aryan literature." data-keywords="therefore, however, indeed, must, should, cannot, seems, because" data-topic="quote-led-writing">
+          <div class="source">The Path, Vol. I.—1886-&#x27;7. A Magazine Devoted to the Brotherhood of Humanity, Theosophy in America, and the Study of Occult Science, Philosophy, and Aryan Literature.</div>
+          <blockquote>Let complainants therefore reflect how ignorant they are of their own capacity to understand psychological data, and how necessary it is that they should first develop themselves in that direction.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-59038-the-path-vol-i-1886-7-a-magazine · open-pg-59038-the-path-vol-i-1886-7-a-magazine-c0116 · cue: therefore, however, indeed, must, should, cannot, seems, because</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/59038" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-59038-the-path-vol-i-1886-7-a-magazine-c0116')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of sir thomas browne, volume 1" data-keywords="therefore, however, indeed, perhaps, must, should, cannot, because" data-topic="quote-led-writing">
+          <div class="source">The Works of Sir Thomas Browne, Volume 1</div>
+          <blockquote>Upon this conceit arose perhaps the discovery of another; that the bloud of a Goat was soveraign for the Stone, as it stands commended by many good Writers, and brings up the composition in the powder of _Nicolaus_, and the Electuary of</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for short quote-led prompts: students respond to a striking line and build an argument.</p>
+          <p class="meta">open-pg-39960-the-works-of-sir-thomas-browne-volume-1 · open-pg-39960-the-works-of-sir-thomas-browne-volume-1-c0131 · cue: therefore, however, indeed, perhaps, must, should, cannot, because</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/39960" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-39960-the-works-of-sir-thomas-browne-volume-1-c0131')">Copy chunk cue</button></div>
+        </article></div></section><section id="style-imitation"><h2>Style imitation lab</h2><div class="fraggrid">
+        <article class="frag" data-title="a vindication of the rights of woman with strictures on political and moral subjects" data-keywords="language, style, phrase, word, expression, eloquence, voice" data-topic="style-imitation">
+          <div class="source">A Vindication of the Rights of Woman With Strictures on Political and Moral Subjects</div>
+          <blockquote>Fordyce may have had a very laudable end in view; but these discourses are written in such an affected style, that were it only on that account, and had I nothing to object against his MELLIFLUOUS precepts, I should not allow girls</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-3420-a-vindication-of-the-rights-of-woman-with · open-pg-3420-a-vindication-of-the-rights-of-woman-with-c0054 · cue: language, style, phrase, word, expression, eloquence, voice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3420" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3420-a-vindication-of-the-rights-of-woman-with-c0054')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="appreciations, with an essay on style" data-keywords="language, style, phrase, word, sentence, expression, rhetoric" data-topic="style-imitation">
+          <div class="source">Appreciations, with an Essay on Style</div>
+          <blockquote>And what applies to figure or flower must be understood of all other accidental or removable ornaments of writing whatever; and not of specific ornament only, but of all that latent colour and imagery which language as such carries in it.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-4037-appreciations-with-an-essay-on-style · open-pg-4037-appreciations-with-an-essay-on-style-c0006 · cue: language, style, phrase, word, sentence, expression, rhetoric</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/4037" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-4037-appreciations-with-an-essay-on-style-c0006')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the complete works in philosophy, politics and morals of the late dr. benjamin franklin, vol. 2 [of 3]" data-keywords="language, style, phrase, word, expression, rhetoric" data-topic="style-imitation">
+          <div class="source">The Complete Works in Philosophy, Politics and Morals of the late Dr. Benjamin Franklin, Vol. 2 [of 3]</div>
+          <blockquote>Writing one&#x27;s own language well, is the next necessary accomplishment after good speaking.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-48137-the-complete-works-in-philosophy-politics-and-morals · open-pg-48137-the-complete-works-in-philosophy-politics-and-morals-c0144 · cue: language, style, phrase, word, expression, rhetoric</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48137" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48137-the-complete-works-in-philosophy-politics-and-morals-c0144')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the doctor looks at literature" data-keywords="style, phrase, word, sentence, expression, voice" data-topic="style-imitation">
+          <div class="source">The doctor looks at literature</div>
+          <blockquote>I recall reading in an English magazine, a number of years ago, an article entitled “A Law in Literary Expression.” Stated in its plainest terms, the law is this: that the length of the phrase--not the sentence, but its shortest fraction, the</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-75230-the-doctor-looks-at-literature · open-pg-75230-the-doctor-looks-at-literature-c0057 · cue: style, phrase, word, sentence, expression, voice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/75230" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-75230-the-doctor-looks-at-literature-c0057')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="essays of michel de montaigne — volume 05" data-keywords="language, word, sentence, eloquence, rhetoric, voice" data-topic="style-imitation">
+          <div class="source">Essays of Michel de Montaigne — Volume 05</div>
+          <blockquote>Let but our pupil be well furnished with things, words will follow but too fast; he will pull them after him if they do not voluntarily follow.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-3585-essays-of-michel-de-montaigne-volume-05 · open-pg-3585-essays-of-michel-de-montaigne-volume-05-c0018 · cue: language, word, sentence, eloquence, rhetoric, voice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3585" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3585-essays-of-michel-de-montaigne-volume-05-c0018')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="hieroglyphics" data-keywords="language, style, phrase, word, sentence, expression" data-topic="style-imitation">
+          <div class="source">Hieroglyphics</div>
+          <blockquote>But I confess that the atmosphere (which to me seems all the wild weather and the wild legend of the north) suggested by those phrases &quot;a thick white cloud,&quot; and &quot;a wind that&#x27;s piercing cold&quot; is in my judgment wholly marvellous.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-40241-hieroglyphics · open-pg-40241-hieroglyphics-c0019 · cue: language, style, phrase, word, sentence, expression</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/40241" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-40241-hieroglyphics-c0019')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="interpretations of poetry and religion" data-keywords="language, style, phrase, word, expression, voice" data-topic="style-imitation">
+          <div class="source">Interpretations of Poetry and Religion</div>
+          <blockquote>The sensuous beauty of words and their utterance in measure suffice, therefore, for poetry of one sort--where these are there is something unmistakably poetical, although the whole of poetry, or the best of poetry, be not yet there.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-48563-interpretations-of-poetry-and-religion · open-pg-48563-interpretations-of-poetry-and-religion-c0080 · cue: language, style, phrase, word, expression, voice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48563" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48563-interpretations-of-poetry-and-religion-c0080')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the spirit of the age; or, contemporary portraits" data-keywords="style, word, expression, eloquence, rhetoric, voice" data-topic="style-imitation">
+          <div class="source">The Spirit of the Age; Or, Contemporary Portraits</div>
+          <blockquote>Jeffrey in his person is slight, with a countenance of much expression, and a voice of great flexibility and acuteness of tone.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits · open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits-c0082 · cue: style, word, expression, eloquence, rhetoric, voice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/11068" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits-c0082')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of richard hurd, volume 3 (of 8)" data-keywords="language, style, word, sentence, expression, eloquence" data-topic="style-imitation">
+          <div class="source">The works of Richard Hurd, volume 3 (of 8)</div>
+          <blockquote>It being now apprehended what _persons_ are most fit to be shewn in Dialogue, the next inquiry will be, concerning their _style or manner of expression_.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-54514-the-works-of-richard-hurd-volume-3-of · open-pg-54514-the-works-of-richard-hurd-volume-3-of-c0006 · cue: language, style, word, sentence, expression, eloquence</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/54514" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-54514-the-works-of-richard-hurd-volume-3-of-c0006')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="three french moralists and the gallantry of france" data-keywords="language, style, phrase, word, expression, voice" data-topic="style-imitation">
+          <div class="source">Three French Moralists and The Gallantry of France</div>
+          <blockquote>Everyone who approaches an analysis of the &quot;Caracteres&quot; is obliged to pause to commend the style of La Bruyere.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-19872-three-french-moralists-and-the-gallantry-of-france · open-pg-19872-three-french-moralists-and-the-gallantry-of-france-c0028 · cue: language, style, phrase, word, expression, voice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/19872" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-19872-three-french-moralists-and-the-gallantry-of-france-c0028')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="art principles in literature" data-keywords="language, word, expression, eloquence, voice" data-topic="style-imitation">
+          <div class="source">Art principles in literature</div>
+          <blockquote>In both of these nations composition in the classical languages was a fixed feature of the schools.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-64443-art-principles-in-literature · open-pg-64443-art-principles-in-literature-c0032 · cue: language, word, expression, eloquence, voice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/64443" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-64443-art-principles-in-literature-c0032')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of john greenleaf whittier, volume vii, complete the conflict with slavery, politics and reform, the inner life, and criticism" data-keywords="language, style, phrase, word, voice" data-topic="style-imitation">
+          <div class="source">The Works of John Greenleaf Whittier, Volume VII, Complete The Conflict with Slavery, Politics and Reform, the Inner Life, and Criticism</div>
+          <blockquote>To the slave-holders of his time they must have seemed like the voice of conscience speaking to them in the cool of the day.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii · open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii-c0110 · cue: language, style, phrase, word, voice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9599" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii-c0110')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="essays" data-keywords="style, sentence, expression, eloquence, voice" data-topic="style-imitation">
+          <div class="source">Essays</div>
+          <blockquote>Even a person, unacquainted with the noble remains of ancient orators, may judge, from a few strokes, that the style or species of their eloquence was infinitely more sublime than that which modern orators aspire to.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-36120-essays · open-pg-36120-essays-c0043 · cue: style, sentence, expression, eloquence, voice</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/36120" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-36120-essays-c0043')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="lectures on dramatic art and literature" data-keywords="language, style, phrase, word, eloquence" data-topic="style-imitation">
+          <div class="source">Lectures on Dramatic Art and Literature</div>
+          <blockquote>Many philosophers have on this account reproached Comedy with immorality, and among others, Rousseau, with much eloquence, in his _Epistle on the Drama_.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-7148-lectures-on-dramatic-art-and-literature · open-pg-7148-lectures-on-dramatic-art-and-literature-c0094 · cue: language, style, phrase, word, eloquence</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/7148" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-7148-lectures-on-dramatic-art-and-literature-c0094')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="short studies on great subjects" data-keywords="style, phrase, word, expression, eloquence" data-topic="style-imitation">
+          <div class="source">Short Studies on Great Subjects</div>
+          <blockquote>The character of Ulysses is much stronger in the Odyssey; and even when the same qualities are attributed to him--his soft-flowing tongue, his cunning, and his eloquence--they are held in very different estimation.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-20755-short-studies-on-great-subjects · open-pg-20755-short-studies-on-great-subjects-c0194 · cue: style, phrase, word, expression, eloquence</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20755" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20755-short-studies-on-great-subjects-c0194')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the advancement of learning" data-keywords="language, style, phrase, word, eloquence" data-topic="style-imitation">
+          <div class="source">The Advancement of Learning</div>
+          <blockquote>For those things we do esteem vain which are either false or frivolous, those which either have no truth or no use; and those persons we esteem vain which are either credulous or curious; and curiosity is either in matter or words:</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for sentence rhythm, diction, paraphrase, and modernizing older prose.</p>
+          <p class="meta">open-pg-5500-the-advancement-of-learning · open-pg-5500-the-advancement-of-learning-c0014 · cue: language, style, phrase, word, eloquence</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/5500" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-5500-the-advancement-of-learning-c0014')">Copy chunk cue</button></div>
+        </article></div></section><section id="public-opinion"><h2>Public opinion and conformity</h2><div class="fraggrid">
+        <article class="frag" data-title="nineteenth century questions" data-keywords="public opinion, society, majority, fashion, custom" data-topic="public-opinion">
+          <div class="source">Nineteenth Century Questions</div>
+          <blockquote>On the first day of January, 1832, when the American Antislavery Society was formed in the office of Samuel E.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-44628-nineteenth-century-questions · open-pg-44628-nineteenth-century-questions-c0092 · cue: public opinion, society, majority, fashion, custom</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44628" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44628-nineteenth-century-questions-c0092')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="a vindication of the rights of woman with strictures on political and moral subjects" data-keywords="society, majority, fashion, custom" data-topic="public-opinion">
+          <div class="source">A Vindication of the Rights of Woman With Strictures on Political and Moral Subjects</div>
+          <blockquote>When I treat of the peculiar duties of women, as I should treat of the peculiar duties of a citizen or father, it will be found that I do not mean to insinuate, that they should be taken out of their families,</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-3420-a-vindication-of-the-rights-of-woman-with · open-pg-3420-a-vindication-of-the-rights-of-woman-with-c0037 · cue: society, majority, fashion, custom</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3420" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3420-a-vindication-of-the-rights-of-woman-with-c0037')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="an estimate of the value and influence of works of fiction in modern times" data-keywords="crowd, society, conform, custom" data-topic="public-opinion">
+          <div class="source">An Estimate of the Value and Influence of Works of Fiction in Modern Times</div>
+          <blockquote>They lose that aspiring pride which arises from the sense of walking in intellect on the necks of a subject crowd; they no longer feel the bracing influence of living solely among the highest forms of art; they become conformed insensibly, to</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-20843-an-estimate-of-the-value-and-influence-of · open-pg-20843-an-estimate-of-the-value-and-influence-of-c0020 · cue: crowd, society, conform, custom</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20843" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20843-an-estimate-of-the-value-and-influence-of-c0020')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="blackwood&#x27;s edinburgh magazine, volume 57, no. 355, may 1845" data-keywords="society, majority, fashion, reputation" data-topic="public-opinion">
+          <div class="source">Blackwood&#x27;s Edinburgh Magazine, Volume 57, No. 355, May 1845</div>
+          <blockquote>If the opinions of the extremes of mankind be sometimes right, as opposed to those of the majority, then the form of that coat, which is worn alike by the courtier and the Quaker, must have some large share of innate merit.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-33141-blackwood-s-edinburgh-magazine-volume-57-no-355 · open-pg-33141-blackwood-s-edinburgh-magazine-volume-57-no-355-c0072 · cue: society, majority, fashion, reputation</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/33141" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-33141-blackwood-s-edinburgh-magazine-volume-57-no-355-c0072')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the contemporary review, volume 36, november 1879" data-keywords="society, majority, fashion, reputation" data-topic="public-opinion">
+          <div class="source">The Contemporary Review, Volume 36, November 1879</div>
+          <blockquote>After reading of the luxury, artificiality, and idleness of aristocratic society in the former, and coming with the author to the conviction that terrible consequences must attend such a condition, one is surprised to find in the latter that these privileged ones</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-39517-the-contemporary-review-volume-36-november-1879 · open-pg-39517-the-contemporary-review-volume-36-november-1879-c0057 · cue: society, majority, fashion, reputation</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/39517" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-39517-the-contemporary-review-volume-36-november-1879-c0057')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="what to do? thoughts evoked by the census of moscow" data-keywords="crowd, society, majority, fashion" data-topic="public-opinion">
+          <div class="source">What to Do? Thoughts Evoked by the Census of Moscow</div>
+          <blockquote>Nearly all of them were strangers to me,--students, one officer, and two of my society acquaintances, who, uttering the usual, &quot;_C&#x27;est tres interessant_!&quot; had asked me to include them in the number of the census-takers.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-3630-what-to-do-thoughts-evoked-by-the-census · open-pg-3630-what-to-do-thoughts-evoked-by-the-census-c0029 · cue: crowd, society, majority, fashion</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3630" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3630-what-to-do-thoughts-evoked-by-the-census-c0029')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="religio medici, hydriotaphia, and the letter to a friend" data-keywords="crowd, society, conform, custom" data-topic="public-opinion">
+          <div class="source">Religio Medici, Hydriotaphia, and the Letter to a Friend</div>
+          <blockquote>The old Balearians had a peculiar mode, for they used great urns and much wood, but no fire in their burials, while they bruised the flesh and bones of the dead, crowded them into urns, and laid heaps of wood upon them.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-586-religio-medici-hydriotaphia-and-the-letter-to-a · open-pg-586-religio-medici-hydriotaphia-and-the-letter-to-a-c0052 · cue: crowd, society, conform, custom</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/586" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-586-religio-medici-hydriotaphia-and-the-letter-to-a-c0052')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="sartor resartus, and on heroes, hero-worship, and the heroic in history" data-keywords="crowd, society, fashion, custom" data-topic="public-opinion">
+          <div class="source">Sartor Resartus, and On Heroes, Hero-Worship, and the Heroic in History</div>
+          <blockquote>By degrees, the eye grows accustomed to its new Whereabout; the hand can stretch itself forth to work there: it is in this grand and indeed highest work of Palingenesia that ye shall labour, each according to ability.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and · open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and-c0100 · cue: crowd, society, fashion, custom</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20585" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and-c0100')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the arena, volume 4, no. 22, september, 1891" data-keywords="society, conform, fashion, custom" data-topic="public-opinion">
+          <div class="source">The Arena, Volume 4, No. 22, September, 1891</div>
+          <blockquote>_A mother whose thoughts have voluntarily or involuntarily been held in the atmosphere of the physical nature, necessarily imparts to her child a legacy of animality which, like the corpse of a dead being, clings to the soul throughout its pilgrimage._ Terrible</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-22419-the-arena-volume-4-no-22-september-1891 · open-pg-22419-the-arena-volume-4-no-22-september-1891-c0016 · cue: society, conform, fashion, custom</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/22419" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-22419-the-arena-volume-4-no-22-september-1891-c0016')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the doctor looks at literature" data-keywords="crowd, fashion, custom, reputation" data-topic="public-opinion">
+          <div class="source">The doctor looks at literature</div>
+          <blockquote>During his lifetime inaccessible both because of aristocratic taste and of partial invalidism, his figure is likely to become more familiar to the reading world--even to those who never read his books--than the figures of great authors who walked with the crowd</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-75230-the-doctor-looks-at-literature · open-pg-75230-the-doctor-looks-at-literature-c0060 · cue: crowd, fashion, custom, reputation</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/75230" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-75230-the-doctor-looks-at-literature-c0060')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the mind in the making: the relation of intelligence to social reform" data-keywords="society, conform, fashion, approval" data-topic="public-opinion">
+          <div class="source">The Mind in the Making: The Relation of Intelligence to Social Reform</div>
+          <blockquote>He was the &quot;anarchist&quot;, the &quot;Red&quot; of his time, who was undermining established authority, and, with the approval of all right-minded citizens, he was treated accordingly.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-8077-the-mind-in-the-making-the-relation-of · open-pg-8077-the-mind-in-the-making-the-relation-of-c0036 · cue: society, conform, fashion, approval</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/8077" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-8077-the-mind-in-the-making-the-relation-of-c0036')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the works of john greenleaf whittier, volume vii, complete the conflict with slavery, politics and reform, the inner life, and criticism" data-keywords="society, conform, fashion, reputation" data-topic="public-opinion">
+          <div class="source">The Works of John Greenleaf Whittier, Volume VII, Complete The Conflict with Slavery, Politics and Reform, the Inner Life, and Criticism</div>
+          <blockquote>The Society of Friends, upon whose cooperation we had counted, had but recently been rent asunder by one of those unhappy controversies which so often mark the decline of practical righteousness.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii · open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii-c0054 · cue: society, conform, fashion, reputation</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9599" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii-c0054')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="the spirit of the age; or, contemporary portraits" data-keywords="crowd, conform, fashion, reputation" data-topic="public-opinion">
+          <div class="source">The Spirit of the Age; Or, Contemporary Portraits</div>
+          <blockquote>Irvine is by birth an American, and has, as it were, _skimmed the cream_, and taken off patterns with great skill and cleverness, from our best known and happiest writers, so that their thoughts and almost their reputation are indirectly transferred to</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits · open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits-c0101 · cue: crowd, conform, fashion, reputation</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/11068" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits-c0101')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="civilisation: its cause and cure; and other essays" data-keywords="public opinion, society, custom" data-topic="public-opinion">
+          <div class="source">Civilisation: Its Cause and Cure; and Other Essays</div>
+          <blockquote>So again, gambling by thousands on Change is respectable enough, but pitch and toss for half-pence in the streets is low, and must be dealt with by the police; while it is a mere commonplace to say that the high-class swindler is</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-44094-civilisation-its-cause-and-cure-and-other-essays · open-pg-44094-civilisation-its-cause-and-cure-and-other-essays-c0051 · cue: public opinion, society, custom</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44094" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44094-civilisation-its-cause-and-cure-and-other-essays-c0051')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="interpretations of poetry and religion" data-keywords="society, fashion, reputation" data-topic="public-opinion">
+          <div class="source">Interpretations of Poetry and Religion</div>
+          <blockquote>It was hardly necessary to preach the doctrine of original sin to that society; the visible blight that had fallen on classic civilization was proof enough of that.</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-48563-interpretations-of-poetry-and-religion · open-pg-48563-interpretations-of-poetry-and-religion-c0026 · cue: society, fashion, reputation</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48563" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48563-interpretations-of-poetry-and-religion-c0026')">Copy chunk cue</button></div>
+        </article>
+        <article class="frag" data-title="lectures on dramatic art and literature" data-keywords="society, fashion, custom" data-topic="public-opinion">
+          <div class="source">Lectures on Dramatic Art and Literature</div>
+          <blockquote>All this, in France, has been formed under the guardianship of society, and, in its progressive development, has uniformly been guided and determined by it--the guardianship of a society which zealously imitated the tone of the capital, which again took its direction</blockquote>
+          <p class="cue"><strong>Use:</strong> Use for discussion of online pressure, social approval, group judgment, and independent thinking.</p>
+          <p class="meta">open-pg-7148-lectures-on-dramatic-art-and-literature · open-pg-7148-lectures-on-dramatic-art-and-literature-c0118 · cue: society, fashion, custom</p>
+          <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/7148" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-7148-lectures-on-dramatic-art-and-literature-c0118')">Copy chunk cue</button></div>
+        </article></div></section>
+</main>
+<footer>Generated from B132 open-resource chunks at 2026-06-30T05:51:45+08:00. Source links point to Project Gutenberg originals.</footer>
+<script>
+function copyCue(text){navigator.clipboard&&navigator.clipboard.writeText(text)}
+function filterFrags(){
+ const q=document.getElementById('search').value.toLowerCase().trim();
+ document.querySelectorAll('.frag').forEach(el=>{
+  const hay=(el.dataset.title+' '+el.dataset.keywords+' '+el.innerText).toLowerCase();
+  el.style.display=!q||hay.includes(q)?'':'none';
+ });
+}
+</script>
+</body>
+</html>
