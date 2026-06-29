@@ -134,6 +134,26 @@ h1{
 .lesson-map h2{margin:0 0 8px;font-size:16px}
 .lesson-map ol{margin:0;padding-left:21px;color:#364642}
 .lesson-map li{margin:5px 0}
+.jump-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:12px;
+}
+.jump-btn{
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:7px 10px;
+  background:#fff;
+  color:var(--teal-dark);
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.jump-btn:hover{
+  border-color:var(--teal);
+  background:var(--teal-soft);
+}
 .shell{
   display:grid;
   grid-template-columns:minmax(360px,.62fr) minmax(860px,1.38fr);
@@ -590,6 +610,12 @@ body.reader-focus header{
       <li>Answer a speaking task with evidence.</li>
       <li>Write a balanced paragraph or essay.</li>
     </ol>
+    <div class="jump-row" aria-label="quick source routes">
+      <button class="jump-btn" type="button" data-jump-filter="literature">I need a quote</button>
+      <button class="jump-btn" type="button" data-jump-filter="writing">I need writing phrases</button>
+      <button class="jump-btn" type="button" data-jump-filter="speaking">I need speaking language</button>
+      <button class="jump-btn" type="button" data-jump-filter="model">I need a model</button>
+    </div>
   </aside>
 </header>
 
@@ -618,7 +644,7 @@ body.reader-focus header{
     <div class="choice-result" id="choiceResult">Pick one answer above, then use Twain, Aesop, Austen, or the In Use pages to defend or revise it.</div>
   </section>
 
-  <section class="panel">
+  <section class="panel" id="evidenceLibrary">
     <h2>Evidence Notebook</h2>
     <p>As you open source windows, save the ones you want to use. Try to collect one idea source, one language source, and one counterargument source.</p>
     <div class="notebook" id="evidenceNotebook">
@@ -626,7 +652,7 @@ body.reader-focus header{
     </div>
   </section>
 
-  <section class="panel">
+  <section class="panel" id="answerModels">
     <h2>1. Evidence Library</h2>
     <p>Start here. Each card opens a focused page slice or literary fragment in the large reader on the right. The short cue tells you what the source is useful for.</p>
     <div class="filters" aria-label="source filters">
@@ -911,7 +937,7 @@ body.reader-focus header{
     </ol>
   </section>
 
-  <section class="panel">
+  <section class="panel" id="draftBuilder">
     <h2>4. Answer models: one idea, two levels</h2>
     <div class="model-grid">
       <article class="model-card">
@@ -1153,6 +1179,12 @@ body.reader-focus header{
   updateFilterCounts();
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => applyFilter(btn.dataset.filter || 'all'));
+  });
+  document.querySelectorAll('[data-jump-filter]').forEach(button => {
+    button.addEventListener('click', () => {
+      applyFilter(button.dataset.jumpFilter || 'all');
+      document.getElementById('evidenceLibrary')?.scrollIntoView({behavior:'smooth', block:'start'});
+    });
   });
 
   focusBtn.addEventListener('click', () => {
