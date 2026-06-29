@@ -403,6 +403,61 @@ body.comfort .language-card,body.comfort .task-card,body.comfort .quote-card{
   border-radius:8px;
   background:#fff;
 }
+.tone-tool{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.44fr);
+  gap:14px;
+  align-items:start;
+}
+.tone-box{
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:14px;
+  background:#fff;
+}
+.tone-box label{
+  display:block;
+  margin-bottom:7px;
+  color:var(--teal-dark);
+  font-weight:900;
+}
+.tone-box input{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:12px;
+  font:16px/1.45 inherit;
+}
+.tone-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px;
+}
+.tone-output{
+  min-height:132px;
+  border:1px solid #b9d8d0;
+  border-left:4px solid var(--teal);
+  border-radius:8px;
+  padding:14px;
+  background:#f8fbfa;
+}
+.tone-output b{
+  display:block;
+  margin-bottom:7px;
+  color:var(--teal-dark);
+}
+.tone-output .sentence{
+  display:block;
+  margin:8px 0 10px;
+  font-size:18px;
+  line-height:1.45;
+  color:#17211f;
+}
+.tone-output .why{
+  color:#40504c;
+  font-size:14px;
+}
 .source-mini{
   display:flex;
   flex-wrap:wrap;
@@ -568,7 +623,7 @@ body.reader-focus header{
   .reader{position:static}
   .reader-card{height:auto;min-height:0}
   iframe{height:78vh;min-height:620px}
-  .writing-box{grid-template-columns:1fr}
+  .writing-box,.tone-tool{grid-template-columns:1fr}
 }
 @media(max-width:760px){
   .topbar{position:static;align-items:flex-start;flex-direction:column}
@@ -644,7 +699,33 @@ body.reader-focus header{
     <div class="choice-result" id="choiceResult">Pick one answer above, then use Twain, Aesop, Austen, or the In Use pages to defend or revise it.</div>
   </section>
 
-  <section class="panel" id="evidenceLibrary">
+  <section class="panel">
+    <h2>Tone Transformer: turn blunt truth into useful honesty</h2>
+    <p>Change the sentence, then choose a tone. The goal is not to hide the truth; the goal is to make the truth usable.</p>
+    <div class="tone-tool">
+      <div class="tone-box">
+        <label for="toneInput">Blunt truth</label>
+        <input id="toneInput" value="Your presentation was confusing."/>
+        <div class="tone-buttons" aria-label="tone choices">
+          <button class="btn" type="button" data-tone="soft">Soft</button>
+          <button class="btn primary" type="button" data-tone="balanced">Balanced</button>
+          <button class="btn" type="button" data-tone="firm">Firm</button>
+        </div>
+        <div class="source-mini">
+          <a href="files/source_slices/today_white_lies_writing_speaking/preinter-vocab-opinion-agree-disagree-p0141-p0142.pdf" data-title="Vocabulary in Use · Opinions and disagreement · pp.141-142" data-full="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/pre-intermediate-english-vocabulary-in-use-da4f03a4.pdf" target="sourcePreview">opinion language</a>
+          <a href="files/open_enrichment_fragments/ladies-vase-true-politeness.html" data-title="The Ladies’ Vase · True politeness" data-full="files/open_enrichment/ladies-vase-politeness-tact.txt" target="sourcePreview">tact source</a>
+          <a href="files/source_slices/today_white_lies_writing_speaking/advanced-idioms-agree-disagree-p0097-p0098.pdf" data-title="Advanced Idioms in Use · Agreeing and disagreeing · pp.97-98" data-full="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/advanced-english-idioms-in-use-41b88587.pdf" target="sourcePreview">disagreement idioms</a>
+        </div>
+      </div>
+      <div class="tone-output" id="toneOutput">
+        <b>Balanced feedback</b>
+        <span class="sentence">Your main idea was strong, but the structure was hard to follow. If you reorganize the points, the presentation will be much clearer.</span>
+        <span class="why">This version keeps the truth, protects dignity, and gives a next step.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="evidenceNotebookSection">
     <h2>Evidence Notebook</h2>
     <p>As you open source windows, save the ones you want to use. Try to collect one idea source, one language source, and one counterargument source.</p>
     <div class="notebook" id="evidenceNotebook">
@@ -652,7 +733,7 @@ body.reader-focus header{
     </div>
   </section>
 
-  <section class="panel" id="answerModels">
+  <section class="panel" id="evidenceLibrary">
     <h2>1. Evidence Library</h2>
     <p>Start here. Each card opens a focused page slice or literary fragment in the large reader on the right. The short cue tells you what the source is useful for.</p>
     <div class="filters" aria-label="source filters">
@@ -937,7 +1018,7 @@ body.reader-focus header{
     </ol>
   </section>
 
-  <section class="panel" id="draftBuilder">
+  <section class="panel" id="answerModels">
     <h2>4. Answer models: one idea, two levels</h2>
     <div class="model-grid">
       <article class="model-card">
@@ -1037,7 +1118,7 @@ body.reader-focus header{
     </div>
   </section>
 
-  <section class="panel">
+  <section class="panel" id="draftBuilder">
     <h2>8. Draft builder</h2>
     <div class="draft-tools">
       <button class="btn primary" type="button" id="insertOutline">Build outline from saved sources</button>
@@ -1090,6 +1171,8 @@ body.reader-focus header{
   const wordCount = document.getElementById('wordCount');
   const insertOutlineBtn = document.getElementById('insertOutline');
   const clearDraftBtn = document.getElementById('clearDraft');
+  const toneInput = document.getElementById('toneInput');
+  const toneOutput = document.getElementById('toneOutput');
   let currentSlice = frame ? frame.getAttribute('src') : '';
   let currentFull = 'https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/advanced-collocations-in-use-3871fef3.pdf';
   let currentTitle = 'Advanced Collocations · Essays and reports · pp.44-45';
@@ -1112,6 +1195,34 @@ body.reader-focus header{
     return String(value).replace(/[&<>"']/g, ch => ({
       '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
     }[ch]));
+  }
+  function transformTone(level){
+    if(!toneInput || !toneOutput) return;
+    const blunt = toneInput.value.trim() || 'Your presentation was confusing.';
+    const cleaned = blunt.replace(/[.!?]*$/,'');
+    const patterns = {
+      soft: {
+        label: 'Soft feedback',
+        sentence: `I can see the main idea you were aiming for. One part that might be worth clarifying is the structure, because ${cleaned.toLowerCase()} at times.`,
+        why: 'Soft tone protects confidence first, then introduces the problem as a small revision point.'
+      },
+      balanced: {
+        label: 'Balanced feedback',
+        sentence: `Your main idea was strong, but the structure was hard to follow. If you reorganize the points, the presentation will be much clearer.`,
+        why: 'Balanced tone keeps the truth, protects dignity, and gives a next step.'
+      },
+      firm: {
+        label: 'Firm feedback',
+        sentence: `The main issue is structure: ${cleaned.toLowerCase()}. I would revise the order before focusing on style.`,
+        why: 'Firm tone names the problem directly, but it still avoids personal attack and gives a concrete repair path.'
+      }
+    };
+    const choice = patterns[level] || patterns.balanced;
+    toneOutput.innerHTML = `<b>${escapeHtml(choice.label)}</b><span class="sentence">${escapeHtml(choice.sentence)}</span><span class="why">${escapeHtml(choice.why)}</span>`;
+    document.querySelectorAll('[data-tone]').forEach(button => {
+      const active = button.dataset.tone === level;
+      button.classList.toggle('primary', active);
+    });
   }
 
   function setCurrent(link){
@@ -1289,6 +1400,16 @@ body.reader-focus header{
       updateWordCount();
       draft.focus();
     });
+  }
+  let currentTone = 'balanced';
+  document.querySelectorAll('[data-tone]').forEach(button => {
+    button.addEventListener('click', () => {
+      currentTone = button.dataset.tone || 'balanced';
+      transformTone(currentTone);
+    });
+  });
+  if(toneInput){
+    toneInput.addEventListener('input', () => transformTone(currentTone));
   }
   const choiceResult = document.getElementById('choiceResult');
   document.querySelectorAll('.choice-card').forEach(card => {
