@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B132 Open Resource Topic Atlas</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --ink: #182133;
+      --muted: #5d6678;
+      --line: #d9e1ec;
+      --paper: #fffdf8;
+      --soft: #f5f7fb;
+      --blue: #1d4ed8;
+      --teal: #0f766e;
+      --amber: #a16207;
+      --violet: #6d28d9;
+    }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: #f4f0e8;
+      color: var(--ink);
+      line-height: 1.58;
+    }
+    header {
+      padding: 22px clamp(16px, 4vw, 42px);
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+    main { max-width: 1480px; margin: 0 auto; padding: 18px; }
+    h1 { margin: 8px 0; font-size: clamp(34px, 5vw, 58px); line-height: 1.02; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 25px; }
+    h3 { margin: 0 0 8px; font-size: 19px; }
+    p { margin: 0 0 10px; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .lead { max-width: 1050px; color: #364256; font-size: 18px; }
+    .topbar { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 7px 11px;
+      border-radius: 7px;
+      border: 1px solid #cbd5e1;
+      background: white;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .btn.primary { background: var(--ink); color: white; border-color: var(--ink); }
+    .btn.route { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    .stats { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+    .chip {
+      display: inline-flex;
+      border: 1px solid #d5dde9;
+      background: #f8fafc;
+      border-radius: 999px;
+      padding: 4px 9px;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 750;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 14px;
+    }
+    .topic {
+      background: white;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--teal);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 1px 5px rgba(15, 23, 42, .045);
+    }
+    .topic:nth-child(3n+2) { border-left-color: var(--amber); }
+    .topic:nth-child(3n+3) { border-left-color: var(--violet); }
+    .meta { color: var(--muted); font-size: 13px; }
+    .quote {
+      margin: 10px 0;
+      padding: 11px 12px;
+      border-left: 4px solid var(--teal);
+      border-radius: 6px;
+      background: #ecfdf5;
+      color: #173a34;
+    }
+    .use {
+      margin-top: 10px;
+      padding: 10px;
+      background: #fff8e8;
+      border: 1px solid #f1dfad;
+      border-radius: 7px;
+    }
+    .source-list {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #e5e7eb;
+      display: grid;
+      gap: 8px;
+    }
+    .source {
+      background: var(--soft);
+      border: 1px solid #e2e8f0;
+      border-radius: 7px;
+      padding: 9px;
+      font-size: 14px;
+    }
+    .source b { display: block; margin-bottom: 2px; }
+    .panel {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 760px) {
+      main { padding: 12px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="topbar">
+      <a class="btn primary" href="index.html">B132 viewer</a>
+      <a class="btn route" href="ethan-white-lies-writing-speaking-context-lab.html">White lies lab</a>
+      <a class="btn route" href="today-topic-white-lies-fragment-deck.html">Fragment deck</a>
+      <a class="btn route" href="writing-advanced-usage-megahub.html">Advanced usage hub</a>
+    </nav>
+    <h1>Open Resource Topic Atlas</h1>
+    <p class="lead">
+      Ten source-first classroom topics built from public-domain books and B132 open fragments.
+      Each topic begins with source material, then turns it into speaking and writing moves.
+    </p>
+    <div class="stats">
+      <span class="chip">10 topic seeds</span>
+      <span class="chip">public-domain friendly</span>
+      <span class="chip">B2-C1</span>
+      <span class="chip">speaking + writing</span>
+      <span class="chip">source-first</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>How to Use It</h2>
+      <p>Pick a topic, read the source cue, then make students build an answer using the speaking move and writing move. These are not lecture notes; they are launch pads for richer discussion.</p>
+    </section>
+
+    <section class="grid">
+      <article class="topic" id="tact-truth">
+        <h2>1. Tact vs Brutal Honesty</h2>
+        <p class="meta">Question: Is honesty still a virtue when it becomes needlessly hurtful?</p>
+        <p class="quote">Source cue: Twain asks us to compare an “injurious truth” with an “injurious lie.”</p>
+        <p>Class angle: students usually say “honesty is good.” Push them to distinguish truth, cruelty, tact, and social responsibility.</p>
+        <div class="use"><b>Speaking move:</b> I value honesty, but I do not think honesty gives someone permission to be cruel.</div>
+        <div class="use"><b>Writing move:</b> The moral value of truth depends partly on intention and effect, not merely on factual accuracy.</div>
+        <div class="source-list">
+          <div class="source"><b>Twain, “On the Decay of the Art of Lying”</b><a href="files/open_enrichment_fragments/twain-brutal-truth.html">Open fragment</a></div>
+          <div class="source"><b>The Ladies’ Vase</b><a href="files/open_enrichment_fragments/ladies-vase-true-politeness.html">Open fragment</a></div>
+        </div>
+      </article>
+
+      <article class="topic" id="public-opinion">
+        <h2>2. Public Opinion and Conformity</h2>
+        <p class="meta">Question: How much of what we call “choice” is actually social pressure?</p>
+        <p class="quote">Source cue: Mark Twain writes that public opinion can force some men to do “anything.”</p>
+        <p>Class angle: useful for school uniforms, social media, cancel culture, exam pressure, and “everyone is doing it” logic.</p>
+        <div class="use"><b>Speaking move:</b> I would not say people are completely controlled by society, but social approval can quietly shape their choices.</div>
+        <div class="use"><b>Writing move:</b> Public opinion functions as an invisible form of pressure because it rewards conformity and punishes deviation.</div>
+        <div class="source-list">
+          <div class="source"><b>open-pg-70 — Twain, <i>What Is Man? and Other Essays</i></b><a href="https://www.gutenberg.org/ebooks/70" target="_blank">Open original</a></div>
+          <div class="source"><b>open-pg-70579 — <i>The philosophy of Elbert Hubbard</i></b><a href="https://www.gutenberg.org/ebooks/70579" target="_blank">Open original</a></div>
+        </div>
+      </article>
+
+      <article class="topic" id="pride-vanity">
+        <h2>3. Pride, Vanity, and Social Image</h2>
+        <p class="meta">Question: Do people lie to protect others, or to protect the image they want others to have of them?</p>
+        <p class="quote">Source cue: Austen separates pride from vanity: one concerns self-opinion, the other concerns what others think.</p>
+        <p>Class angle: excellent for Instagram, grades, resumes, friendship, and the pressure to look successful.</p>
+        <div class="use"><b>Speaking move:</b> Some lies are less about kindness and more about managing one’s public image.</div>
+        <div class="use"><b>Writing move:</b> Social image can turn honesty into a performance rather than a genuine commitment to truth.</div>
+        <div class="source-list">
+          <div class="source"><b>Austen, <i>Pride and Prejudice</i></b><a href="files/open_enrichment_fragments/austen-pride-vanity.html">Open fragment</a></div>
+        </div>
+      </article>
+
+      <article class="topic" id="courage-fear">
+        <h2>4. Courage and Fear</h2>
+        <p class="meta">Question: Is courage the absence of fear, or a way of moving through fear?</p>
+        <p class="quote">Source cue: Barrie presents courage as something to pray for, work for, and live with light-heartedness.</p>
+        <p>Class angle: strong for oral exams, stage fright, speaking English, and students who are afraid of making mistakes.</p>
+        <div class="use"><b>Speaking move:</b> Courage does not mean I feel no fear; it means I refuse to let fear make the decision for me.</div>
+        <div class="use"><b>Writing move:</b> The ability to act under pressure is more realistic, and perhaps more admirable, than the fantasy of being fearless.</div>
+        <div class="source-list">
+          <div class="source"><b>open-pg-10767 — J. M. Barrie, <i>Courage</i></b><a href="https://www.gutenberg.org/ebooks/10767" target="_blank">Open original</a></div>
+        </div>
+      </article>
+
+      <article class="topic" id="education-present">
+        <h2>5. Education and the Present</h2>
+        <p class="meta">Question: Should education prepare students for exams, for work, or for the present life they are already living?</p>
+        <p class="quote">Source cue: Whitehead warns against depreciating the present and treating education as dead knowledge.</p>
+        <p>Class angle: perfect for GSAT/GEPT writing about education, pressure, relevance, creativity, and usefulness.</p>
+        <div class="use"><b>Speaking move:</b> Education should not only prepare us for the future; it should also make the present more meaningful.</div>
+        <div class="use"><b>Writing move:</b> Knowledge becomes powerful when students can connect it to the problems and experiences of the present.</div>
+        <div class="source-list">
+          <div class="source"><b>open-pg-77011 — Whitehead, <i>The Organisation of Thought</i></b><a href="https://www.gutenberg.org/ebooks/77011" target="_blank">Open original</a></div>
+        </div>
+      </article>
+
+      <article class="topic" id="habit-self-control">
+        <h2>6. Habit and Self-Control</h2>
+        <p class="meta">Question: Are we governed more by decisions or by habits?</p>
+        <p class="quote">Source cue: Schopenhauer and other essayists treat habit as a force that can quietly govern life.</p>
+        <p>Class angle: useful for phone use, study routines, procrastination, health, and language-learning discipline.</p>
+        <div class="use"><b>Speaking move:</b> A habit is powerful because it turns a choice into something we no longer notice choosing.</div>
+        <div class="use"><b>Writing move:</b> Long-term improvement often depends less on dramatic motivation than on small repeated patterns.</div>
+        <div class="source-list">
+          <div class="source"><b>open-pg-10714 — Schopenhauer, essays</b><a href="https://www.gutenberg.org/ebooks/10714" target="_blank">Open original</a></div>
+        </div>
+      </article>
+
+      <article class="topic" id="fiction-truth">
+        <h2>7. Fiction and Truth</h2>
+        <p class="meta">Question: Can something invented reveal a truth that plain facts cannot?</p>
+        <p class="quote">Source cue: Wilde argues that art and fiction can be more than factual copying.</p>
+        <p>Class angle: use this for novels, movies, AI-generated stories, memoir, social media persona, and “based on a true story.”</p>
+        <div class="use"><b>Speaking move:</b> Fiction can be factually false and still emotionally true.</div>
+        <div class="use"><b>Writing move:</b> A narrative may distort facts, yet reveal patterns of desire, fear, or behavior more clearly than a report.</div>
+        <div class="source-list">
+          <div class="source"><b>Wilde, <i>The Decay of Lying</i></b><a href="files/open_enrichment_fragments/wilde-literature-facts-fiction.html">Open fragment</a></div>
+          <div class="source"><b>Wilde, art vs nature</b><a href="files/open_enrichment_fragments/wilde-art-vs-nature.html">Open fragment</a></div>
+        </div>
+      </article>
+
+      <article class="topic" id="work-success">
+        <h2>8. Work, Usefulness, and Success</h2>
+        <p class="meta">Question: Is success about recognition, usefulness, money, or inner discipline?</p>
+        <p class="quote">Source cue: public-domain essays repeatedly connect work with character, social value, and public judgment.</p>
+        <p>Class angle: good for career goals, cram school, university choice, and the difference between being impressive and being useful.</p>
+        <div class="use"><b>Speaking move:</b> I think success should include usefulness, not just visibility or status.</div>
+        <div class="use"><b>Writing move:</b> A society that confuses success with attention may reward display more than contribution.</div>
+        <div class="source-list">
+          <div class="source"><b>open-pg-70579 — <i>The philosophy of Elbert Hubbard</i></b><a href="https://www.gutenberg.org/ebooks/70579" target="_blank">Open original</a></div>
+        </div>
+      </article>
+
+      <article class="topic" id="kindness-civility">
+        <h2>9. Kindness, Civility, and Respect</h2>
+        <p class="meta">Question: Is politeness just fake niceness, or can it be a serious moral skill?</p>
+        <p class="quote">Source cue: <i>The Ladies’ Vase</i> treats true politeness as the outward form of a refined and kind mind.</p>
+        <p>Class angle: strong for classroom manners, disagreement, online comments, service workers, and family communication.</p>
+        <div class="use"><b>Speaking move:</b> Politeness is not always fake; it can be respect made visible.</div>
+        <div class="use"><b>Writing move:</b> Civility matters because disagreement becomes more productive when people feel respected rather than attacked.</div>
+        <div class="source-list">
+          <div class="source"><b>The Ladies’ Vase</b><a href="files/open_enrichment_fragments/ladies-vase-false-politeness.html">Open fragment</a></div>
+          <div class="source"><b>Austen, frankness and civility</b><a href="files/open_enrichment_fragments/austen-frankness-civility.html">Open fragment</a></div>
+        </div>
+      </article>
+
+      <article class="topic" id="freedom-responsibility">
+        <h2>10. Freedom and Responsibility</h2>
+        <p class="meta">Question: When does freedom become more than “doing whatever I want”?</p>
+        <p class="quote">Source cue: MacSwiney connects freedom with public duty, difficult choices, and responsibility.</p>
+        <p>Class angle: suitable for school rules, social media speech, political discussion, adulthood, and moral courage.</p>
+        <div class="use"><b>Speaking move:</b> Freedom is meaningful only when people are willing to accept responsibility for its consequences.</div>
+        <div class="use"><b>Writing move:</b> A mature view of freedom balances individual choice with public duty and the impact of one’s actions on others.</div>
+        <div class="source-list">
+          <div class="source"><b>open-pg-13132 — MacSwiney, <i>Principles of Freedom</i></b><a href="https://www.gutenberg.org/ebooks/13132" target="_blank">Open original</a></div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
