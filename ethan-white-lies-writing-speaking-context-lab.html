@@ -773,6 +773,21 @@ body.reader-focus header{
 }
 @media(max-width:760px){
   .topbar{position:static;align-items:flex-start;flex-direction:column}
+  .navlinks{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    width:100%;
+    max-width:100%;
+    padding-bottom:4px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .navlinks .btn{
+    flex:0 0 auto;
+    min-height:34px;
+    padding:7px 10px;
+    font-size:12px;
+    white-space:nowrap;
+  }
   header{padding:20px 14px 12px}
   .shell{padding:0 14px 24px}
   .source-grid,.quote-grid,.language-grid,.task-grid{grid-template-columns:1fr}
