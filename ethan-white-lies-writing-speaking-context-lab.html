@@ -626,6 +626,26 @@ textarea{
   color:var(--muted);
   background:#f8fbfa;
 }
+.readiness{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:8px;
+  margin:0 0 12px;
+}
+.ready-chip{
+  border:1px solid #d9e5e1;
+  border-radius:8px;
+  padding:9px 10px;
+  background:#f8fbfa;
+  color:#4b5d58;
+  font-size:13px;
+  font-weight:800;
+}
+.ready-chip.ok{
+  border-color:#8ad8c8;
+  background:var(--teal-soft);
+  color:var(--teal-dark);
+}
 .remove-note{
   border:0;
   background:#f2f6f4;
@@ -787,6 +807,12 @@ body.reader-focus header{
   <section class="panel" id="evidenceNotebookSection">
     <h2>Evidence Notebook</h2>
     <p>As you open source windows, save the ones you want to use. Try to collect one idea source, one language source, and one counterargument source.</p>
+    <div class="readiness" id="readinessPanel" aria-label="answer readiness">
+      <span class="ready-chip" data-ready="sources">0 saved sources</span>
+      <span class="ready-chip" data-ready="length">0 draft words</span>
+      <span class="ready-chip" data-ready="contrast">Needs contrast</span>
+      <span class="ready-chip" data-ready="concept">Needs core concept</span>
+    </div>
     <div class="notebook" id="evidenceNotebook">
       <div class="note-empty">No saved sources yet. Open a source window and press <b>Save source</b>.</div>
     </div>
@@ -1279,6 +1305,12 @@ body.reader-focus header{
   const clearDraftBtn = document.getElementById('clearDraft');
   const toneInput = document.getElementById('toneInput');
   const toneOutput = document.getElementById('toneOutput');
+  const readyChips = {
+    sources: document.querySelector('[data-ready="sources"]'),
+    length: document.querySelector('[data-ready="length"]'),
+    contrast: document.querySelector('[data-ready="contrast"]'),
+    concept: document.querySelector('[data-ready="concept"]')
+  };
   let currentSlice = frame ? frame.getAttribute('src') : '';
   let currentFull = 'https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/advanced-collocations-in-use-3871fef3.pdf';
   let currentTitle = 'Advanced Collocations · Essays and reports · pp.44-45';
@@ -1310,6 +1342,25 @@ body.reader-focus header{
     return String(value).replace(/[&<>"']/g, ch => ({
       '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
     }[ch]));
+  }
+  function draftWordCount(){
+    if(!draft) return 0;
+    return (draft.value.trim().match(/[A-Za-z]+(?:[-'][A-Za-z]+)?/g) || []).length;
+  }
+  function setReadyChip(chip, ok, text){
+    if(!chip) return;
+    chip.classList.toggle('ok', ok);
+    chip.textContent = text;
+  }
+  function updateReadiness(){
+    const text = draft ? draft.value : '';
+    const words = draftWordCount();
+    const hasContrast = /\b(although|however|yet|while|whereas|that said|on the other hand|nevertheless|even so)\b/i.test(text);
+    const hasConcept = /\b(trust|credibility|dignity|tact|motive|self-image|vanity|injur(?:e|ious)|honesty)\b/i.test(text);
+    setReadyChip(readyChips.sources, savedSources.length >= 2, `${savedSources.length} saved source${savedSources.length === 1 ? '' : 's'}`);
+    setReadyChip(readyChips.length, words >= 80, `${words} draft word${words === 1 ? '' : 's'}`);
+    setReadyChip(readyChips.contrast, hasContrast, hasContrast ? 'Contrast included' : 'Needs contrast');
+    setReadyChip(readyChips.concept, hasConcept, hasConcept ? 'Core concept included' : 'Needs core concept');
   }
   function transformTone(level){
     if(!toneInput || !toneOutput) return;
@@ -1442,6 +1493,7 @@ body.reader-focus header{
     try{ localStorage.setItem('whiteLiesSavedSources', JSON.stringify(savedSources)); }catch(e){}
     if(savedSources.length === 0){
       notebook.innerHTML = '<div class="note-empty">No saved sources yet. Open a source window and press <b>Save source</b>.</div>';
+      updateReadiness();
       return;
     }
     notebook.innerHTML = savedSources.map((item,index) => `
@@ -1467,6 +1519,7 @@ body.reader-focus header{
         renderNotebook();
       });
     });
+    updateReadiness();
   }
   saveBtn.addEventListener('click', () => {
     if(!currentSlice) return;
@@ -1479,8 +1532,9 @@ body.reader-focus header{
 
   function updateWordCount(){
     if(!draft || !wordCount) return;
-    const words = (draft.value.trim().match(/[A-Za-z]+(?:[-'][A-Za-z]+)?/g) || []).length;
+    const words = draftWordCount();
     wordCount.textContent = words + (words === 1 ? ' word' : ' words');
+    updateReadiness();
   }
   if(draft){
     draft.addEventListener('input', updateWordCount);
