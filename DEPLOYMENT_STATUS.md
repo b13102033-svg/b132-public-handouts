@@ -27,7 +27,14 @@ Validation:
 - Student review page returned HTTP 200.
 - Student review page contains the Longteng Unit 50-54 title.
 - Student review page contains at least 90 input fields and 90 buttons.
+- Student review page now contains the scoring dashboard and teacher report flow.
+- Public-page browser test confirmed scoring, answer reveal, and teacher report generation.
 - Ethan GEPT pages were exported as public student versions with local B132 source links disabled rather than broken.
+
+Latest student-page interaction update:
+- Commit: 93b8b58
+- Added live score dashboard, class/name/seat fields, elapsed timer, section scores, local answer saving, CSV download, copyable teacher report, email handoff, and a placeholder endpoint for future automatic submission.
+- Fixed answer reveal so it shows actual accepted answers from each `data-answer`, not only hints.
 
 Update workflow:
 1. Edit or replace `longteng-vocab-king-unit50-54-review.html`.
