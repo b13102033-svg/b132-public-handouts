@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B132 Open Resource Readiness Dashboard</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root { --ink:#152033; --muted:#5b6473; --line:#d8e0ea; --paper:#fffdf8; --soft:#f6f8fb; --blue:#1d4ed8; --green:#0f766e; --gold:#9a5f00; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; color:var(--ink); background:#f4f1ea; line-height:1.55; }
+    header { background:var(--paper); border-bottom:1px solid var(--line); padding:28px clamp(18px,4vw,54px); }
+    main { max-width:1500px; margin:0 auto; padding:18px; }
+    h1 { margin:0 0 10px; font-size:clamp(36px,5.5vw,64px); line-height:1; letter-spacing:0; }
+    h2 { margin:0 0 12px; font-size:26px; }
+    h3 { margin:0 0 8px; font-size:18px; }
+    p { margin:0 0 10px; }
+    a { color:var(--blue); text-decoration:none; } a:hover { text-decoration:underline; }
+    .lead { max-width:1050px; color:#39465c; font-size:18px; }
+    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin-top:18px; }
+    .stat { background:white; border:1px solid var(--line); border-radius:8px; padding:14px; }
+    .stat strong { display:block; font-size:32px; line-height:1; }
+    .stat span { color:var(--muted); font-size:13px; font-weight:700; }
+    .toolbar { position:sticky; top:0; z-index:2; background:#f4f1eaee; backdrop-filter:blur(8px); padding:12px 0; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    input { flex:1 1 300px; min-height:42px; border:1px solid #cbd5e1; border-radius:8px; padding:9px 12px; font-size:15px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:36px; padding:8px 12px; border-radius:7px; border:1px solid #cbd5e1; background:white; color:var(--ink); font-weight:750; cursor:pointer; }
+    .btn.primary { background:var(--ink); color:white; border-color:var(--ink); }
+    .panel { background:white; border:1px solid var(--line); border-radius:8px; padding:16px; margin:14px 0; }
+    .topics { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:10px; }
+    .topic { border:1px solid #dbe4ef; border-left:5px solid var(--green); border-radius:8px; padding:13px; background:#fbfdff; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:12px; }
+    .card { position:relative; background:white; border:1px solid var(--line); border-radius:8px; padding:15px; min-height:220px; }
+    .num { position:absolute; right:12px; top:10px; color:#94a3b8; font-weight:900; }
+    .meta { color:var(--muted); font-size:12px; font-weight:750; padding-right:45px; }
+    .actions { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+    .queue { columns:2 330px; color:#334155; }
+    footer { padding:26px; color:var(--muted); text-align:center; }
+    @media (max-width:700px) { main { padding:12px; } .card { min-height:auto; } .queue { columns:1; } }
+  </style>
+</head>
+<body>
+<header>
+  <h1>B132 Open Resource Readiness</h1>
+  <p class="lead">A student-friendly doorway into the new open/public-domain expansion: what is already searchable, what is downloaded but still waiting for processing, and what can be used as official exam route material.</p>
+  <div class="stats">
+    <div class="stat"><strong>2136</strong><span>open-resource entries registered</span></div>
+    <div class="stat"><strong>90</strong><span>books ready for B132 chunk retrieval</span></div>
+    <div class="stat"><strong>670</strong><span>downloaded texts waiting for processing</span></div>
+    <div class="stat"><strong>26</strong><span>official English-exam route families</span></div>
+  </div>
+</header>
+<main>
+  <section class="panel">
+    <h2>What this unlocks</h2>
+    <div class="topics"><div class="topic"><h3>Tact vs brutal honesty</h3><p>Use public-domain fragments to stage disagreement, white lies, politeness, and sincerity.</p></div><div class="topic"><h3>Education and the present</h3><p>Bring education essays into GSAT/GEPT-style context prompts about what school is for.</p></div><div class="topic"><h3>Habit and self-control</h3><p>Pair moral essays with writing practice on discipline, temptation, and self-improvement.</p></div><div class="topic"><h3>Public opinion and conformity</h3><p>Use social essays to discuss online pressure, group judgment, and independent thinking.</p></div><div class="topic"><h3>Fiction and truth</h3><p>Use literary criticism and fiction fragments to ask when stories tell truth better than facts.</p></div><div class="topic"><h3>Courage and fear</h3><p>Build speaking prompts around moral pressure, wartime rhetoric, and personal decision-making.</p></div><div class="topic"><h3>Freedom and responsibility</h3><p>Turn rights/social reform texts into argument-writing drills.</p></div><div class="topic"><h3>Science and society</h3><p>Use public-domain science essays for advanced explanatory writing and vocabulary.</p></div><div class="topic"><h3>Style imitation lab</h3><p>Use older prose as sentence-rhythm and diction material, then modernize it.</p></div><div class="topic"><h3>Quote-led writing prompts</h3><p>Let students respond to a short public-domain line, then build an argument around it.</p></div></div>
+  </section>
+
+  <div class="toolbar">
+    <input id="search" placeholder="Search ready books: education, science, fiction, rights, habit, literature..." oninput="filterCards()" />
+    <a class="btn primary" href="b132-open-resource-topic-atlas.html">Open topic atlas</a>
+    <a class="btn" href="index.html">Back to handout index</a>
+  </div>
+
+  <section class="panel">
+    <h2>90 retrieval-ready public-domain books</h2>
+    <p class="lead">These have local text, canonical B132 exports, and chunk rows. Use them first for quote-led writing prompts, speaking discussion, literary/social context, and style imitation.</p>
+    <div class="grid" id="cards">
+      <article class="card" data-title="an address to men of science calling upon them to stand forward and vindicate the truth...." data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">01</div>
+        <h3>An Address to Men of Science Calling Upon Them to Stand Forward and Vindicate the Truth....</h3>
+        <p class="meta">open-pg-38379-an-address-to-men-of-science-calling-upon · 24 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/38379" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-38379-an-address-to-men-of-science-calling-upon')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="science &amp; education: essays" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">02</div>
+        <h3>Science &amp; Education: Essays</h3>
+        <p class="meta">open-pg-7150-science-education-essays · 147 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/7150" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-7150-science-education-essays')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the place of science in modern civilisation, and other essays" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">03</div>
+        <h3>The Place of Science in Modern Civilisation, and Other Essays</h3>
+        <p class="meta">open-pg-39949-the-place-of-science-in-modern-civilisation-and · 205 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/39949" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-39949-the-place-of-science-in-modern-civilisation-and')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="a vindication of the rights of woman with strictures on political and moral subjects" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">04</div>
+        <h3>A Vindication of the Rights of Woman With Strictures on Political and Moral Subjects</h3>
+        <p class="meta">open-pg-3420-a-vindication-of-the-rights-of-woman-with · 117 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3420" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3420-a-vindication-of-the-rights-of-woman-with')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="chips from a german workshop, volume 1 essays on the science of religion" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">05</div>
+        <h3>Chips from a German Workshop, Volume 1 Essays on the Science of Religion</h3>
+        <p class="meta">open-pg-24686-chips-from-a-german-workshop-volume-1-essays · 157 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/24686" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-24686-chips-from-a-german-workshop-volume-1-essays')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="civilisation: its cause and cure; and other essays" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">06</div>
+        <h3>Civilisation: Its Cause and Cure; and Other Essays</h3>
+        <p class="meta">open-pg-44094-civilisation-its-cause-and-cure-and-other-essays · 105 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44094" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44094-civilisation-its-cause-and-cure-and-other-essays')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="considerations on religion and public education with remarks on the speech of m. dupont delivered in the national convention of france, together with an address to the ladies, &amp;c. of great britain and ireland" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">07</div>
+        <h3>Considerations on Religion and Public Education With remarks on the speech of M. Dupont delivered in the National Convention of France, together with an address to the ladies, &amp;c. of Great Britain and Ireland</h3>
+        <p class="meta">open-pg-37774-considerations-on-religion-and-public-education-with-remarks · 13 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/37774" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-37774-considerations-on-religion-and-public-education-with-remarks')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="mysticism and logic and other essays" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">08</div>
+        <h3>Mysticism and Logic and Other Essays</h3>
+        <p class="meta">open-pg-25447-mysticism-and-logic-and-other-essays · 100 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/25447" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-25447-mysticism-and-logic-and-other-essays')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="myth and science an essay" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">09</div>
+        <h3>Myth and Science An Essay</h3>
+        <p class="meta">open-pg-17802-myth-and-science-an-essay · 112 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/17802" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-17802-myth-and-science-an-essay')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="science and culture, and other essays" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">10</div>
+        <h3>Science and Culture, and Other Essays</h3>
+        <p class="meta">open-pg-52344-science-and-culture-and-other-essays · 128 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/52344" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-52344-science-and-culture-and-other-essays')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="strange visitors a series of original papers, embracing philosophy, science, government, religion, poetry, art, fiction, satire, humor, narrative, and prophecy, by the spirits of irving, willis, thackeray, brontë, richter, byron, humboldt, hawthorne, wesley, browning, and others now dwelling in the spirit world; dictated through a clairvoyant, while in an abnormal or trance state" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">11</div>
+        <h3>Strange Visitors A series of original papers, embracing philosophy, science, government, religion, poetry, art, fiction, satire, humor, narrative, and prophecy, by the spirits of Irving, Willis, Thackeray, Brontë, Richter, Byron, Humboldt, Hawthorne, Wesley, Browning, and others now dwelling in the spirit world; dictated through a clairvoyant, while in an abnormal or trance state</h3>
+        <p class="meta">open-pg-13237-strange-visitors-a-series-of-original-papers-embracing · 77 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/13237" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-13237-strange-visitors-a-series-of-original-papers-embracing')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the crown of wild olive also munera pulveris; pre-raphaelitism; aratra pentelici; the ethics of the dust; fiction, fair and foul; the elements of drawing" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">12</div>
+        <h3>The Crown of Wild Olive also Munera Pulveris; Pre-Raphaelitism; Aratra Pentelici; The Ethics of the Dust; Fiction, Fair and Foul; The Elements of Drawing</h3>
+        <p class="meta">open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris · 414 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26716" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26716-the-crown-of-wild-olive-also-munera-pulveris')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the interpreters of genesis and the interpreters of nature essay #4 from &quot;science and hebrew tradition&quot;" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">13</div>
+        <h3>The Interpreters of Genesis and the Interpreters of Nature Essay #4 from &quot;Science and Hebrew Tradition&quot;</h3>
+        <p class="meta">open-pg-2630-the-interpreters-of-genesis-and-the-interpreters-of · 12 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/2630" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-2630-the-interpreters-of-genesis-and-the-interpreters-of')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the path, vol. i.—1886-&#x27;7. a magazine devoted to the brotherhood of humanity, theosophy in america, and the study of occult science, philosophy, and aryan literature." data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">14</div>
+        <h3>The Path, Vol. I.—1886-&#x27;7. A Magazine Devoted to the Brotherhood of Humanity, Theosophy in America, and the Study of Occult Science, Philosophy, and Aryan Literature.</h3>
+        <p class="meta">open-pg-59038-the-path-vol-i-1886-7-a-magazine · 239 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/59038" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-59038-the-path-vol-i-1886-7-a-magazine')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="a letter to the society for the suppression of vice, on their malignant efforts to prevent a free enquiry after truth and reason" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">15</div>
+        <h3>A Letter to the Society for the Suppression of Vice, on Their Malignant Efforts to Prevent a Free Enquiry After Truth and Reason</h3>
+        <p class="meta">open-pg-40212-a-letter-to-the-society-for-the-suppression · 9 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/40212" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-40212-a-letter-to-the-society-for-the-suppression')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="a philosophical dictionary, volume 03" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">16</div>
+        <h3>A Philosophical Dictionary, Volume 03</h3>
+        <p class="meta">open-pg-35623-a-philosophical-dictionary-volume-03 · 104 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/35623" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-35623-a-philosophical-dictionary-volume-03')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="an essay on papal infallibility" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">17</div>
+        <h3>An Essay on Papal Infallibility</h3>
+        <p class="meta">open-pg-52759-an-essay-on-papal-infallibility · 25 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/52759" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-52759-an-essay-on-papal-infallibility')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="an estimate of the value and influence of works of fiction in modern times" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">18</div>
+        <h3>An Estimate of the Value and Influence of Works of Fiction in Modern Times</h3>
+        <p class="meta">open-pg-20843-an-estimate-of-the-value-and-influence-of · 26 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20843" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20843-an-estimate-of-the-value-and-influence-of')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="appletons&#x27; popular science monthly, october 1899 vol. lv, may to october, 1899" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">19</div>
+        <h3>Appletons&#x27; Popular Science Monthly, October 1899 Vol. LV, May to October, 1899</h3>
+        <p class="meta">open-pg-46710-appletons-popular-science-monthly-october-1899-vol-lv · 102 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/46710" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-46710-appletons-popular-science-monthly-october-1899-vol-lv')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="appreciations, with an essay on style" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">20</div>
+        <h3>Appreciations, with an Essay on Style</h3>
+        <p class="meta">open-pg-4037-appreciations-with-an-essay-on-style · 87 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/4037" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-4037-appreciations-with-an-essay-on-style')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="art principles in literature" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">21</div>
+        <h3>Art principles in literature</h3>
+        <p class="meta">open-pg-64443-art-principles-in-literature · 50 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/64443" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-64443-art-principles-in-literature')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="chips from a german workshop, volume 5 miscellaneous later essays" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">22</div>
+        <h3>Chips from a German Workshop, Volume 5 Miscellaneous Later Essays</h3>
+        <p class="meta">open-pg-27810-chips-from-a-german-workshop-volume-5-miscellaneous · 108 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/27810" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-27810-chips-from-a-german-workshop-volume-5-miscellaneous')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="critical miscellanies (vol. 2 of 3), essay 3: condorcet" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">23</div>
+        <h3>Critical Miscellanies (Vol. 2 of 3), Essay 3: Condorcet</h3>
+        <p class="meta">open-pg-24492-critical-miscellanies-vol-2-of-3-essay-3 · 35 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/24492" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-24492-critical-miscellanies-vol-2-of-3-essay-3')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="democracy and social ethics" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">24</div>
+        <h3>Democracy and Social Ethics</h3>
+        <p class="meta">open-pg-15487-democracy-and-social-ethics · 70 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/15487" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-15487-democracy-and-social-ethics')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="essays" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">25</div>
+        <h3>Essays</h3>
+        <p class="meta">open-pg-36120-essays · 51 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/36120" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-36120-essays')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="essays of michel de montaigne — volume 05" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">26</div>
+        <h3>Essays of Michel de Montaigne — Volume 05</h3>
+        <p class="meta">open-pg-3585-essays-of-michel-de-montaigne-volume-05 · 30 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3585" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3585-essays-of-michel-de-montaigne-volume-05')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="lectures on dramatic art and literature" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">27</div>
+        <h3>Lectures on Dramatic Art and Literature</h3>
+        <p class="meta">open-pg-7148-lectures-on-dramatic-art-and-literature · 279 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/7148" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-7148-lectures-on-dramatic-art-and-literature')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="on the significance of science and art" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">28</div>
+        <h3>On the Significance of Science and Art</h3>
+        <p class="meta">open-pg-3631-on-the-significance-of-science-and-art · 35 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3631" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3631-on-the-significance-of-science-and-art')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="personality in literature" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">29</div>
+        <h3>Personality in Literature</h3>
+        <p class="meta">open-pg-22303-personality-in-literature · 84 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/22303" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-22303-personality-in-literature')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="practical essays" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">30</div>
+        <h3>Practical Essays</h3>
+        <p class="meta">open-pg-17522-practical-essays · 116 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/17522" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-17522-practical-essays')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="psychical miscellanea being papers on psychical research, telepathy, hypnotism, christian science, etc." data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">31</div>
+        <h3>Psychical Miscellanea Being Papers on Psychical Research, Telepathy, Hypnotism, Christian Science, etc.</h3>
+        <p class="meta">open-pg-37565-psychical-miscellanea-being-papers-on-psychical-research-telepathy · 49 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/37565" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-37565-psychical-miscellanea-being-papers-on-psychical-research-telepathy')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="reflections on the operation of the present system of education, 1853" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">32</div>
+        <h3>Reflections on the Operation of the Present System of Education, 1853</h3>
+        <p class="meta">open-pg-28330-reflections-on-the-operation-of-the-present-system · 12 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/28330" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-28330-reflections-on-the-operation-of-the-present-system')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="sartor resartus, and on heroes, hero-worship, and the heroic in history" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">33</div>
+        <h3>Sartor Resartus, and On Heroes, Hero-Worship, and the Heroic in History</h3>
+        <p class="meta">open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and · 239 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20585" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20585-sartor-resartus-and-on-heroes-hero-worship-and')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the doctor looks at literature" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">34</div>
+        <h3>The doctor looks at literature</h3>
+        <p class="meta">open-pg-75230-the-doctor-looks-at-literature · 128 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/75230" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-75230-the-doctor-looks-at-literature')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the ethics of george eliot&#x27;s works" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">35</div>
+        <h3>The Ethics of George Eliot&#x27;s Works</h3>
+        <p class="meta">open-pg-17172-the-ethics-of-george-eliot-s-works · 42 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/17172" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-17172-the-ethics-of-george-eliot-s-works')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the mind in the making: the relation of intelligence to social reform" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">36</div>
+        <h3>The Mind in the Making: The Relation of Intelligence to Social Reform</h3>
+        <p class="meta">open-pg-8077-the-mind-in-the-making-the-relation-of · 65 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/8077" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-8077-the-mind-in-the-making-the-relation-of')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the old humanities and the new science" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">37</div>
+        <h3>The Old Humanities and the New Science</h3>
+        <p class="meta">open-pg-48994-the-old-humanities-and-the-new-science · 20 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48994" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48994-the-old-humanities-and-the-new-science')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the organisation of thought, educational and scientific" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">38</div>
+        <h3>The organisation of thought, educational and scientific</h3>
+        <p class="meta">open-pg-77011-the-organisation-of-thought-educational-and-scientific · 71 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/77011" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-77011-the-organisation-of-thought-educational-and-scientific')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="three philosophical poets: lucretius, dante, and goethe" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">39</div>
+        <h3>Three Philosophical Poets: Lucretius, Dante, and Goethe</h3>
+        <p class="meta">open-pg-35612-three-philosophical-poets-lucretius-dante-and-goethe · 70 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/35612" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-35612-three-philosophical-poets-lucretius-dante-and-goethe')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="war and the weird" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">40</div>
+        <h3>War and the Weird</h3>
+        <p class="meta">open-pg-25037-war-and-the-weird · 53 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/25037" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-25037-war-and-the-weird')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="&quot;bethink yourselves!&quot;" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">41</div>
+        <h3>&quot;Bethink Yourselves!&quot;</h3>
+        <p class="meta">open-pg-27189-bethink-yourselves · 22 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/27189" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-27189-bethink-yourselves')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="a dish of orts : chiefly papers on the imagination, and on shakespeare" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">42</div>
+        <h3>A Dish of Orts : Chiefly Papers on the Imagination, and on Shakespeare</h3>
+        <p class="meta">open-pg-9393-a-dish-of-orts-chiefly-papers-on-the · 124 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9393" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9393-a-dish-of-orts-chiefly-papers-on-the')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="above the battle" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">43</div>
+        <h3>Above the Battle</h3>
+        <p class="meta">open-pg-32779-above-the-battle · 58 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/32779" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-32779-above-the-battle')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="blackwood&#x27;s edinburgh magazine, volume 57, no. 355, may 1845" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">44</div>
+        <h3>Blackwood&#x27;s Edinburgh Magazine, Volume 57, No. 355, May 1845</h3>
+        <p class="meta">open-pg-33141-blackwood-s-edinburgh-magazine-volume-57-no-355 · 120 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/33141" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-33141-blackwood-s-edinburgh-magazine-volume-57-no-355')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="conflict of northern and southern theories of man and society great speech, delivered in new york city" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">45</div>
+        <h3>Conflict of Northern and Southern Theories of Man and Society Great Speech, Delivered in New York City</h3>
+        <p class="meta">open-pg-25653-conflict-of-northern-and-southern-theories-of-man · 20 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/25653" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-25653-conflict-of-northern-and-southern-theories-of-man')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="critiques and addresses" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">46</div>
+        <h3>Critiques and Addresses</h3>
+        <p class="meta">open-pg-12506-critiques-and-addresses · 136 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/12506" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-12506-critiques-and-addresses')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="dreams" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">47</div>
+        <h3>Dreams</h3>
+        <p class="meta">open-pg-20842-dreams · 17 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20842" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20842-dreams')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="free thought and official propaganda" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">48</div>
+        <h3>Free Thought and Official Propaganda</h3>
+        <p class="meta">open-pg-44932-free-thought-and-official-propaganda · 15 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44932" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44932-free-thought-and-official-propaganda')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="hieroglyphics" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">49</div>
+        <h3>Hieroglyphics</h3>
+        <p class="meta">open-pg-40241-hieroglyphics · 63 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/40241" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-40241-hieroglyphics')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="homer&#x27;s odyssey a commentary" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">50</div>
+        <h3>Homer&#x27;s Odyssey A Commentary</h3>
+        <p class="meta">open-pg-26275-homer-s-odyssey-a-commentary · 163 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26275" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26275-homer-s-odyssey-a-commentary')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="india: what can it teach us? a course of lectures delivered before the university of cambridge" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">51</div>
+        <h3>India: What can it teach us? A Course of Lectures Delivered before the University Of Cambridge</h3>
+        <p class="meta">open-pg-20847-india-what-can-it-teach-us-a-course · 121 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20847" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20847-india-what-can-it-teach-us-a-course')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="interpretations of poetry and religion" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">52</div>
+        <h3>Interpretations of Poetry and Religion</h3>
+        <p class="meta">open-pg-48563-interpretations-of-poetry-and-religion · 94 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48563" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48563-interpretations-of-poetry-and-religion')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="latter-day pamphlets" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">53</div>
+        <h3>Latter-Day Pamphlets</h3>
+        <p class="meta">open-pg-1140-latter-day-pamphlets · 100 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/1140" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-1140-latter-day-pamphlets')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="letters on england" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">54</div>
+        <h3>Letters on England</h3>
+        <p class="meta">open-pg-2445-letters-on-england · 52 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/2445" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-2445-letters-on-england')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="memories and studies" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">55</div>
+        <h3>Memories and Studies</h3>
+        <p class="meta">open-pg-20768-memories-and-studies · 89 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20768" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20768-memories-and-studies')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="minor dialogues, together with the dialogue on clemency" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">56</div>
+        <h3>Minor Dialogues, Together With the Dialogue on Clemency</h3>
+        <p class="meta">open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency · 209 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/64576" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-64576-minor-dialogues-together-with-the-dialogue-on-clemency')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="nineteenth century questions" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">57</div>
+        <h3>Nineteenth Century Questions</h3>
+        <p class="meta">open-pg-44628-nineteenth-century-questions · 114 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/44628" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-44628-nineteenth-century-questions')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="past and present thomas carlyle&#x27;s collected works, vol. xiii." data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">58</div>
+        <h3>Past and Present Thomas Carlyle&#x27;s Collected Works, Vol. XIII.</h3>
+        <p class="meta">open-pg-26159-past-and-present-thomas-carlyle-s-collected-works · 148 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/26159" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-26159-past-and-present-thomas-carlyle-s-collected-works')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="religio medici, hydriotaphia, and the letter to a friend" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">59</div>
+        <h3>Religio Medici, Hydriotaphia, and the Letter to a Friend</h3>
+        <p class="meta">open-pg-586-religio-medici-hydriotaphia-and-the-letter-to-a · 85 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/586" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-586-religio-medici-hydriotaphia-and-the-letter-to-a')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="short studies on great subjects" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">60</div>
+        <h3>Short Studies on Great Subjects</h3>
+        <p class="meta">open-pg-20755-short-studies-on-great-subjects · 242 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/20755" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-20755-short-studies-on-great-subjects')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="sibylla" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">61</div>
+        <h3>Sibylla</h3>
+        <p class="meta">open-pg-76731-sibylla · 19 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/76731" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-76731-sibylla')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="soliloquies in england, and later soliloquies" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">62</div>
+        <h3>Soliloquies in England, and Later Soliloquies</h3>
+        <p class="meta">open-pg-48429-soliloquies-in-england-and-later-soliloquies · 133 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48429" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48429-soliloquies-in-england-and-later-soliloquies')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="talks to teachers on psychology; and to students on some of life&#x27;s ideals" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">63</div>
+        <h3>Talks To Teachers On Psychology; And To Students On Some Of Life&#x27;s Ideals</h3>
+        <p class="meta">open-pg-16287-talks-to-teachers-on-psychology-and-to-students · 84 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/16287" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-16287-talks-to-teachers-on-psychology-and-to-students')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the advancement of learning" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">64</div>
+        <h3>The Advancement of Learning</h3>
+        <p class="meta">open-pg-5500-the-advancement-of-learning · 114 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/5500" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-5500-the-advancement-of-learning')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the arena, volume 18, no. 93, august, 1897" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">65</div>
+        <h3>The Arena, Volume 18, No. 93, August, 1897</h3>
+        <p class="meta">open-pg-33646-the-arena-volume-18-no-93-august-1897 · 77 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/33646" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-33646-the-arena-volume-18-no-93-august-1897')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the arena, volume 4, no. 22, september, 1891" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">66</div>
+        <h3>The Arena, Volume 4, No. 22, September, 1891</h3>
+        <p class="meta">open-pg-22419-the-arena-volume-4-no-22-september-1891 · 64 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/22419" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-22419-the-arena-volume-4-no-22-september-1891')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the case of wagner, nietzsche contra wagner, and selected aphorisms." data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">67</div>
+        <h3>The Case of Wagner, Nietzsche Contra Wagner, and Selected Aphorisms.</h3>
+        <p class="meta">open-pg-25012-the-case-of-wagner-nietzsche-contra-wagner-and · 41 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/25012" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-25012-the-case-of-wagner-nietzsche-contra-wagner-and')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the census in moscow" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">68</div>
+        <h3>The Census in Moscow</h3>
+        <p class="meta">open-pg-3540-the-census-in-moscow · 10 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3540" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3540-the-census-in-moscow')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the complete works in philosophy, politics and morals of the late dr. benjamin franklin, vol. 2 [of 3]" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">69</div>
+        <h3>The Complete Works in Philosophy, Politics and Morals of the late Dr. Benjamin Franklin, Vol. 2 [of 3]</h3>
+        <p class="meta">open-pg-48137-the-complete-works-in-philosophy-politics-and-morals · 194 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/48137" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-48137-the-complete-works-in-philosophy-politics-and-morals')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the contemporary review, volume 36, november 1879" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">70</div>
+        <h3>The Contemporary Review, Volume 36, November 1879</h3>
+        <p class="meta">open-pg-39517-the-contemporary-review-volume-36-november-1879 · 124 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/39517" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-39517-the-contemporary-review-volume-36-november-1879')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the continental monthly, vol. 5, no. 4, april, 1864" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">71</div>
+        <h3>The Continental Monthly, Vol. 5, No. 4, April, 1864</h3>
+        <p class="meta">open-pg-18820-the-continental-monthly-vol-5-no-4-april · 103 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/18820" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-18820-the-continental-monthly-vol-5-no-4-april')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the hall of fantasy (from &quot;mosses from an old manse&quot;)" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">72</div>
+        <h3>The Hall of Fantasy (From &quot;Mosses from an Old Manse&quot;)</h3>
+        <p class="meta">open-pg-9226-the-hall-of-fantasy-from-mosses-from-an · 10 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9226" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9226-the-hall-of-fantasy-from-mosses-from-an')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the legacy of ignorantism" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">73</div>
+        <h3>The Legacy of Ignorantism</h3>
+        <p class="meta">open-pg-27863-the-legacy-of-ignorantism · 23 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/27863" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-27863-the-legacy-of-ignorantism')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the literary remains of samuel taylor coleridge, volume 3" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">74</div>
+        <h3>The Literary Remains of Samuel Taylor Coleridge, Volume 3</h3>
+        <p class="meta">open-pg-8956-the-literary-remains-of-samuel-taylor-coleridge-volume · 135 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/8956" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-8956-the-literary-remains-of-samuel-taylor-coleridge-volume')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the literary remains of samuel taylor coleridge, volume 4" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">75</div>
+        <h3>The Literary Remains of Samuel Taylor Coleridge, Volume 4</h3>
+        <p class="meta">open-pg-10801-the-literary-remains-of-samuel-taylor-coleridge-volume · 147 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/10801" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-10801-the-literary-remains-of-samuel-taylor-coleridge-volume')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the physiology of marriage, part 3" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">76</div>
+        <h3>The Physiology of Marriage, Part 3</h3>
+        <p class="meta">open-pg-5958-the-physiology-of-marriage-part-3 · 45 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/5958" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-5958-the-physiology-of-marriage-part-3')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the sea (la mer)" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">77</div>
+        <h3>The Sea (La Mer)</h3>
+        <p class="meta">open-pg-42845-the-sea-la-mer · 120 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/42845" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-42845-the-sea-la-mer')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the spirit of the age; or, contemporary portraits" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">78</div>
+        <h3>The Spirit of the Age; Or, Contemporary Portraits</h3>
+        <p class="meta">open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits · 109 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/11068" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-11068-the-spirit-of-the-age-or-contemporary-portraits')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the stuff of manhood: some needed notes in american character" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">79</div>
+        <h3>The Stuff of Manhood: Some Needed Notes in American Character</h3>
+        <p class="meta">open-pg-67403-the-stuff-of-manhood-some-needed-notes-in · 64 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/67403" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-67403-the-stuff-of-manhood-some-needed-notes-in')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the unknown guest" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">80</div>
+        <h3>The Unknown Guest</h3>
+        <p class="meta">open-pg-2033-the-unknown-guest · 80 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/2033" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-2033-the-unknown-guest')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the works of john greenleaf whittier, volume vii, complete the conflict with slavery, politics and reform, the inner life, and criticism" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">81</div>
+        <h3>The Works of John Greenleaf Whittier, Volume VII, Complete The Conflict with Slavery, Politics and Reform, the Inner Life, and Criticism</h3>
+        <p class="meta">open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii · 132 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/9599" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-9599-the-works-of-john-greenleaf-whittier-volume-vii')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the works of richard hurd, volume 3 (of 8)" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">82</div>
+        <h3>The works of Richard Hurd, volume 3 (of 8)</h3>
+        <p class="meta">open-pg-54514-the-works-of-richard-hurd-volume-3-of · 101 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/54514" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-54514-the-works-of-richard-hurd-volume-3-of')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the works of robert g. ingersoll, vol. 06 (of 12) dresden edition—discussions" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">83</div>
+        <h3>The Works of Robert G. Ingersoll, Vol. 06 (of 12) Dresden Edition—Discussions</h3>
+        <p class="meta">open-pg-38806-the-works-of-robert-g-ingersoll-vol-06 · 214 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/38806" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-38806-the-works-of-robert-g-ingersoll-vol-06')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the works of sir thomas browne, volume 1" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">84</div>
+        <h3>The Works of Sir Thomas Browne, Volume 1</h3>
+        <p class="meta">open-pg-39960-the-works-of-sir-thomas-browne-volume-1 · 169 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/39960" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-39960-the-works-of-sir-thomas-browne-volume-1')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the works of the right honourable edmund burke, vol. 01 (of 12)" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">85</div>
+        <h3>The Works of the Right Honourable Edmund Burke, Vol. 01 (of 12)</h3>
+        <p class="meta">open-pg-15043-the-works-of-the-right-honourable-edmund-burke · 207 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/15043" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-15043-the-works-of-the-right-honourable-edmund-burke')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="the works of the right honourable edmund burke, vol. 06 (of 12)" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">86</div>
+        <h3>The Works of the Right Honourable Edmund Burke, Vol. 06 (of 12)</h3>
+        <p class="meta">open-pg-15702-the-works-of-the-right-honourable-edmund-burke · 154 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/15702" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-15702-the-works-of-the-right-honourable-edmund-burke')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="three french moralists and the gallantry of france" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">87</div>
+        <h3>Three French Moralists and The Gallantry of France</h3>
+        <p class="meta">open-pg-19872-three-french-moralists-and-the-gallantry-of-france · 63 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/19872" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-19872-three-french-moralists-and-the-gallantry-of-france')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="time and tide by weare and tyne twenty-five letters to a working man of sunderland on the laws of work" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">88</div>
+        <h3>Time and Tide by Weare and Tyne Twenty-five Letters to a Working Man of Sunderland on the Laws of Work</h3>
+        <p class="meta">open-pg-31196-time-and-tide-by-weare-and-tyne-twenty · 64 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/31196" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-31196-time-and-tide-by-weare-and-tyne-twenty')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="walden, and on the duty of civil disobedience" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">89</div>
+        <h3>Walden, and On The Duty Of Civil Disobedience</h3>
+        <p class="meta">open-pg-205-walden-and-on-the-duty-of-civil-disobedience · 159 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/205" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-205-walden-and-on-the-duty-of-civil-disobedience')">Copy B132 cue</button></div>
+      </article>
+      <article class="card" data-title="what to do? thoughts evoked by the census of moscow" data-use="argument writing, rhetoric, quotation bank">
+        <div class="num">90</div>
+        <h3>What to Do? Thoughts Evoked by the Census of Moscow</h3>
+        <p class="meta">open-pg-3630-what-to-do-thoughts-evoked-by-the-census · 106 chunks · public-domain text verified in B132</p>
+        <p>argument writing, rhetoric, quotation bank</p>
+        <div class="actions"><a class="btn primary" href="https://www.gutenberg.org/ebooks/3630" target="_blank" rel="noopener">Open original source</a><button class="btn" onclick="copyCue('open-pg-3630-what-to-do-thoughts-evoked-by-the-census')">Copy B132 cue</button></div>
+      </article></div>
+  </section>
+
+  <section class="panel">
+    <h2>Next processing queue: downloaded but not yet chunked</h2>
+    <p class="lead">These are already downloaded locally in B132, but still need canonicalization before they should be treated as full retrieval evidence.</p>
+    <ol class="queue"><li><a href="https://www.gutenberg.org/ebooks/50973" target="_blank" rel="noopener">&quot;About My Father&#x27;s Business&quot;: Work Amidst the Sick, the Sad, and the Sorrowing</a></li><li><a href="https://www.gutenberg.org/ebooks/15870" target="_blank" rel="noopener">&#x27;Of Genius&#x27;, in The Occasional Paper, and Preface to The Creation</a></li><li><a href="https://www.gutenberg.org/ebooks/13910" target="_blank" rel="noopener">A Book of Exposition</a></li><li><a href="https://www.gutenberg.org/ebooks/57218" target="_blank" rel="noopener">A Book of Jewish Thoughts</a></li><li><a href="https://www.gutenberg.org/ebooks/23100" target="_blank" rel="noopener">A Budget of Paradoxes, Volume I</a></li><li><a href="https://www.gutenberg.org/ebooks/2425" target="_blank" rel="noopener">A Bundle of Letters</a></li><li><a href="https://www.gutenberg.org/ebooks/45811" target="_blank" rel="noopener">A Chesterton Calendar Compiled from the writings of &#x27;G.K.C.&#x27; both in verse and in prose. With a section apart for the moveable feasts.</a></li><li><a href="https://www.gutenberg.org/ebooks/14535" target="_blank" rel="noopener">A Christmas Sermon</a></li><li><a href="https://www.gutenberg.org/ebooks/16340" target="_blank" rel="noopener">A Cynic Looks at Life</a></li><li><a href="https://www.gutenberg.org/ebooks/5428" target="_blank" rel="noopener">A Defence of Poetry and Other Essays</a></li><li><a href="https://www.gutenberg.org/ebooks/15017" target="_blank" rel="noopener">A Dialogue Concerning Oratory, or the Causes of Corrupt Eloquence The Works of Cornelius Tacitus, Volume 8 (of 8); With an Essay on His Life and Genius, Notes, Supplements</a></li><li><a href="https://www.gutenberg.org/ebooks/39929" target="_blank" rel="noopener">A Dialogue upon the Gardens of the Right Honorouble the Lord Viscount Cobham at Stow in Buckinghamshire</a></li><li><a href="https://www.gutenberg.org/ebooks/38444" target="_blank" rel="noopener">A Discourse Being Introductory to his Course of Lectures on Elocution and the English Language (1759)</a></li><li><a href="https://www.gutenberg.org/ebooks/35790" target="_blank" rel="noopener">A Fantasy of Far Japan; Or, Summer Dream Dialogues</a></li><li><a href="https://www.gutenberg.org/ebooks/63755" target="_blank" rel="noopener">A Few Words on the Crystal Palace Question</a></li><li><a href="https://www.gutenberg.org/ebooks/36245" target="_blank" rel="noopener">A History of Literary Criticism in the Renaissance With special reference to the influence of Italy in the formation and development of modern classicism</a></li><li><a href="https://www.gutenberg.org/ebooks/62129" target="_blank" rel="noopener">A History of Story-telling: Studies in the development of narrative</a></li><li><a href="https://www.gutenberg.org/ebooks/54218" target="_blank" rel="noopener">A Lady of England: The Life and Letters of Charlotte Maria Tucker</a></li><li><a href="https://www.gutenberg.org/ebooks/7176" target="_blank" rel="noopener">A Letter to a Hindu</a></li><li><a href="https://www.gutenberg.org/ebooks/35232" target="_blank" rel="noopener">A Letter to American Workingmen, from the Socialist Soviet Republic of Russia</a></li><li><a href="https://www.gutenberg.org/ebooks/29478" target="_blank" rel="noopener">A Letter to Dion</a></li><li><a href="https://www.gutenberg.org/ebooks/58105" target="_blank" rel="noopener">A Letter to the Bishop of Exeter</a></li><li><a href="https://www.gutenberg.org/ebooks/31191" target="_blank" rel="noopener">A Letter to the Hon. Samuel A. Eliot, Representative in Congress From the City of Boston, In Reply to His Apology For Voting For the Fugitive Slave Bill.</a></li><li><a href="https://www.gutenberg.org/ebooks/36161" target="_blank" rel="noopener">A Letter to Thomas F. Bayard</a></li><li><a href="https://www.gutenberg.org/ebooks/6424" target="_blank" rel="noopener">A Modern Utopia</a></li><li><a href="https://www.gutenberg.org/ebooks/1080" target="_blank" rel="noopener">A Modest Proposal For preventing the children of poor people in Ireland, from being a burden on their parents or country, and for making them beneficial to the publick</a></li><li><a href="https://www.gutenberg.org/ebooks/53524" target="_blank" rel="noopener">A Persian Pearl, and Other Essays</a></li><li><a href="https://www.gutenberg.org/ebooks/35621" target="_blank" rel="noopener">A Philosophical Dictionary, Volume 01</a></li><li><a href="https://www.gutenberg.org/ebooks/35624" target="_blank" rel="noopener">A Philosophical Dictionary, Volume 04</a></li><li><a href="https://www.gutenberg.org/ebooks/35625" target="_blank" rel="noopener">A Philosophical Dictionary, Volume 05</a></li></ol>
+  </section>
+</main>
+<footer>Generated from B132 readiness data at 2026-06-30T05:45:56+08:00. Public-domain source links point to Project Gutenberg originals.</footer>
+<script>
+function copyCue(text) { navigator.clipboard && navigator.clipboard.writeText(text); }
+function filterCards() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  document.querySelectorAll('.card').forEach(card => {
+    const hay = (card.dataset.title + ' ' + card.dataset.use).toLowerCase();
+    card.style.display = !q || hay.includes(q) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
