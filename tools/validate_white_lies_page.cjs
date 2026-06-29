@@ -85,6 +85,29 @@ function assert(condition, message) {
     assert(reader.focus && /Balanced view/.test(reader.button), 'Reader focus mode did not activate');
     assert(!reader.overflow, 'Page has horizontal overflow');
 
+    const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true });
+    await mobilePage.goto(targetUrl, { waitUntil: 'domcontentloaded' });
+    await mobilePage.waitForTimeout(700);
+    const mobileInitial = await mobilePage.evaluate(() => ({
+      overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+      iframeHeight: Math.round(document.querySelector('iframe').getBoundingClientRect().height),
+      navCount: document.querySelectorAll('.navlinks a,.navlinks button').length
+    }));
+    assert(!mobileInitial.overflow, 'Mobile page has horizontal overflow');
+    assert(mobileInitial.iframeHeight >= 500, `Mobile source reader is too short: ${mobileInitial.iframeHeight}`);
+    await mobilePage.click('[data-jump-filter="literature"]');
+    await mobilePage.waitForTimeout(500);
+    await mobilePage.fill('#sourceSearch', 'trust');
+    await mobilePage.waitForTimeout(200);
+    const mobileSearch = await mobilePage.evaluate(() => ({
+      overflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+      visible: [...document.querySelectorAll('.source-card')].filter((card) => getComputedStyle(card).display !== 'none').length,
+      summary: document.getElementById('filterSummary').textContent
+    }));
+    assert(!mobileSearch.overflow, 'Mobile page overflows after source filtering');
+    assert(mobileSearch.visible >= 1, 'Mobile source search found no trust sources');
+    await mobilePage.close();
+
     console.log(JSON.stringify({
       ok: true,
       targetUrl,
@@ -97,7 +120,11 @@ function assert(condition, message) {
         bridgeDraft: 'passed',
         readiness: 'passed',
         timer: 'passed',
-        reader: 'passed'
+        reader: 'passed',
+        mobile: {
+          initial: mobileInitial,
+          search: mobileSearch
+        }
       }
     }, null, 2));
   } finally {
