@@ -535,6 +535,26 @@ textarea{
   overflow:hidden;
   text-overflow:ellipsis;
 }
+.reader-status{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:7px;
+}
+.reader-status span{
+  border:1px solid #d8e5e1;
+  border-radius:999px;
+  padding:4px 8px;
+  background:#f7fbfa;
+  color:#4b5d58;
+  font-size:11px;
+  font-weight:900;
+}
+.reader-status span:first-child{
+  background:var(--teal-soft);
+  color:var(--teal-dark);
+  border-color:#abdcd2;
+}
 .reader-tools{
   display:flex;
   flex-wrap:wrap;
@@ -1144,9 +1164,13 @@ body.reader-focus header{
       <div>
         <h2>Source window</h2>
         <div class="reader-title" id="currentSourceTitle">Advanced Collocations · Essays and reports · pp.44-45</div>
+        <div class="reader-status" aria-label="current source status">
+          <span id="readerScope">Focused page slice</span>
+          <span id="readerAvailability">Full source available</span>
+        </div>
       </div>
       <div class="reader-tools">
-        <button class="btn primary" type="button" id="focusReader">Focus reader</button>
+        <button class="btn primary" type="button" id="focusReader">Make source bigger</button>
         <button class="btn" type="button" id="saveSource">Save source</button>
         <button class="btn" type="button" id="openSlice">Open slice</button>
         <button class="btn" type="button" id="openFullSource">Full source</button>
@@ -1166,6 +1190,8 @@ body.reader-focus header{
   const saveBtn = document.getElementById('saveSource');
   const sliceBtn = document.getElementById('openSlice');
   const fullBtn = document.getElementById('openFullSource');
+  const readerScope = document.getElementById('readerScope');
+  const readerAvailability = document.getElementById('readerAvailability');
   const notebook = document.getElementById('evidenceNotebook');
   const draft = document.getElementById('draft');
   const wordCount = document.getElementById('wordCount');
@@ -1185,12 +1211,21 @@ body.reader-focus header{
   if(localStorage.getItem('whiteLiesComfortView') === '1'){
     document.body.classList.add('comfort');
   }
+  if(localStorage.getItem('whiteLiesReaderFocus') === '1'){
+    document.body.classList.add('reader-focus');
+  }
   function updateComfortButton(){
     if(comfortBtn){
       comfortBtn.textContent = document.body.classList.contains('comfort') ? 'Standard view' : 'Comfort view';
     }
   }
+  function updateReaderFocusButton(){
+    if(focusBtn){
+      focusBtn.textContent = document.body.classList.contains('reader-focus') ? 'Balanced view' : 'Make source bigger';
+    }
+  }
   updateComfortButton();
+  updateReaderFocusButton();
   function escapeHtml(value){
     return String(value).replace(/[&<>"']/g, ch => ({
       '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
@@ -1233,6 +1268,12 @@ body.reader-focus header{
     currentTitle = link.dataset.title || link.textContent.trim() || href;
     frame.setAttribute('src', href);
     title.textContent = currentTitle;
+    if(readerScope){
+      readerScope.textContent = href.endsWith('.pdf') ? 'Focused page slice' : 'Readable source fragment';
+    }
+    if(readerAvailability){
+      readerAvailability.textContent = currentFull && currentFull !== href ? 'Full source available' : 'Source window only';
+    }
     document.querySelectorAll('.active-source').forEach(el => el.classList.remove('active-source'));
     const card = link.closest('.source-card') || link;
     card.classList.add('active-source');
@@ -1300,7 +1341,8 @@ body.reader-focus header{
 
   focusBtn.addEventListener('click', () => {
     document.body.classList.toggle('reader-focus');
-    focusBtn.textContent = document.body.classList.contains('reader-focus') ? 'Balanced view' : 'Focus reader';
+    localStorage.setItem('whiteLiesReaderFocus', document.body.classList.contains('reader-focus') ? '1' : '0');
+    updateReaderFocusButton();
   });
   if(comfortBtn){
     comfortBtn.addEventListener('click', () => {
