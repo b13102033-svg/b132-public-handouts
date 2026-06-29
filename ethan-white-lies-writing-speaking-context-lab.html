@@ -281,6 +281,41 @@ body.comfort .source-card p{font-size:15px;line-height:1.7}
   grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
   gap:12px;
 }
+.bridge-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:12px;
+}
+.bridge-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:15px;
+  background:#fff;
+  border-top:4px solid var(--teal);
+}
+.bridge-card h3{
+  margin:0;
+  color:var(--teal-dark);
+}
+.bridge-card .move{
+  color:#40504c;
+  font-size:14px;
+}
+.bridge-card .sentence-stem{
+  margin-top:auto;
+  padding:10px;
+  border-radius:7px;
+  background:#f6fbfa;
+  border:1px solid #dcebe7;
+  color:#20312e;
+  font-size:15px;
+}
+.add-draft{
+  align-self:flex-start;
+}
 .quote-card,.language-card,.task-card{
   background:#fff;
   border:1px solid var(--line);
@@ -1024,7 +1059,48 @@ body.reader-focus header{
   </section>
 
   <section class="panel reading">
-    <h2>3. Short reading: three ways to frame the topic</h2>
+    <h2>3. Source-to-answer bridge</h2>
+    <p>Use these as answer moves. Open the source first, then add a sentence stem to your draft and adapt it in your own words.</p>
+    <div class="bridge-grid">
+      <article class="bridge-card">
+        <h3>Trust cost</h3>
+        <div class="move">Use Aesop when you want to argue that even a small lie can damage future credibility.</div>
+        <div class="sentence-stem">A white lie may solve an awkward moment, but it can weaken credibility when the truth is needed later.</div>
+        <div class="source-mini"><a href="files/open_enrichment_fragments/aesop-wolf-credibility.html" data-title="Aesop · Credibility after lying" data-full="files/open_enrichment/aesop-three-hundred-fables.html" target="sourcePreview">open source</a></div>
+        <button class="btn add-draft" type="button" data-add-draft="A white lie may solve an awkward moment, but it can weaken credibility when the truth is needed later.">Add to draft</button>
+      </article>
+      <article class="bridge-card">
+        <h3>Tactful honesty</h3>
+        <div class="move">Use Twain or The Ladies’ Vase when the answer needs more nuance than “always tell the truth.”</div>
+        <div class="sentence-stem">Honesty is most useful when it is paired with tact, because a bare fact can still injure the listener.</div>
+        <div class="source-mini">
+          <a href="files/open_enrichment_fragments/twain-brutal-truth.html" data-title="Mark Twain · Injurious truth" data-full="files/open_enrichment/twain-on-the-decay-of-the-art-of-lying.html" target="sourcePreview">Twain</a>
+          <a href="files/open_enrichment_fragments/ladies-vase-true-politeness.html" data-title="The Ladies’ Vase · True politeness" data-full="files/open_enrichment/ladies-vase-politeness-tact.txt" target="sourcePreview">tact</a>
+        </div>
+        <button class="btn add-draft" type="button" data-add-draft="Honesty is most useful when it is paired with tact, because a bare fact can still injure the listener.">Add to draft</button>
+      </article>
+      <article class="bridge-card">
+        <h3>Hidden motive</h3>
+        <div class="move">Use Austen when the white lie may be less about kindness and more about the speaker’s self-image.</div>
+        <div class="sentence-stem">Sometimes the lie protects the speaker’s image rather than the listener’s feelings, which makes the motive morally unstable.</div>
+        <div class="source-mini"><a href="files/open_enrichment_fragments/austen-pride-vanity.html" data-title="Jane Austen · Pride, vanity, and self-image" data-full="files/open_enrichment/austen-pride-and-prejudice.html" target="sourcePreview">open source</a></div>
+        <button class="btn add-draft" type="button" data-add-draft="Sometimes the lie protects the speaker’s image rather than the listener’s feelings, which makes the motive morally unstable.">Add to draft</button>
+      </article>
+      <article class="bridge-card">
+        <h3>Essay control</h3>
+        <div class="move">Use In Use pages to make the answer sound like an argument, not a diary entry.</div>
+        <div class="sentence-stem">This essay makes the case that the key question is not whether the words are true, but whether they preserve trust and dignity.</div>
+        <div class="source-mini">
+          <a href="files/source_slices/today_white_lies_writing_speaking/advanced-collocations-writing-essays-p0044-p0045.pdf" data-title="Advanced Collocations · Essays and reports · pp.44-45" data-full="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/advanced-collocations-in-use-3871fef3.pdf" target="sourcePreview">essay language</a>
+          <a href="files/source_slices/today_white_lies_writing_speaking/upper-vocab-concession-contrast-p0135-p0136.pdf" data-title="Vocabulary in Use · Concession and contrast · pp.135-136" data-full="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/upper-intermediate-english-vocabulary-in-use-4d518fec.pdf" target="sourcePreview">contrast</a>
+        </div>
+        <button class="btn add-draft" type="button" data-add-draft="This essay makes the case that the key question is not whether the words are true, but whether they preserve trust and dignity.">Add to draft</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel reading">
+    <h2>4. Short reading: three ways to frame the topic</h2>
     <div class="context">
       <p>People often describe white lies as small, harmless lies told to protect someone’s feelings. A student may tell a classmate that a weak presentation was “fine.” A friend may avoid saying that a new haircut looks strange. A child may hide a broken object because telling the truth seems embarrassing. In each case, the lie looks small, but the motive is not always simple.</p>
       <p>One side of the debate says that honesty is the foundation of trust. Aesop’s warning suggests that every lie has a future cost: once credibility is damaged, even sincere words become harder to believe. From this view, a white lie is dangerous not because it is dramatic, but because it quietly weakens the habit of truthfulness.</p>
@@ -1039,7 +1115,7 @@ body.reader-focus header{
   </section>
 
   <section class="panel" id="answerModels">
-    <h2>4. Answer models: one idea, two levels</h2>
+    <h2>5. Answer models: one idea, two levels</h2>
     <div class="model-grid">
       <article class="model-card">
         <h3>B2 spoken answer</h3>
@@ -1064,7 +1140,7 @@ body.reader-focus header{
   </section>
 
   <section class="panel">
-    <h2>5. Advanced language bank</h2>
+    <h2>6. Advanced language bank</h2>
     <div class="language-grid">
       <article class="language-card"><b>take issue with</b>Use when disagreeing with an idea rather than attacking a person.<div class="sample">I take issue with the idea that honesty is always kind.</div><div class="source-mini"><a href="files/source_slices/today_white_lies_writing_speaking/advanced-collocations-current-affairs-p0052-p0053.pdf" data-title="Advanced Collocations · Current affairs · pp.52-53" data-full="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/advanced-collocations-in-use-3871fef3.pdf" target="sourcePreview">source</a></div></article>
       <article class="language-card"><b>give it some thought</b>Use before judging a morally grey situation.<div class="sample">Before calling it manipulation, we should give the motive some thought.</div><div class="source-mini"><a href="files/source_slices/today_white_lies_writing_speaking/advanced-collocations-thoughts-ideas-p0034-p0035.pdf" data-title="Advanced Collocations · Thoughts and ideas · pp.34-35" data-full="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/advanced-collocations-in-use-3871fef3.pdf" target="sourcePreview">source</a></div></article>
@@ -1082,7 +1158,7 @@ body.reader-focus header{
   </section>
 
   <section class="panel">
-    <h2>6. Speaking practice</h2>
+    <h2>7. Speaking practice</h2>
     <div class="task-grid">
       <article class="task-card">
         <h3>A friend asks for honest feedback</h3>
@@ -1113,7 +1189,7 @@ body.reader-focus header{
   </section>
 
   <section class="panel tint">
-    <h2>7. Writing practice</h2>
+    <h2>8. Writing practice</h2>
     <div class="task-grid">
       <article class="task-card">
         <h3>GSAT-style guided writing</h3>
@@ -1139,7 +1215,7 @@ body.reader-focus header{
   </section>
 
   <section class="panel" id="draftBuilder">
-    <h2>8. Draft builder</h2>
+    <h2>9. Draft builder</h2>
     <div class="draft-tools">
       <button class="btn primary" type="button" id="insertOutline">Build outline from saved sources</button>
       <button class="btn" type="button" id="clearDraft">Clear draft</button>
@@ -1443,6 +1519,16 @@ body.reader-focus header{
       draft.focus();
     });
   }
+  document.querySelectorAll('[data-add-draft]').forEach(button => {
+    button.addEventListener('click', () => {
+      if(!draft) return;
+      const line = button.dataset.addDraft || '';
+      draft.value = draft.value.trim() ? draft.value.trim() + '\\n\\n' + line : line;
+      updateWordCount();
+      draft.scrollIntoView({behavior:'smooth', block:'center'});
+      draft.focus();
+    });
+  });
   let currentTone = 'balanced';
   document.querySelectorAll('[data-tone]').forEach(button => {
     button.addEventListener('click', () => {
