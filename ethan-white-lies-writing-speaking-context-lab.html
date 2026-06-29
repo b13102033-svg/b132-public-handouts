@@ -376,6 +376,39 @@ body.comfort .language-card,body.comfort .task-card,body.comfort .quote-card{
   border-left:4px solid var(--blue);
 }
 .task-card h3{margin-top:0}
+.speaking-coach{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(240px,.42fr);
+  gap:12px;
+  margin:0 0 14px;
+}
+.coach-box{
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:13px;
+  background:#fff;
+}
+.coach-box b{
+  display:block;
+  margin-bottom:6px;
+  color:var(--blue);
+}
+.timer-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+}
+.timer-display{
+  min-width:94px;
+  border:1px solid #cbdbea;
+  border-radius:8px;
+  padding:9px 11px;
+  background:var(--blue-soft);
+  color:var(--blue);
+  font-weight:900;
+  text-align:center;
+}
 .model-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -698,7 +731,7 @@ body.reader-focus header{
   .reader{position:static}
   .reader-card{height:auto;min-height:0}
   iframe{height:78vh;min-height:620px}
-  .writing-box,.tone-tool{grid-template-columns:1fr}
+  .writing-box,.tone-tool,.speaking-coach{grid-template-columns:1fr}
 }
 @media(max-width:760px){
   .topbar{position:static;align-items:flex-start;flex-direction:column}
@@ -1189,6 +1222,22 @@ body.reader-focus header{
 
   <section class="panel">
     <h2>7. Speaking practice</h2>
+    <div class="speaking-coach">
+      <div class="coach-box">
+        <b>Timed response</b>
+        <div class="timer-row">
+          <button class="btn" type="button" data-timer-seconds="30">30s prep</button>
+          <button class="btn" type="button" data-timer-seconds="60">60s answer</button>
+          <button class="btn" type="button" data-timer-seconds="90">90s challenge</button>
+          <button class="btn" type="button" id="stopTimer">Stop</button>
+          <span class="timer-display" id="speakingTimer">Ready</span>
+        </div>
+      </div>
+      <div class="coach-box">
+        <b>Answer frame</b>
+        <p>Position → source idea → contrast → personal line. Try: <i>I can see why..., but I would still argue that...</i></p>
+      </div>
+    </div>
     <div class="task-grid">
       <article class="task-card">
         <h3>A friend asks for honest feedback</h3>
@@ -1305,6 +1354,8 @@ body.reader-focus header{
   const clearDraftBtn = document.getElementById('clearDraft');
   const toneInput = document.getElementById('toneInput');
   const toneOutput = document.getElementById('toneOutput');
+  const speakingTimer = document.getElementById('speakingTimer');
+  const stopTimerBtn = document.getElementById('stopTimer');
   const readyChips = {
     sources: document.querySelector('[data-ready="sources"]'),
     length: document.querySelector('[data-ready="length"]'),
@@ -1596,6 +1647,37 @@ body.reader-focus header{
   });
   if(toneInput){
     toneInput.addEventListener('input', () => transformTone(currentTone));
+  }
+  let timerId = null;
+  function setTimerLabel(seconds){
+    if(!speakingTimer) return;
+    if(seconds <= 0){
+      speakingTimer.textContent = 'Time';
+      return;
+    }
+    const mins = Math.floor(seconds / 60);
+    const secs = String(seconds % 60).padStart(2,'0');
+    speakingTimer.textContent = `${mins}:${secs}`;
+  }
+  function stopTimer(label='Ready'){
+    if(timerId) window.clearInterval(timerId);
+    timerId = null;
+    if(speakingTimer) speakingTimer.textContent = label;
+  }
+  document.querySelectorAll('[data-timer-seconds]').forEach(button => {
+    button.addEventListener('click', () => {
+      let remaining = Number(button.dataset.timerSeconds || 0);
+      stopTimer();
+      setTimerLabel(remaining);
+      timerId = window.setInterval(() => {
+        remaining -= 1;
+        setTimerLabel(remaining);
+        if(remaining <= 0) stopTimer('Time');
+      }, 1000);
+    });
+  });
+  if(stopTimerBtn){
+    stopTimerBtn.addEventListener('click', () => stopTimer());
   }
   const choiceResult = document.getElementById('choiceResult');
   document.querySelectorAll('.choice-card').forEach(card => {
