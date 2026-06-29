@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ethan｜GEPT 中高級複試整合講義｜B2→C1</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Segoe UI",sans-serif;background:#f6f4ef;color:#1f2937;line-height:1.6}
+    a{color:#155e75;text-decoration:none}a:hover{text-decoration:underline}
+    .layout{display:grid;grid-template-columns:360px minmax(0,1fr);min-height:100vh}
+    aside{height:100vh;overflow:auto;background:#fffdf8;border-right:1px solid #d8d1c5;padding:22px}
+    main{height:100vh;overflow:auto;padding:28px 34px 70px}
+    h1{font-size:27px;line-height:1.18;margin:0 0 10px}
+    h2{font-size:22px;margin:28px 0 12px;padding-top:4px}
+    h3{font-size:17px;margin:0 0 8px}
+    .lead{color:#5b5348;font-size:14px}
+    .home,.btn,button.btn{display:inline-block;text-decoration:none;border-radius:999px;padding:6px 10px;margin:4px 4px 0 0;font-size:12px;border:1px solid #cbd5e1;background:#f8fafc;color:#111827;cursor:pointer}
+    .home{background:#1f2937;color:white;border-radius:6px;padding:7px 10px;margin-bottom:12px}
+    .btn.primary{background:#0f766e;color:white;border-color:#0f766e}
+    .btn.slice{background:#ecfdf5;border-color:#86efac;color:#14532d}
+    .btn.full{background:#fef3c7;border-color:#fbbf24;color:#713f12}
+    .btn.route{background:#eef6ff;border-color:#bfdbfe;color:#1e3a8a}
+    .btn.print{background:#7c2d12;color:white;border-color:#7c2d12}
+    .badge{display:inline-block;border-radius:999px;padding:3px 8px;margin:2px 4px 2px 0;font-size:12px;border:1px solid #cbd5e1;background:#f8fafc;color:#334155}
+    .ready{background:#ecfdf5;border-color:#86efac;color:#14532d}
+    .student{background:#eff6ff;border-color:#93c5fd;color:#1d4ed8}
+    .teacher{background:#fef3c7;border-color:#fbbf24;color:#713f12}
+    .card,.box{background:white;border:1px solid #d8d1c5;border-radius:8px;padding:15px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+    .box.student-box{border-left:5px solid #2563eb}
+    .box.teacher-box{border-left:5px solid #d97706}
+    .box.practice{border-left:5px solid #0f766e}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .tri{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .mini{font-size:12px;color:#6b7280}
+    .cue{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:#f3f4f6;border:1px solid #e5e7eb;border-radius:4px;padding:1px 4px}
+    .phrase{background:#f8fafc;border:1px solid #e5e7eb;border-radius:7px;padding:9px;margin:7px 0}
+    .phrase b{display:block;color:#0f766e}
+    .blank{border-bottom:1px solid #9ca3af;display:inline-block;min-width:190px;height:1.2em}
+    .writebox{min-height:72px;border:1px dashed #9ca3af;border-radius:8px;background:#fff;padding:10px;margin:8px 0;color:#9ca3af}
+    .timeline{display:grid;grid-template-columns:78px minmax(0,1fr);gap:10px;align-items:start}
+    .time{font-weight:700;color:#0f766e}
+    .step{background:white;border:1px solid #ddd6ca;border-radius:8px;padding:10px;margin-bottom:8px}
+    table{width:100%;border-collapse:collapse;background:white;border:1px solid #d8d1c5;border-radius:8px;overflow:hidden}
+    th,td{border-bottom:1px solid #e5e7eb;padding:9px;text-align:left;vertical-align:top;font-size:13px}
+    th{background:#f8fafc;color:#374151}
+    tr:last-child td{border-bottom:0}
+    .source-list a{display:block;margin:5px 0}
+    .source-chip{display:inline-block;border-radius:999px;padding:2px 7px;margin:2px;background:#ecfdf5;border:1px solid #86efac;color:#14532d;font-size:12px}
+    ol.compact,ul.compact{padding-left:20px;margin:8px 0}
+    @media(max-width:980px){.layout{grid-template-columns:1fr}aside,main{height:auto}.grid,.tri{grid-template-columns:1fr}}
+    @media print{
+      body{background:white}.layout{display:block}aside{height:auto;border-right:0;border-bottom:1px solid #ccc}main{height:auto;padding:18px}.home,.btn.print{display:none}.card,.box{break-inside:avoid;box-shadow:none}.source-list{font-size:11px}
+    }
+  </style>
+
+<style id="public-student-export-style">
+.public-banner{position:sticky;top:0;z-index:50;background:#0f172a;color:#fff;padding:10px 18px;font-size:14px;line-height:1.45;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.public-note{border:1px solid #cbd5e1;background:#f8fafc;border-left:4px solid #64748b;border-radius:8px;padding:12px 14px;margin:14px 0;color:#334155}
+a[data-local-source]{opacity:.72;cursor:help}
+a[data-local-source]::after{content:' (B132 local)';font-size:.85em;color:#64748b}
+</style>
+<script id="public-student-export-script">
+document.addEventListener('click', function(e){
+  const a=e.target.closest && e.target.closest('a[data-local-source]');
+  if(!a) return;
+  e.preventDefault();
+  const box=document.getElementById('b132-local-source');
+  if(box) box.scrollIntoView({behavior:'smooth', block:'start'});
+});
+</script>
+</head>
+<body>
+<div class="public-banner">
+  <strong>Public student version</strong>｜Ethan GEPT writing & speaking materials. Source-route PDFs and B132 teacher-only evidence remain in the local corpus; this public page keeps the classroom tasks, language bank, and practice flow.
+</div>
+
+<div class="layout">
+<aside>
+  <a class="home" href="./">回 B132 viewer</a>
+  <h1>GEPT 中高級複試<br>整合講義</h1>
+  <p class="lead">照上一頁課程規劃整理成一份可上課講義。學生主線：寫作與口說從 B2 的「能回答」升級到 C1 的「能組織、能讓步、能精準表態」。</p>
+  <p><span class="badge student">學生版</span><span class="badge teacher">老師來源路線</span><span class="badge ready">B132 source-backed</span></p>
+  <button class="btn print" onclick="window.print()">列印 / 存成 PDF</button>
+  <a class="btn route" href="ethan-gept-second-stage-materials.html">回備課素材包</a>
+  <a class="btn route" href="#b132-local-source" data-local-source="ielts-writing-updated-resource-hub.html">IELTS writing hub</a>
+
+  <section class="card">
+    <h3>本講義怎麼用</h3>
+    <ol class="compact">
+      <li>先做 10 分鐘診斷。</li>
+      <li>教四個核心招式。</li>
+      <li>口說用 15 / 30 / 90 秒階梯練。</li>
+      <li>寫作用 150-180 words 骨架練。</li>
+      <li>最後用 source route 補原書頁。</li>
+    </ol>
+  </section>
+
+  <section class="card source-list">
+    <h3>主要來源路線</h3>
+    <a href="https://www.gept.org.tw/exam_intro/t03_introduction.asp" target="_blank" rel="noopener">GEPT 官方中高級測驗說明</a>
+    <a href="#b132-local-source" data-local-source="see-your-point-not-sold-source-route.html">Stance: I see your point / reservations</a>
+    <a href="#b132-local-source" data-local-source="weak-argument-source-route.html">Argument: hold water / persuasive / solid</a>
+    <a href="#b132-local-source" data-local-source="offer-thoughts-source-route.html">Suggestion: put forward / input</a>
+    <a href="#b132-local-source" data-local-source="sentence-patterns-200-logic-connectors.html">200核心句型：邏輯連接</a>
+    <a href="#b132-local-source" data-local-source="today-writing-workout-source-first.html">今日寫作提升頁</a>
+    <a href="#b132-local-source" data-local-source="ielts-writing-updated-resource-hub.html">IELTS Writing 更新資源總入口</a>
+  </section>
+
+  <section class="card">
+    <h3>今日目標</h3>
+    <p>學生下課時要能做到：</p>
+    <ul class="compact">
+      <li>口說：先答、再解釋、再舉例、再讓步。</li>
+      <li>寫作：有清楚 claim、有連接、有反方處理。</li>
+      <li>用字：不只 good/bad/think，而能用 stance 與 argument 語言。</li>
+    </ul>
+  </section>
+</aside>
+
+<main>
+  <section class="box teacher-box">
+    <h2>0. 教師開場：考什麼，今天練什麼</h2>
+    <p><b>GEPT 中高級複試</b>的課堂重點可切成兩條線：寫作要處理中譯英與引導寫作；口說要處理回答問題、看圖敘述、申述。B2→C1 的差別不只是少犯錯，而是回答要更有組織、語氣更成熟、論點更能站得住。</p>
+    <p><span class="source-chip">official route: GEPT 中高級測驗說明</span><span class="source-chip">B132 lesson route: gept-high-intermediate-second-stage-materials</span></p>
+  </section>
+
+  <section class="box practice">
+    <h2>1. 10 分鐘診斷</h2>
+    <div class="grid">
+      <div>
+        <h3>Speaking diagnostic</h3>
+        <p><b>Question:</b> Some people say students should spend less time memorizing vocabulary and more time using English in real situations. Do you agree?</p>
+        <p><b>15-second answer:</b></p>
+        <div class="writebox">Student speaks. Teacher notes: directness / reason / example / connector.</div>
+      </div>
+      <div>
+        <h3>Writing diagnostic</h3>
+        <p><b>Write 80 words:</b> Is learning English through exams useful?</p>
+        <div class="writebox">Student writes here. Teacher marks only three things: claim, connection, example.</div>
+      </div>
+    </div>
+    <p class="mini">Teacher rule: do not correct everything. First identify whether the student has a claim problem, a development problem, or a wording/register problem.</p>
+  </section>
+
+  <section class="box student-box">
+    <h2>2. 核心招式一：先讓步，再表態</h2>
+    <p>很多 B2 學生只會說 <span class="cue">I agree</span> 或 <span class="cue">I disagree</span>。中高級複試要更像真實討論：你可以先承認對方有道理，再說你的保留。</p>
+    <div class="tri">
+      <div class="phrase"><b>Safe speaking</b>I see your point, but I am not fully convinced.</div>
+      <div class="phrase"><b>More formal</b>While this view has some merit, I still have some reservations.</div>
+      <div class="phrase"><b>Writing mode</b>Although this argument is reasonable in some cases, it overlooks a more important issue.</div>
+    </div>
+    <div class="box teacher-box">
+      <h3>Source route</h3>
+      <p>這組來自 B132 stance route 的跨來源整合：Collocations in Use 處理 agree/disagree 搭配；Business Vocabulary in Use 處理會議式保留不同意；Cambridge IELTS 10 處理 speaking opinion / writing personal view。</p>
+      <a class="btn route" href="#b132-local-source" data-local-source="see-your-point-not-sold-source-route.html">整合 route</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/see-point-not-sold-collocations-agree-disagree-p0118-p0119.pdf">Collocations p.118-119</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/see-point-not-sold-business-meetings-p0126-p0127.pdf">Business p.126-127</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/see-point-not-sold-ielts-speaking-opinion-p0148-p0150.pdf">IELTS speaking p.148-150</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/see-point-not-sold-ielts-writing-view-p0128-p0129.pdf">IELTS writing p.128-129</a>
+    </div>
+  </section>
+
+  <section class="box student-box">
+    <h2>3. 核心招式二：把理由說成「論點」</h2>
+    <p>B2 常見句子：<span class="cue">I think it is bad because it is not good.</span> 這不是錯，而是太薄。中高級要能說一個論點是否有支撐、是否有說服力。</p>
+    <div class="grid">
+      <div class="phrase"><b>Weak</b>This idea is bad.</div>
+      <div class="phrase"><b>Better</b>This argument is not very convincing because it does not explain how students would actually benefit.</div>
+      <div class="phrase"><b>Stronger</b>The argument does not fully hold water: it assumes that more practice automatically leads to better communication.</div>
+      <div class="phrase"><b>Positive version</b>A more solid argument would connect exam preparation with real communicative tasks.</div>
+    </div>
+    <div class="box teacher-box">
+      <h3>Source route</h3>
+      <p>用 weak-argument route 教「論點強弱階梯」：not hold water / solid argument / logical argument / convincing / persuasive / pick holes in。</p>
+      <a class="btn route" href="#b132-local-source" data-local-source="weak-argument-source-route.html">論點站不住腳 route</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/weak-argument-hold-water-grammar-p0591-p0592.pdf">not hold water</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/weak-argument-solid-arguments-chengjing-p0127-p0128.pdf">solid argument</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/weak-argument-convincing-chengjing-p0194-p0195.pdf">convincing</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/weak-argument-persuasive-chengjing-p0296-p0297.pdf">persuasive</a>
+    </div>
+  </section>
+
+  <section class="box student-box">
+    <h2>4. 核心招式三：提出建議，不要只說 should</h2>
+    <p>考試的 solution 題、口說申述題、看圖敘述後的推論，都需要提出想法。不要一直用 <span class="cue">I think we should...</span>。</p>
+    <div class="tri">
+      <div class="phrase"><b>Basic</b>Schools should give students more chances to use English.</div>
+      <div class="phrase"><b>Better</b>One possible solution is to give students more chances to use English in realistic situations.</div>
+      <div class="phrase"><b>Advanced</b>I would put forward a more balanced approach: exams should support communication, not replace it.</div>
+    </div>
+    <div class="box teacher-box">
+      <h3>Source route</h3>
+      <p>offer-thoughts route 專門處理 offer a suggestion / provide input / food for thought / put forward an argument or proposal。</p>
+      <a class="btn route" href="#b132-local-source" data-local-source="offer-thoughts-source-route.html">提供想法 route</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/offer-thoughts-collocations-put-forward-p0124-p0125.pdf">put forward</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/offer-thoughts-longteng-offer-suggestion-p0188-p0191.pdf">offer a suggestion</a>
+      <a class="btn slice" href="#b132-local-source" data-local-source="files/source_slices/offer-thoughts-longteng-input-p0255-p0257.pdf">input</a>
+    </div>
+  </section>
+
+  <section class="box student-box">
+    <h2>5. 核心招式四：用連接詞做出層次</h2>
+    <p>句子要有層次，不是一直用 and / but / because。今天先掌握四個：</p>
+    <table>
+      <thead><tr><th>功能</th><th>句型</th><th>課堂例句</th><th>原書路線</th></tr></thead>
+      <tbody>
+        <tr><td>讓步</td><td><span class="cue">Although...</span></td><td>Although exams can motivate students, they should not be the only goal of learning.</td><td><a href="#b132-local-source" data-local-source="sentence-patterns-200-logic-connectors.html#p130">200句型 p.130</a></td></tr>
+        <tr><td>限定理由</td><td><span class="cue">in that...</span></td><td>Real communication is useful in that it forces students to organize ideas quickly.</td><td><a href="#b132-local-source" data-local-source="sentence-patterns-200-logic-connectors.html#p140">200句型 p.140</a></td></tr>
+        <tr><td>前提判斷</td><td><span class="cue">given that...</span></td><td>Given that many students already know grammar rules, they need more practice developing ideas.</td><td><a href="#b132-local-source" data-local-source="sentence-patterns-200-logic-connectors.html#p144">200句型 p.144</a></td></tr>
+        <tr><td>累加強調</td><td><span class="cue">not only...but also...</span></td><td>A good answer not only gives an opinion but also explains why that opinion matters.</td><td><a href="#b132-local-source" data-local-source="sentence-patterns-200-logic-connectors.html#p150">200句型 p.150</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="box practice">
+    <h2>6. 口說練習：15 秒 → 30 秒 → 90 秒</h2>
+    <p><b>Prompt:</b> Some people believe that English classes should focus more on speaking than grammar. What do you think?</p>
+    <div class="tri">
+      <div class="card"><h3>15 seconds</h3><p>Direct answer + one reason.</p><div class="writebox">I partly agree because...</div></div>
+      <div class="card"><h3>30 seconds</h3><p>Answer + reason + example.</p><div class="writebox">I see why..., but...</div></div>
+      <div class="card"><h3>90 seconds</h3><p>Answer + reason + example + concession + final stance.</p><div class="writebox">Although..., I would argue that...</div></div>
+    </div>
+    <details class="card">
+      <summary><b>示範答案</b></summary>
+      <p>I partly agree. Speaking practice is important because it forces students to organize ideas quickly, which is exactly what they need in real communication. However, I would not say grammar is unimportant. A student who speaks fluently but makes serious grammar mistakes may still fail to express precise ideas. A more balanced approach is to teach grammar through speaking tasks, so students can use sentence patterns while discussing real topics.</p>
+      <p class="mini">Source-backed synthesis: stance route + 200 sentence patterns + GEPT speaking rubric ideas. Not copied from a textbook.</p>
+    </details>
+  </section>
+
+  <section class="box practice">
+    <h2>7. 寫作練習：150-180 words 引導寫作</h2>
+    <p><b>Prompt:</b> Some people believe that learning English through exams is effective, while others think real communication matters more. Write 150-180 words to express your view.</p>
+    <table>
+      <thead><tr><th>段落功能</th><th>你要寫什麼</th><th>可用骨架</th></tr></thead>
+      <tbody>
+        <tr><td>Claim</td><td>你的主張，不要兩邊都講到沒有立場。</td><td>I would argue that <span class="blank"></span>.</td></tr>
+        <tr><td>Reason</td><td>用 in that / because 指出原因。</td><td>This is important in that <span class="blank"></span>.</td></tr>
+        <tr><td>Example</td><td>一個具體學生場景。</td><td>For example, <span class="blank"></span>.</td></tr>
+        <tr><td>Concession</td><td>承認另一邊有道理。</td><td>Although <span class="blank"></span>, <span class="blank"></span>.</td></tr>
+        <tr><td>Solution</td><td>提出平衡做法。</td><td>A more balanced approach is to <span class="blank"></span>.</td></tr>
+      </tbody>
+    </table>
+    <details class="card">
+      <summary><b>示範 outline</b></summary>
+      <p>I would argue that exams are useful, but they should not become the center of English learning. Exams can motivate students and help teachers check progress. However, real communication matters because it forces learners to organize ideas, respond quickly, and choose words for a real purpose. For example, a student may know many grammar rules but still struggle to explain an opinion in a conversation. Although exam practice has value, it should be connected to speaking and writing tasks. A more balanced approach is to use exams as a tool for feedback, not as the final goal of learning.</p>
+    </details>
+  </section>
+
+  <section class="box practice">
+    <h2>8. 中譯英精準度練習</h2>
+    <p><b>中文：</b>許多學生不是不會文法，而是不知道如何把想法組織成清楚、有層次的論點。</p>
+    <div class="writebox">Your translation:</div>
+    <details class="card">
+      <summary><b>建議譯法與拆解</b></summary>
+      <p>Many students do not necessarily lack grammar knowledge; rather, they do not know how to organize their ideas into a clear, well-developed argument.</p>
+      <ul class="compact">
+        <li><b>not necessarily lack...</b> 比 do not have 更精準。</li>
+        <li><b>rather</b> 做「不是 A，而是 B」的轉向。</li>
+        <li><b>clear, well-developed argument</b> 對應清楚、有層次的論點。</li>
+      </ul>
+    </details>
+  </section>
+
+  <section class="box teacher-box">
+    <h2>9. 老師批改表：只看五個維度</h2>
+    <table>
+      <thead><tr><th>維度</th><th>B2 常見狀態</th><th>B2→C1 升級方向</th><th>來源路線</th></tr></thead>
+      <tbody>
+        <tr><td>立場</td><td>I agree / disagree 太平。</td><td>先讓步，再明確表態。</td><td><a href="#b132-local-source" data-local-source="see-your-point-not-sold-source-route.html">stance route</a></td></tr>
+        <tr><td>理由</td><td>Because it is good / bad.</td><td>理由要具體，能承受追問。</td><td><a href="#b132-local-source" data-local-source="weak-argument-source-route.html">argument route</a></td></tr>
+        <tr><td>連接</td><td>and / but / because 重複。</td><td>although / in that / given that / not only。</td><td><a href="#b132-local-source" data-local-source="sentence-patterns-200-logic-connectors.html">200句型</a></td></tr>
+        <tr><td>建議</td><td>should 重複。</td><td>put forward / one possible solution / balanced approach。</td><td><a href="#b132-local-source" data-local-source="offer-thoughts-source-route.html">offer-thoughts</a></td></tr>
+        <tr><td>語氣</td><td>太絕對或太口語。</td><td>用 partly, may, in some cases, reservations 做出成熟度。</td><td><a href="#b132-local-source" data-local-source="see-your-point-not-sold-source-route.html">IELTS stance slices</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="box teacher-box">
+    <h2>10. 課程流程表</h2>
+    <div class="timeline">
+      <div class="time">0-10</div><div class="step">診斷：一題口說 + 80-word mini response。</div>
+      <div class="time">10-20</div><div class="step">題型對齊：寫作中譯英 / 引導寫作；口說回答問題 / 看圖敘述 / 申述。</div>
+      <div class="time">20-38</div><div class="step">招式一：先讓步，再表態。練 stance phrases。</div>
+      <div class="time">38-55</div><div class="step">招式二：argument strength。把 good/bad 改成 convincing / solid / hold water。</div>
+      <div class="time">55-70</div><div class="step">招式三與四：solution language + connectors。</div>
+      <div class="time">70-88</div><div class="step">Speaking ladder：15 / 30 / 90 秒同題三練。</div>
+      <div class="time">88-105</div><div class="step">Writing outline：150-180 words 骨架，現場口頭批改。</div>
+      <div class="time">105-110</div><div class="step">帶走：一張三句救命卡 + 下一次作業。</div>
+    </div>
+  </section>
+
+  <section class="box teacher-box">
+    <h2>11. 原書 / B132 來源索引</h2>
+    <table>
+      <thead><tr><th>教學功能</th><th>來源</th><th>定位</th><th>連結</th></tr></thead>
+      <tbody>
+        <tr><td>官方題型與評分方向</td><td>GEPT 官方中高級測驗說明</td><td>寫作/口說題型與評分尺度</td><td><a href="https://www.gept.org.tw/exam_intro/t03_introduction.asp" target="_blank" rel="noopener">官方頁</a></td></tr>
+        <tr><td>口說 stance / 寫作立場</td><td>Cambridge IELTS 10 + In Use sources</td><td>speaking opinion p.148-150; writing personal view p.128-129</td><td><a href="#b132-local-source" data-local-source="see-your-point-not-sold-source-route.html">route</a></td></tr>
+        <tr><td>agree/disagree 搭配</td><td>Intermediate English Collocations in Use</td><td>p.118-119</td><td><a href="#b132-local-source" data-local-source="files/source_slices/see-point-not-sold-collocations-agree-disagree-p0118-p0119.pdf">切頁</a></td></tr>
+        <tr><td>會議式保留不同意</td><td>Intermediate Business Vocabulary in Use</td><td>p.126-127</td><td><a href="#b132-local-source" data-local-source="files/source_slices/see-point-not-sold-business-meetings-p0126-p0127.pdf">切頁</a></td></tr>
+        <tr><td>論點強弱</td><td>Wren & Martin / 晟景核心字彙 / Idioms in Use</td><td>hold water, solid, convincing, persuasive</td><td><a href="#b132-local-source" data-local-source="weak-argument-source-route.html">route</a></td></tr>
+        <tr><td>建議與提出想法</td><td>Collocations in Use / 龍騰字彙王</td><td>put forward, offer a suggestion, input</td><td><a href="#b132-local-source" data-local-source="offer-thoughts-source-route.html">route</a></td></tr>
+        <tr><td>連接詞句型</td><td>從高中到大人一定都會用到的200個英語核心句型</td><td>Chapter 5 p.125-157</td><td><a href="#b132-local-source" data-local-source="sentence-patterns-200-logic-connectors.html">rendered pages</a></td></tr>
+        <tr><td>寫作題目池</td><td>IELTS writing prompt bank + updated hub</td><td>2006-2010 chunked; 17/18/19 raw linked</td><td><a href="#b132-local-source" data-local-source="ielts-writing-updated-resource-hub.html">hub</a></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+<section id="b132-local-source" class="public-note">
+  <h2>B132 local teacher sources</h2>
+  <p>This public student page intentionally does not publish local B132 source-route PDFs or raw textbook slices. In class, use the exercises here; teacher source verification remains in the local B132 corpus.</p>
+</section>
+</main>
+</div>
+</body>
+</html>
