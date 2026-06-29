@@ -880,6 +880,7 @@ body.reader-focus header{
       <button class="filter-btn" type="button" data-filter="speaking" aria-pressed="false">Speaking / stance <span data-count="speaking"></span></button>
       <button class="filter-btn" type="button" data-filter="literature" aria-pressed="false">Quotes & ideas <span data-count="literature"></span></button>
       <button class="filter-btn" type="button" data-filter="model" aria-pressed="false">Models <span data-count="model"></span></button>
+      <button class="filter-btn" type="button" id="resetSources">Reset sources</button>
     </div>
     <input class="source-search" id="sourceSearch" type="search" placeholder="Search source cues: tact, trust, gossip, essay, model..."/>
     <p class="filter-summary" id="filterSummary">Showing <b>20</b> source windows. Choose a category to narrow the library.</p>
@@ -1501,9 +1502,10 @@ body.reader-focus header{
   });
 
   const sourceCards = [...document.querySelectorAll('.source-card')];
-  const filterButtons = [...document.querySelectorAll('.filter-btn')];
+  const filterButtons = [...document.querySelectorAll('.filter-btn[data-filter]')];
   const filterSummary = document.getElementById('filterSummary');
   const sourceSearch = document.getElementById('sourceSearch');
+  const resetSourcesBtn = document.getElementById('resetSources');
   let activeFilter = 'all';
   const filterLabels = {
     all: 'source windows',
@@ -1553,6 +1555,13 @@ body.reader-focus header{
   });
   if(sourceSearch){
     sourceSearch.addEventListener('input', () => applyFilter(activeFilter));
+  }
+  if(resetSourcesBtn){
+    resetSourcesBtn.addEventListener('click', () => {
+      if(sourceSearch) sourceSearch.value = '';
+      applyFilter('all');
+      document.getElementById('evidenceLibrary')?.scrollIntoView({behavior:'smooth', block:'start'});
+    });
   }
   document.querySelectorAll('[data-jump-filter]').forEach(button => {
     button.addEventListener('click', () => {

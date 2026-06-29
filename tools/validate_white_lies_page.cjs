@@ -47,6 +47,14 @@ function assert(condition, message) {
     await page.waitForTimeout(200);
     const noMatch = await page.locator('#filterSummary').innerText();
     assert(/Try a broader search word/.test(noMatch), 'No-match source search does not show recovery guidance');
+    await page.click('#resetSources');
+    await page.waitForTimeout(300);
+    const resetSources = await page.evaluate(() => ({
+      visible: [...document.querySelectorAll('.source-card')].filter((card) => getComputedStyle(card).display !== 'none').length,
+      query: document.getElementById('sourceSearch').value,
+      active: document.querySelector('.filter-btn.active')?.dataset.filter
+    }));
+    assert(resetSources.visible === 20 && resetSources.query === '' && resetSources.active === 'all', 'Reset sources did not restore the full library');
     await page.fill('#sourceSearch', '');
 
     await page.fill('#toneInput', 'Your answer is too vague.');
@@ -120,6 +128,7 @@ function assert(condition, message) {
         writingFilter,
         gossipSearch,
         noMatch,
+        resetSources,
         tone: 'passed',
         bridgeDraft: 'passed',
         copyDraft: 'passed',
