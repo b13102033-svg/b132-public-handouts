@@ -6,7 +6,7 @@ https://b13102033-svg.github.io/b132-public-handouts/ethan-white-lies-writing-sp
 
 Latest validated public build in this maintenance pass:
 
-`0a2030d`
+`b34a084`
 
 ## What Changed
 
@@ -21,6 +21,8 @@ Latest validated public build in this maintenance pass:
 - Added draft scaffold buttons: Opening, Concession, Source use, Conclusion.
 - Added Copy draft.
 - Added Evidence Library source search and Reset sources.
+- Added Back to top for the long lesson page.
+- Compact mobile navigation into a horizontal scroller so the first screen is not consumed by nav buttons.
 - Polished the public handouts index and made the White Lies Lab the featured latest page.
 - Added a regression validator and documented the QA workflow.
 
@@ -32,7 +34,7 @@ Validator:
 
 Public target tested:
 
-`https://b13102033-svg.github.io/b132-public-handouts/ethan-white-lies-writing-speaking-context-lab.html?qa=public-0a2030d`
+`https://b13102033-svg.github.io/b132-public-handouts/ethan-white-lies-writing-speaking-context-lab.html?qa=public-b34a084`
 
 Result:
 
@@ -51,6 +53,7 @@ Checks passed:
 - Readiness meter detects contrast and core concept.
 - Speaking timer starts and stops.
 - Reader focus mode works.
+- Back to top returns to the page top.
 - Mobile viewport has no horizontal overflow and a usable source reader.
 
 ## Maintenance Rule
