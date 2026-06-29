@@ -291,6 +291,43 @@ blockquote{
   border-left:4px solid var(--blue);
 }
 .task-card h3{margin-top:0}
+.choice-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:12px;
+}
+.choice-card{
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:14px;
+  background:#fff;
+  cursor:pointer;
+}
+.choice-card:hover,.choice-card.active{
+  border-color:var(--teal);
+  box-shadow:0 0 0 4px rgba(15,118,110,.11);
+}
+.choice-card b{
+  display:block;
+  margin-bottom:6px;
+  color:var(--teal-dark);
+}
+.choice-card .line{
+  display:block;
+  margin:8px 0;
+  padding:10px;
+  background:#f6fbfa;
+  border-radius:7px;
+  color:#20312e;
+}
+.choice-result{
+  margin-top:12px;
+  padding:12px 13px;
+  border:1px solid var(--line);
+  border-left:4px solid var(--teal);
+  border-radius:8px;
+  background:#fff;
+}
 .source-mini{
   display:flex;
   flex-wrap:wrap;
@@ -454,6 +491,29 @@ body.reader-focus header{
 
 <main class="shell">
 <section class="lesson">
+  <section class="panel tint">
+    <h2>Opening dilemma: choose your version of honesty</h2>
+    <p>Your friend has just finished a presentation. The main idea was interesting, but the structure was hard to follow. Your friend asks, “Was it okay?”</p>
+    <div class="choice-grid" id="choiceGrid">
+      <article class="choice-card" data-result="This is socially safe in the moment, but it gives your friend no usable feedback. It may protect comfort, not growth.">
+        <b>A. White lie</b>
+        <span class="line">“Yeah, it was great!”</span>
+        <span>Fast comfort, weak truth.</span>
+      </article>
+      <article class="choice-card" data-result="This is the strongest classroom answer: it protects dignity while still confronting the real issue. It turns honesty into useful help.">
+        <b>B. Tactful truth</b>
+        <span class="line">“Your idea was strong, but the structure was hard to follow. I can help you tighten it.”</span>
+        <span>Truth plus care.</span>
+      </article>
+      <article class="choice-card" data-result="This may be honest, but it risks becoming an injurious truth. It tells the fact without giving the person a path forward.">
+        <b>C. Brutal truth</b>
+        <span class="line">“Honestly, it was confusing.”</span>
+        <span>Clear, but possibly cruel.</span>
+      </article>
+    </div>
+    <div class="choice-result" id="choiceResult">Pick one answer above, then use Twain, Aesop, Austen, or the In Use pages to defend or revise it.</div>
+  </section>
+
   <section class="panel">
     <h2>1. Evidence Library</h2>
     <p>Start here. Each card opens a focused page slice or literary fragment in the large reader on the right. The short cue tells you what the source is useful for.</p>
@@ -911,6 +971,14 @@ body.reader-focus header{
     draft.addEventListener('input', updateWordCount);
     updateWordCount();
   }
+  const choiceResult = document.getElementById('choiceResult');
+  document.querySelectorAll('.choice-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.choice-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      if(choiceResult) choiceResult.textContent = card.dataset.result || '';
+    });
+  });
 })();
 </script>
 </body>
