@@ -577,6 +577,12 @@ textarea{
   gap:8px;
   margin:0 0 10px;
 }
+.draft-status{
+  align-self:center;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:800;
+}
 .checklist{
   display:grid;
   gap:8px;
@@ -1316,7 +1322,9 @@ body.reader-focus header{
       <button class="btn" type="button" data-add-draft="Concession: Although a white lie may protect someone’s feelings in the short term, it can still weaken trust if it becomes a habit.">Concession</button>
       <button class="btn" type="button" data-add-draft="Source use: This source suggests that the moral problem lies not only in whether we tell the truth, but in how our words affect another person’s dignity.">Source use</button>
       <button class="btn" type="button" data-add-draft="Conclusion: For this reason, the best answer is not blunt honesty or convenient dishonesty, but tactful honesty that gives the listener a path forward.">Conclusion</button>
+      <button class="btn" type="button" id="copyDraft">Copy draft</button>
       <button class="btn" type="button" id="clearDraft">Clear draft</button>
+      <span class="draft-status" id="draftStatus"></span>
     </div>
     <div class="writing-box">
       <textarea id="draft" placeholder="Write your answer here. Try to use one source idea, one concession phrase, and one advanced collocation."></textarea>
@@ -1371,6 +1379,8 @@ body.reader-focus header{
   const wordCount = document.getElementById('wordCount');
   const insertOutlineBtn = document.getElementById('insertOutline');
   const clearDraftBtn = document.getElementById('clearDraft');
+  const copyDraftBtn = document.getElementById('copyDraft');
+  const draftStatus = document.getElementById('draftStatus');
   const toneInput = document.getElementById('toneInput');
   const toneOutput = document.getElementById('toneOutput');
   const speakingTimer = document.getElementById('speakingTimer');
@@ -1654,8 +1664,28 @@ body.reader-focus header{
   if(clearDraftBtn){
     clearDraftBtn.addEventListener('click', () => {
       draft.value = '';
+      if(draftStatus) draftStatus.textContent = '';
       updateWordCount();
       draft.focus();
+    });
+  }
+  if(copyDraftBtn){
+    copyDraftBtn.addEventListener('click', async () => {
+      if(!draft) return;
+      const text = draft.value.trim();
+      if(!text){
+        if(draftStatus) draftStatus.textContent = 'Draft is empty.';
+        draft.focus();
+        return;
+      }
+      try{
+        await navigator.clipboard.writeText(text);
+        if(draftStatus) draftStatus.textContent = 'Copied.';
+      }catch(e){
+        draft.select();
+        document.execCommand('copy');
+        if(draftStatus) draftStatus.textContent = 'Copied.';
+      }
     });
   }
   document.querySelectorAll('[data-add-draft]').forEach(button => {

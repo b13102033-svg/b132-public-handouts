@@ -57,6 +57,10 @@ function assert(condition, message) {
     await page.click('#sourceBridge [data-add-draft]');
     const bridgeDraft = await page.locator('#draft').inputValue();
     assert(/white lie may solve/.test(bridgeDraft), 'Bridge Add to draft did not insert a sentence');
+    await page.click('#copyDraft');
+    await page.waitForTimeout(150);
+    const copyStatus = await page.locator('#draftStatus').innerText();
+    assert(/Copied/.test(copyStatus), `Copy draft did not report success: ${copyStatus}`);
 
     await page.fill('#draft', 'Although a white lie may seem kind, it can damage trust and credibility if it protects the speaker more than the listener. However, tactful honesty can preserve dignity while still giving useful feedback.');
     await page.waitForTimeout(150);
@@ -118,6 +122,7 @@ function assert(condition, message) {
         noMatch,
         tone: 'passed',
         bridgeDraft: 'passed',
+        copyDraft: 'passed',
         readiness: 'passed',
         timer: 'passed',
         reader: 'passed',
