@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>英文寫作練習365｜B132 Source Route</title>
+  <style>
+    :root{
+      --ink:#18202b;--muted:#5d6878;--line:#d9e2df;--paper:#fffdf8;--soft:#f4f8f6;
+      --green:#0f766e;--blue:#1d4ed8;--amber:#a16207;--red:#b91c1c;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--soft);color:var(--ink);line-height:1.6}
+    header{padding:24px 28px;background:var(--paper);border-bottom:1px solid var(--line)}
+    main{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.9fr);gap:18px;max-width:1500px;margin:0 auto;padding:18px}
+    h1{margin:.2em 0 .25em;font-size:clamp(26px,4vw,42px);line-height:1.12}
+    h2{margin:0 0 10px;font-size:21px}
+    h3{margin:0 0 6px;font-size:16px}
+    p{margin:.45em 0;color:#374151}
+    a{color:var(--green);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .lead{max-width:1040px;color:var(--muted)}
+    .bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid #cbd5e1;border-radius:7px;padding:8px 10px;background:white;color:var(--ink);font-size:13px;font-weight:700;text-decoration:none}
+    .btn.primary{background:var(--green);border-color:var(--green);color:white}
+    .btn.blue{background:#eff6ff;border-color:#bfdbfe;color:#1d4ed8}
+    .btn:hover{text-decoration:none;filter:brightness(.98)}
+    .panel,.card{background:white;border:1px solid var(--line);border-radius:9px;padding:16px;margin-bottom:14px;box-shadow:0 1px 5px rgba(15,23,42,.04)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    .meta{font-size:13px;color:var(--muted)}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;word-break:break-all;color:#475569}
+    .chip{display:inline-flex;border-radius:999px;border:1px solid #dbe4e0;background:#f8fafc;color:#334155;font-size:12px;font-weight:700;padding:3px 8px;margin:2px 3px 2px 0}
+    .ok{background:#ecfdf5;border-color:#bbf7d0;color:#166534}
+    .warn{background:#fffbeb;border-color:#fde68a;color:#92400e}
+    .route{border-left:4px solid var(--green)}
+    .slice{border-left:4px solid var(--blue)}
+    .cue{font-size:13px;color:#0f766e;background:#ecfdf5;border:1px solid #bbf7d0;border-radius:7px;padding:8px;margin:.6em 0}
+    table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+    th,td{border-bottom:1px solid #e5e7eb;padding:9px;text-align:left;vertical-align:top;font-size:13px}
+    th{background:#f8fafc;color:#334155}
+    tr:last-child td{border-bottom:0}
+    aside{position:sticky;top:12px;align-self:start}
+    iframe{width:100%;height:78vh;border:1px solid #cbd5e1;border-radius:9px;background:white}
+    .preview-title{font-size:13px;color:#475569;margin:0 0 8px}
+    @media(max-width:920px){main{grid-template-columns:1fr}aside{position:static}iframe{height:68vh}}
+  </style>
+</head>
+<body>
+<header>
+  <a class="btn" href="index.html">B132 index</a>
+  <a class="btn" href="writing-advanced-usage-megahub.html">Writing megahub</a>
+  <a class="btn" href="ethan-white-lies-writing-speaking-context-lab.html">Ethan white-lies lab</a>
+  <h1>英文寫作練習365｜原子習慣寫作練習書</h1>
+  <p class="lead">這是《英文寫作練習365》的固定 source-route 入口。它把原書、B132 document_id、chunk 狀態、已切頁段、以及適合的教學用途集中在一頁，未來要做寫作練習、口說回答、三行英文、日常題材發想時，先從這裡進。</p>
+  <div class="bar">
+    <a class="btn primary" href="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/writing-practice-365-3d7de6dc.pdf" target="sourcePreview">Open original book</a>
+    <a class="btn blue" href="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/writing-practice-365-3d7de6dc.pdf" target="_blank">Open in new tab</a>
+  </div>
+</header>
+<main>
+  <section>
+    <section class="panel route">
+      <h2>B132 locator</h2>
+      <p><span class="chip ok">found</span><span class="chip ok">chunked</span><span class="chip ok">107 chunks</span><span class="chip ok">386 PDF pages</span><span class="chip warn">page check before exact quotation</span></p>
+      <p class="mono">document_id: language-writing-guide-kokusaigakumura-unknown-date-writing-practice-365</p>
+      <p class="meta">B132 retrieval path: source card → chunks_index_slim → canonical markdown/page text → original PDF/page slice verification.</p>
+      <p class="meta">Use the source card and chunk index as the current truth source. Older metadata snapshots for this book may still show pre-upgrade pending status.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Best uses</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Daily writing habit</h3>
+          <p>Short guided Q&A prompts that help students generate a manageable English answer without freezing.</p>
+          <div class="cue">Use when a student says: I have ideas, but I do not know how to start in English.</div>
+        </article>
+        <article class="card">
+          <h3>Speaking-to-writing bridge</h3>
+          <p>The book is useful for turning simple oral answers into short written responses with a clearer stance.</p>
+          <div class="cue">Use for GEPT/GSAT warm-ups: answer orally first, then refine into a paragraph.</div>
+        </article>
+        <article class="card">
+          <h3>Topic bank</h3>
+          <p>Its everyday themes give quick classroom prompts: online opinions, rumors, role models, plans, dreams, family, belief, opportunity.</p>
+          <div class="cue">Use when a lesson needs concrete personal-context topics rather than abstract essay titles.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Known source windows</h2>
+      <table>
+        <thead><tr><th>Window</th><th>Use it for</th><th>Open</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>pp. 277-279</td>
+            <td>Online opinions, anonymity, public expression, commenting/reviewing culture.</td>
+            <td><a class="btn primary" href="files/source_slices/today_white_lies_writing_speaking/writing365-online-opinions-p0277-p0279.pdf" target="sourcePreview">slice</a> <a class="btn" href="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/writing-practice-365-3d7de6dc.pdf#page=277" target="_blank">full p.277</a></td>
+          </tr>
+          <tr>
+            <td>pp. 283-292</td>
+            <td>Rumors, gossip, secrets, whom to trust, interpersonal honesty.</td>
+            <td><a class="btn primary" href="files/source_slices/today_white_lies_writing_speaking/writing365-rumors-gossip-p0283-p0292.pdf" target="sourcePreview">slice</a> <a class="btn" href="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/writing-practice-365-3d7de6dc.pdf#page=283" target="_blank">full p.283</a></td>
+          </tr>
+          <tr>
+            <td>pp. 322-324</td>
+            <td>Disagreeing with a superior, tact, hierarchy, polite resistance.</td>
+            <td><a class="btn primary" href="files/source_slices/today_white_lies_writing_speaking/writing365-disagree-with-superior-p0322-p0324.pdf" target="sourcePreview">slice</a> <a class="btn" href="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/writing-practice-365-3d7de6dc.pdf#page=322" target="_blank">full p.322</a></td>
+          </tr>
+          <tr>
+            <td>p. 4</td>
+            <td>Book concept: short daily writing, English-thinking habit, guided response practice.</td>
+            <td><a class="btn" href="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/writing-practice-365-3d7de6dc.pdf#page=4" target="sourcePreview">full p.4</a></td>
+          </tr>
+          <tr>
+            <td>pp. 345-349</td>
+            <td>Planning, confidence, role models, self-motivation, goal-oriented reflection.</td>
+            <td><a class="btn" href="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/writing-practice-365-3d7de6dc.pdf#page=345" target="sourcePreview">full p.345</a></td>
+          </tr>
+          <tr>
+            <td>pp. 377-381</td>
+            <td>Year-end reflection, new skills, unexpected opportunities, personal growth.</td>
+            <td><a class="btn" href="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/writing-practice-365-3d7de6dc.pdf#page=377" target="sourcePreview">full p.377</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>How I should use it next time</h2>
+      <p>For a writing or speaking lesson, search this document first by topic cue, then cross-check with <em>English Collocations in Use</em>, <em>Vocabulary in Use</em>, and the public-domain fragment packs. This book supplies the student-friendly prompt and answer scaffold; the other sources can supply richer phrasing, collocations, register contrast, and quote-led context.</p>
+      <p class="meta">Search cues: daily writing, guided Q&A, online opinions, rumors, secrets, disagree politely, role model, planning, new skill, unexpected opportunity, dream, belief, family reunion.</p>
+    </section>
+  </section>
+
+  <aside class="panel">
+    <p class="preview-title">Source preview</p>
+    <iframe name="sourcePreview" src="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/writing-practice-365-3d7de6dc.pdf"></iframe>
+  </aside>
+</main>
+</body>
+</html>
