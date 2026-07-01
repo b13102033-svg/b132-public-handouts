@@ -152,6 +152,86 @@ h1{
 .lesson-map h2{margin:0 0 8px;font-size:16px}
 .lesson-map ol{margin:0;padding-left:21px;color:#364642}
 .lesson-map li{margin:5px 0}
+.studio{
+  border-color:#bddbd4;
+  background:linear-gradient(180deg,#ffffff 0%,#f6fbfa 100%);
+}
+.studio-lead{
+  max-width:780px;
+  color:#314642;
+  font-size:16px;
+}
+.studio-flow{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:9px;
+  margin:14px 0;
+}
+.flow-step{
+  border:1px solid #d8e7e3;
+  border-radius:8px;
+  padding:11px 12px;
+  background:#fff;
+  color:#334642;
+  font-size:13px;
+}
+.flow-step b{
+  display:block;
+  color:var(--teal-dark);
+  margin-bottom:3px;
+}
+.studio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
+  gap:12px;
+}
+.studio-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-height:210px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:14px;
+  background:#fff;
+  border-top:4px solid var(--teal);
+}
+.studio-card.idea{border-top-color:var(--wine)}
+.studio-card.language{border-top-color:var(--gold)}
+.studio-card.task{border-top-color:var(--blue)}
+.studio-card h3{
+  margin:0;
+  color:#18332f;
+}
+.studio-card p{
+  color:#40504c;
+  font-size:14px;
+}
+.studio-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:auto;
+}
+.evidence-strip{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:8px;
+  margin-top:12px;
+}
+.evidence-chip{
+  border:1px solid #d9e5e1;
+  border-radius:8px;
+  padding:9px 10px;
+  background:#fff;
+  color:#40504c;
+  font-size:13px;
+}
+.evidence-chip b{
+  display:block;
+  color:var(--teal-dark);
+  margin-bottom:2px;
+}
 .jump-row{
   display:flex;
   flex-wrap:wrap;
@@ -816,12 +896,36 @@ body.reader-focus header{
   padding-left:12px;
   padding-right:12px;
 }
+body.reader-desk{
+  overflow:hidden;
+}
+body.reader-desk .reader{
+  position:fixed;
+  inset:54px 8px 8px;
+  z-index:80;
+}
+body.reader-desk .reader-card{
+  height:100%;
+  min-height:0;
+  border-color:#8ad8c8;
+  box-shadow:0 24px 70px rgba(23,33,31,.24);
+}
+body.reader-desk .reader-head{
+  padding-bottom:8px;
+  border-bottom:1px solid #d8e7e3;
+}
+body.reader-desk iframe{
+  min-height:0;
+}
+body.reader-desk .topbar{
+  z-index:90;
+}
 @media(max-width:1180px){
   header,.shell{grid-template-columns:1fr}
   .reader{position:static}
   .reader-card{height:auto;min-height:0}
   iframe{height:78vh;min-height:620px}
-  .writing-box,.tone-tool,.speaking-coach{grid-template-columns:1fr}
+  .writing-box,.tone-tool,.speaking-coach,.studio-flow{grid-template-columns:1fr}
 }
 @media(max-width:760px){
   .topbar{position:static;align-items:flex-start;flex-direction:column}
@@ -854,6 +958,7 @@ body.reader-focus header{
     <a class="btn ghost" href="writing-advanced-usage-megahub.html">Advanced Writing</a>
     <a class="btn ghost" href="today-topic-white-lies-fragment-deck.html">Open Fragments</a>
     <a class="btn ghost" href="ethan-gept-writing-speaking.html">GEPT Packet</a>
+    <a class="btn ghost" href="#studio">Studio</a>
     <a class="btn ghost" href="#evidenceLibrary">Sources</a>
     <a class="btn ghost" href="#sourceBridge">Bridge</a>
     <a class="btn ghost" href="#answerModels">Models</a>
@@ -893,6 +998,61 @@ body.reader-focus header{
 
 <main class="shell">
 <section class="lesson">
+  <section class="panel studio" id="studio">
+    <h2>Source-first studio</h2>
+    <p class="studio-lead">Use this page like a reading desk, not a worksheet. Open one real source in the right-hand window, borrow one idea or phrase, then turn it into a spoken answer or an exam-style paragraph.</p>
+    <div class="studio-flow" aria-label="student workflow">
+      <div class="flow-step"><b>1. Read</b>Open a source slice or fragment in the reader.</div>
+      <div class="flow-step"><b>2. Notice</b>Take one claim, one contrast, or one phrase.</div>
+      <div class="flow-step"><b>3. Use</b>Say it in a 60-second answer or add it to your draft.</div>
+      <div class="flow-step"><b>4. Verify</b>Keep the source window open while you write.</div>
+    </div>
+    <div class="studio-grid">
+      <article class="studio-card idea">
+        <h3>Start with a sharp idea</h3>
+        <p>Twain gives the central tension: sometimes the truth itself can injure. Aesop gives the warning: repeated lies destroy credibility.</p>
+        <div class="cue">Best first route: Twain for nuance, Aesop for trust cost.</div>
+        <div class="studio-actions">
+          <a class="btn primary" href="files/open_enrichment_fragments/twain-brutal-truth.html" data-title="Mark Twain · Injurious truth" data-full="files/open_enrichment/twain-on-the-decay-of-the-art-of-lying.html" target="sourcePreview">Open Twain</a>
+          <a class="btn" href="files/open_enrichment_fragments/aesop-wolf-credibility.html" data-title="Aesop · Credibility after lying" data-full="files/open_enrichment/aesop-three-hundred-fables.html" target="sourcePreview">Open Aesop</a>
+        </div>
+      </article>
+      <article class="studio-card language">
+        <h3>Borrow advanced language</h3>
+        <p>Use In Use / collocation pages for exam-ready wording: make the case, take issue with, bear in mind, betray trust, root cause, desired effect.</p>
+        <div class="cue">Best first route: essay language plus concession and contrast.</div>
+        <div class="studio-actions">
+          <a class="btn primary" href="files/source_slices/today_white_lies_writing_speaking/advanced-collocations-writing-essays-p0044-p0045.pdf" data-title="Advanced Collocations · Essays and reports · pp.44-45" data-full="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/advanced-collocations-in-use-3871fef3.pdf" target="sourcePreview">Essay phrases</a>
+          <a class="btn" href="files/source_slices/today_white_lies_writing_speaking/upper-vocab-concession-contrast-p0135-p0136.pdf" data-title="Vocabulary in Use · Concession and contrast · pp.135-136" data-full="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/upper-intermediate-english-vocabulary-in-use-4d518fec.pdf" target="sourcePreview">Contrast phrases</a>
+        </div>
+      </article>
+      <article class="studio-card task">
+        <h3>Write from a real situation</h3>
+        <p>The main prompt is not “Are white lies good?” It is a school magazine situation about public mistakes, online reactions, dignity, trust, and useful feedback.</p>
+        <div class="cue">Best first route: read the prompt, then open two sources before drafting.</div>
+        <div class="studio-actions">
+          <a class="btn primary" href="#schoolMagazinePrompt">School magazine task</a>
+          <a class="btn" href="#debatePrompt">GEPT / IELTS task</a>
+        </div>
+      </article>
+      <article class="studio-card">
+        <h3>Speak with a line</h3>
+        <p>Do not answer with a flat yes or no. Build a line: tactful honesty is better than brutal honesty or convenient dishonesty.</p>
+        <div class="cue">Best first route: source idea → concession → personal rule.</div>
+        <div class="studio-actions">
+          <a class="btn primary" href="#speakingPractice">Speaking tasks</a>
+          <button class="btn" type="button" data-add-draft="My rule: A white lie is only defensible when it protects dignity without removing useful truth.">Add my rule</button>
+        </div>
+      </article>
+    </div>
+    <div class="evidence-strip" aria-label="claim-level evidence chips">
+      <div class="evidence-chip"><b>Claim: truth can hurt</b>Route: Twain · injurious truth · fragment verified.</div>
+      <div class="evidence-chip"><b>Claim: trust has a memory</b>Route: Aesop · credibility after lying · fragment verified.</div>
+      <div class="evidence-chip"><b>Claim: tact is not fake politeness</b>Route: The Ladies’ Vase · true politeness · fragment verified.</div>
+      <div class="evidence-chip"><b>Claim: essays need controlled contrast</b>Route: Vocabulary in Use · concession / contrast · page slice.</div>
+    </div>
+  </section>
+
   <section class="panel tint">
     <h2>Opening dilemma: choose your version of honesty</h2>
     <p>Your friend has just finished a presentation. The main idea was interesting, but the structure was hard to follow. Your friend asks, “Was it okay?”</p>
@@ -916,7 +1076,7 @@ body.reader-focus header{
     <div class="choice-result" id="choiceResult">Pick one answer above, then use Twain, Aesop, Austen, or the In Use pages to defend or revise it.</div>
   </section>
 
-  <section class="panel">
+  <section class="panel" id="speakingPractice">
     <h2>Tone Transformer: turn blunt truth into useful honesty</h2>
     <p>Change the sentence, then choose a tone. The goal is not to hide the truth; the goal is to make the truth usable.</p>
     <div class="tone-tool">
@@ -1374,10 +1534,10 @@ body.reader-focus header{
     </div>
   </section>
 
-  <section class="panel tint">
+  <section class="panel tint" id="writingTasks">
     <h2>8. Writing practice</h2>
     <div class="task-grid">
-      <article class="task-card exam-card">
+      <article class="task-card exam-card" id="schoolMagazinePrompt">
         <div class="exam-meta">
           <span>GSAT-style guided writing</span>
           <span>120-160 words</span>
@@ -1407,7 +1567,7 @@ body.reader-focus header{
           <a href="files/source_slices/today_white_lies_writing_speaking/upper-vocab-concession-contrast-p0135-p0136.pdf" data-title="Vocabulary in Use · Concession and contrast · pp.135-136" data-full="https://github.com/b13102033-svg/b132-public-handouts/releases/download/b132-source-assets-2026-06-29/upper-intermediate-english-vocabulary-in-use-4d518fec.pdf" target="sourcePreview">contrast</a>
         </div>
       </article>
-      <article class="task-card exam-card">
+      <article class="task-card exam-card" id="debatePrompt">
         <div class="exam-meta">
           <span>GEPT High-Intermediate / IELTS Task 2</span>
           <span>220-280 words</span>
@@ -1479,6 +1639,7 @@ body.reader-focus header{
       </div>
       <div class="reader-tools">
         <button class="btn primary" type="button" id="focusReader">Make source bigger</button>
+        <button class="btn wine" type="button" id="deskReader">Reader desk</button>
         <button class="btn" type="button" id="saveSource">Save source</button>
         <button class="btn" type="button" id="openSlice">Open slice</button>
         <button class="btn" type="button" id="openFullSource">Full source</button>
@@ -1493,10 +1654,11 @@ body.reader-focus header{
 
 <script>
 (function(){
-  const frame = document.getElementById('sourcePreview');
-  const title = document.getElementById('currentSourceTitle');
-  const focusBtn = document.getElementById('focusReader');
-  const comfortBtn = document.getElementById('comfortView');
+	  const frame = document.getElementById('sourcePreview');
+	  const title = document.getElementById('currentSourceTitle');
+	  const focusBtn = document.getElementById('focusReader');
+	  const deskBtn = document.getElementById('deskReader');
+	  const comfortBtn = document.getElementById('comfortView');
   const saveBtn = document.getElementById('saveSource');
   const sliceBtn = document.getElementById('openSlice');
   const fullBtn = document.getElementById('openFullSource');
@@ -1531,21 +1693,30 @@ body.reader-focus header{
   if(localStorage.getItem('whiteLiesComfortView') === '1'){
     document.body.classList.add('comfort');
   }
-  if(localStorage.getItem('whiteLiesReaderFocus') === '1'){
-    document.body.classList.add('reader-focus');
-  }
+	  if(localStorage.getItem('whiteLiesReaderFocus') === '1'){
+	    document.body.classList.add('reader-focus');
+	  }
+	  if(localStorage.getItem('whiteLiesReaderDesk') === '1'){
+	    document.body.classList.add('reader-desk');
+	  }
   function updateComfortButton(){
     if(comfortBtn){
       comfortBtn.textContent = document.body.classList.contains('comfort') ? 'Standard view' : 'Comfort view';
     }
   }
-  function updateReaderFocusButton(){
-    if(focusBtn){
-      focusBtn.textContent = document.body.classList.contains('reader-focus') ? 'Balanced view' : 'Make source bigger';
-    }
-  }
-  updateComfortButton();
-  updateReaderFocusButton();
+	  function updateReaderFocusButton(){
+	    if(focusBtn){
+	      focusBtn.textContent = document.body.classList.contains('reader-focus') ? 'Balanced view' : 'Make source bigger';
+	    }
+	  }
+	  function updateReaderDeskButton(){
+	    if(deskBtn){
+	      deskBtn.textContent = document.body.classList.contains('reader-desk') ? 'Exit reader desk' : 'Reader desk';
+	    }
+	  }
+	  updateComfortButton();
+	  updateReaderFocusButton();
+	  updateReaderDeskButton();
   function escapeHtml(value){
     return String(value).replace(/[&<>"']/g, ch => ({
       '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
@@ -1697,11 +1868,25 @@ body.reader-focus header{
     });
   });
 
-  focusBtn.addEventListener('click', () => {
-    document.body.classList.toggle('reader-focus');
-    localStorage.setItem('whiteLiesReaderFocus', document.body.classList.contains('reader-focus') ? '1' : '0');
-    updateReaderFocusButton();
-  });
+	  focusBtn.addEventListener('click', () => {
+	    document.body.classList.toggle('reader-focus');
+	    localStorage.setItem('whiteLiesReaderFocus', document.body.classList.contains('reader-focus') ? '1' : '0');
+	    updateReaderFocusButton();
+	  });
+	  if(deskBtn){
+	    deskBtn.addEventListener('click', () => {
+	      document.body.classList.toggle('reader-desk');
+	      localStorage.setItem('whiteLiesReaderDesk', document.body.classList.contains('reader-desk') ? '1' : '0');
+	      updateReaderDeskButton();
+	    });
+	  }
+	  document.addEventListener('keydown', event => {
+	    if(event.key === 'Escape' && document.body.classList.contains('reader-desk')){
+	      document.body.classList.remove('reader-desk');
+	      localStorage.setItem('whiteLiesReaderDesk','0');
+	      updateReaderDeskButton();
+	    }
+	  });
   if(comfortBtn){
     comfortBtn.addEventListener('click', () => {
       document.body.classList.toggle('comfort');
